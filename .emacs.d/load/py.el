@@ -7,6 +7,11 @@
    (auto-fill-mode 1)
    ;; Make enter indent.
    (local-set-key "\C-m" 'newline-and-indent)
+   (local-set-key (kbd "<backtab>") (lambda ()
+                                      "Un-indent the current line."
+                                      (interactive)
+                                      (back-to-indentation)
+                                      (python-backspace 1)))
    ;; Setup flymake
    (when (load "flymake" t)
      (defun flymake-pyflakes-init ()

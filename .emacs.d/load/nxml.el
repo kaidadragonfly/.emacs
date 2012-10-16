@@ -8,8 +8,7 @@
    ;; Enable Flyspell.  
    (flyspell-prog-mode)
    (add-to-list 'flyspell-prog-text-faces 'nxml-text-face)
-   ;; (setq ispell-personal-dictionary "~/.ispell_xml")
-   ;; (local-set-key [f5] 'flyspell-buffer)
+   ;; Add "automatic" indentation.   
    (local-set-key "\C-m" 'reindent-then-newline-and-indent)))
 ;; Setup xml-mode for xul
 (setq auto-mode-alist

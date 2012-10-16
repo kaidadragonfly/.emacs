@@ -21,5 +21,17 @@
    (setq c-basic-offset 4)
    ;; Have tabs (in C mode) mirror c-indentation.  
    (set (make-local-variable 'tab-width) c-basic-offset)
-   ;; Make enter indent.  
-   (local-set-key "\C-m" 'reindent-then-newline-and-indent)))
+   ;; Electric paired braces, parens, etc.
+   (require 'autopair)
+   (setq autopair-blink nil)
+   ;; Leave it off by default.
+   ; (autopair-mode t)
+   ;; Make newline automatically indent the next line.
+   (local-set-key "\C-m" 'reindent-then-newline-and-indent)
+   ;; Clean whitespace on save.
+   (local-set-key "\C-x\C-s"
+                  (lambda ()
+                    "Fix whitespace, then save."
+                    (interactive)
+                    (whitespace-cleanup)
+                    (save-buffer)))))
