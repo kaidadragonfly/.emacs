@@ -11,7 +11,7 @@
 (iswitchb-default-keybindings)
 ;; Rectangles :)
 (cua-selection-mode t)
-(global-set-key (kbd "<C-j>") 'cua-set-rectangle-mark)
+(global-set-key "\C-j" 'cua-set-rectangle-mark)
 ;; Iedit mode.
 (global-set-key "\M-'" 'iedit-mode)
 ;; Make line numbers have a space after them.
@@ -27,13 +27,6 @@
 (when (and (fboundp 'window-system) (not (window-system))) (menu-bar-mode 0))
 ;; Reload changed files automatically.
 (global-auto-revert-mode)
-;; Set up winner mode.
-(winner-mode t)
-;; Set up meta-arrows to move around the windows.
-(global-set-key (kbd "M-<up>")    'windmove-up)
-(global-set-key (kbd "M-<down>")  'windmove-down)
-(global-set-key (kbd "M-<left>")  'windmove-left)
-(global-set-key (kbd "M-<right>") 'windmove-right)
 ;; Save all backup files in one directory.
 (if (file-directory-p "~/.emacs.d/backups")
     (setq backup-directory-alist '(("." . "~/.emacs.d/backups"))))
@@ -41,6 +34,8 @@
 (setq compilation-window-height 0)      ;Hide the window.
 ;; Silence flyspell welcome message.
 (setq flyspell-issue-welcome-flag nil)
+;; Follow version control links.
+(setq vc-follow-symlinks t)
 
 ;; Workarounds.
 ;; Sometimes needed for usage inside of tmux.
