@@ -62,6 +62,16 @@ If point was already at that position, move point to beginning of line."
   "Save the current buffer only if it is visiting a file"
   (interactive)
   (if (and (buffer-file-name) (buffer-modified-p))
-                (save-some-buffers t)))
+      (save-some-buffers t)))
 ;; Add an auto save hook to enable.
 ;; (add-hook 'auto-save-hook 'save-buffer-if-visiting-file)
+
+;; Make yank indent.
+;; Modified from: http://emacswiki.org/emacs/AutoIndentation
+(dolist (command '(yank yank-pop))
+  (eval `(defadvice ,command (after indent-region activate)
+           (not current-prefix-arg)
+           (let
+               ((mark-even-if-inactive transient-mark-mode))
+             (indent-region
+              (region-beginning) (region-end) nil)))))
