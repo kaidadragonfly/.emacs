@@ -68,10 +68,13 @@ If point was already at that position, move point to beginning of line."
 
 ;; Make yank indent.
 ;; Modified from: http://emacswiki.org/emacs/AutoIndentation
+(setq yank-no-indent-modes '())
+
 (dolist (command '(yank yank-pop))
   (eval `(defadvice ,command (after indent-region activate)
            (not current-prefix-arg)
            (let
                ((mark-even-if-inactive transient-mark-mode))
-             (indent-region
-              (region-beginning) (region-end) nil)))))
+             (if (not (member major-mode yank-no-indent-modes))
+                 (indent-region
+                  (region-beginning) (region-end) nil))))))
