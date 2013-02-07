@@ -5,6 +5,12 @@
    (turn-on-auto-fill)
    ;; Activate auto-fill-mode.  
    (auto-fill-mode t)
+   ;; Indent 4 spaces.
+   (setq sgml-basic-offset 4)
+   (defadvice nxml-indent-line (after nxml-indent-line activate)
+     (sgml-mode)
+     (sgml-indent-line)
+     (sgml-mode))
    ;; Enable Flyspell.  
    (flyspell-prog-mode)
    (add-to-list 'flyspell-prog-text-faces 'nxml-text-face)

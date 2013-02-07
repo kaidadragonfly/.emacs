@@ -9,11 +9,6 @@
 ;; Display buffers interactively when switching.
 (iswitchb-mode t)
 (iswitchb-default-keybindings)
-;; Rectangles :)
-(cua-selection-mode t)
-(global-set-key "\C-j" 'cua-set-rectangle-mark)
-;; Iedit mode.
-(global-set-key "\M-'" 'iedit-mode)
 ;; Make line numbers have a space after them.
 (setq linum-format "%3d ")
 ;; Highlight parenthesis.
@@ -37,11 +32,15 @@
 ;; Follow version control links.
 (setq vc-follow-symlinks t)
 
+;;-----------------------------------------------------------------------------
 ;; Workarounds.
+;;-----------------------------------------------------------------------------
 ;; Sometimes needed for usage inside of tmux.
 (global-set-key (kbd "<select>") 'move-end-of-line)
 
+;;-----------------------------------------------------------------------------
 ;; Load modular settings.
+;;-----------------------------------------------------------------------------
 (require 'elisp-load-dir)
 (elisp-load-dir "~/.emacs.d/load")
 
@@ -68,3 +67,30 @@ Kills the old scratch buffer.  "
 (setq require-final-newline t)
 ;; Don't use tabs for indentation.
 (setq-default indent-tabs-mode nil)
+
+;;-----------------------------------------------------------------------------
+;; Misc.
+;;-----------------------------------------------------------------------------
+;; Add support for compressed files.
+(auto-compression-mode 1)
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(blink-cursor-mode nil)
+ '(initial-buffer-choice nil)
+ '(save-place t nil (saveplace))
+ '(scroll-bar-mode (quote right)))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit t :height 96 :width normal :family "DejaVu Sans Mono"))))
+ '(comint-highlight-prompt ((t (:foreground "white"))))
+ '(flymake-errline ((((class color) (background light)) (:background "color-52" :weight bold))))
+ '(flymake-warnline ((((class color) (background light)) (:background "color-23" :weight bold))))
+ '(font-lock-function-name-face ((((class color) (min-colors 88) (background light)) (:foreground "blue"))))
+ '(font-lock-keyword-face ((((class color) (min-colors 88) (background light)) (:foreground "magenta"))))
+ '(font-lock-type-face ((((class color) (min-colors 88) (background light)) (:foreground "green")))))

@@ -54,6 +54,8 @@ If point was already at that position, move point to beginning of line."
           (dabbrev-expand nil)))))
 ;; Make dabbrev-replace case insensitive.
 (setq dabbrev-case-replace nil)
+;; Replace dabbrev-expand with hippie-expand.
+(global-set-key (kbd "M-/") 'hippie-expand)
 ;; Bind to tab.
 (global-set-key (kbd "C-i") 'smart-tab)
 ;; Function to enable autosave.
@@ -70,11 +72,15 @@ If point was already at that position, move point to beginning of line."
 ;; Modified from: http://emacswiki.org/emacs/AutoIndentation
 (setq yank-no-indent-modes '())
 
-(dolist (command '(yank yank-pop))
-  (eval `(defadvice ,command (after indent-region activate)
-           (not current-prefix-arg)
-           (let
-               ((mark-even-if-inactive transient-mark-mode))
-             (if (not (member major-mode yank-no-indent-modes))
-                 (indent-region
-                  (region-beginning) (region-end) nil))))))
+;; (dolist (command '(yank yank-pop))
+;;   (eval `(defadvice ,command (after indent-region activate)
+;;            (not current-prefix-arg)
+;;            (let
+;;                ((mark-even-if-inactive transient-mark-mode))
+;;              (if (not (member major-mode yank-no-indent-modes))
+;;                  (indent-region
+;;                   (region-beginning) (region-end) nil))))))
+
+;; Rectangles :)
+(cua-selection-mode t)
+(global-set-key "\C-j" 'cua-set-rectangle-mark)
