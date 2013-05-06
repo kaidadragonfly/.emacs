@@ -1,6 +1,4 @@
-(add-hook
- 'js-mode-hook
- (lambda ()
+(defun js-hook-fun ()
    ;; Activate auto-fill-mode.  
    (auto-fill-mode t)
    ;; Enable Flyspell.  
@@ -11,4 +9,7 @@
    (when (fboundp 'c-subword-mode)
      (c-subword-mode 1))
    (when (fboundp 'subword-mode)
-     (subword-mode 1))))
+     (subword-mode 1)))
+
+(add-hook 'js-mode-hook 'js-hook-fun)
+(add-hook 'js2-mode-hook 'js-hook-fun)
