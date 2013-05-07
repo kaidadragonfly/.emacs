@@ -8,7 +8,8 @@
 (setq read-file-name-completion-ignore-case t)
 ;; Display buffers interactively when switching.
 (iswitchb-mode t)
-(iswitchb-default-keybindings)
+(when (fboundp 'iswitchb-default-keybindings)
+  (iswitchb-default-keybindings))
 ;; Make line numbers have a space after them.
 (setq linum-format "%3d ")
 ;; Highlight parenthesis.
