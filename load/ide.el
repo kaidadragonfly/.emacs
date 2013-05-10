@@ -37,6 +37,7 @@ If point was already at that position, move point to beginning of line."
 (defun long-enough-p ()
   (> (- (point) (car (bounds-of-thing-at-point 'word))) 2))
 
+(setq smart-tab-always-indent nil)
 ;; Modified from http://emacswiki.org/emacs/TabCompletion
 (defun smart-tab ()
   "This smart tab is minibuffer compliant: it acts as usual in
@@ -44,14 +45,21 @@ If point was already at that position, move point to beginning of line."
     point is at the end of a symbol, expands it. Else indents the
     current line."
   (interactive)
-  (indent-for-tab-command)
+  ;; Always expend in the buffer.
   (if (minibufferp)
       (dabbrev-expand nil)
+    ;; Always indent a selection.
     (if mark-active
         (indent-region (region-beginning)
                        (region-end))
-      (if (and (looking-at "\\_>") (long-enough-p))
-          (dabbrev-expand nil)))))
+      ;; Are we at the end of a word?
+      (if (looking-at "\\_>")
+          (progn
+           (if smart-tab-always-indent
+               (indent-for-tab-command) nil)
+           (if (long-enough-p)
+               (dabbrev-expand nil) nil))
+        (indent-for-tab-command)))))
 ;; Make dabbrev-replace case insensitive.
 (setq dabbrev-case-replace nil)
 ;; Replace dabbrev-expand with hippie-expand.

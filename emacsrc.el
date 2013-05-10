@@ -82,6 +82,7 @@ Kills the old scratch buffer.  "
  '(blink-cursor-mode nil)
  '(initial-buffer-choice nil)
  '(js2-auto-indent-p t)
+ '(js2-bounce-indent-p nil)
  '(js2-enter-indents-newline t)
  '(js2-indent-on-enter-key t)
  '(js2-mirror-mode nil)
