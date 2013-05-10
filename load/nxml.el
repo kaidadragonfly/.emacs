@@ -16,9 +16,16 @@
    (add-to-list 'flyspell-prog-text-faces 'nxml-text-face)
    ;; Add "automatic" indentation.   
    (local-set-key "\C-m" 'reindent-then-newline-and-indent)))
+
 ;; Setup xml-mode for xul
 (setq auto-mode-alist
       (cons '("\\.xul$" . (lambda () (xml-mode)))
             auto-mode-alist))
+
+;; Setup html-mode for html
+(setq auto-mode-alist
+      (cons '("\\.html$" . (lambda () (html-mode)))
+            auto-mode-alist))
+
 (fset 'html-mode 'nxml-mode)
 (fset 'xml-mode 'nxml-mode)

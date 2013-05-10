@@ -33,4 +33,6 @@
                     "Fix whitespace, then save."
                     (interactive)
                     (whitespace-cleanup)
-                    (save-buffer)))))
+                    (save-buffer)))
+   ;; Make smart-tab always indent.
+   (set (make-local-variable 'smart-tab-always-indent) t)))
