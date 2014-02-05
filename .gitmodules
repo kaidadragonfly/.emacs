@@ -1,0 +1,3 @@
+[submodule "lib/iedit"]
+	path = lib/iedit
+	url = https://github.com/victorhge/iedit.git
