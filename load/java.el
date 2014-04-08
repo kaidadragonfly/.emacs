@@ -8,7 +8,7 @@
    ;; Support annotations.
    (java-mode-indent-annotations-setup)
    ;; Flymake mode :)
-   (flymake-mode t)
+   ;; (flymake-mode t)
    ;; Auto save the file, when saving a backup.
    ;; (add-hook 'auto-save-hook 'save-buffer-if-visiting-file)
    ;; Auto save when idle for one second.
