@@ -3,8 +3,11 @@
  (lambda ()
    ;; Check spelling.
    (flyspell-prog-mode)
-   ;; Turn on auto-fill-mode
-   (auto-fill-mode 1)
+   ;; Turn on auto-fill-mode.
+   (auto-fill-mode)
+   (setq comment-auto-fill-only-comments t) ; Only fill comments.
+   ;; Turn on subword mode.
+   (subword-mode)
    ;; Make enter indent.
    (local-set-key "\C-m" 'newline-and-indent)
    (local-set-key (kbd "<backtab>") (lambda ()
