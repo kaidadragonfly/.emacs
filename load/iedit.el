@@ -9,10 +9,6 @@
       (iedit-mode)
     (save-excursion
       (save-restriction
-        (widen)
-        ;; this function determines the scope of
-        ;; `iedit-start'.
-        (narrow-to-defun)
         (if iedit-mode
             (iedit-done)
           (iedit-mode))))))
