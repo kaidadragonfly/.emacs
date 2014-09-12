@@ -1,4 +1,5 @@
 ;; Features to make emacs more competitive with IDEs.
+(require 'dabbrev)
 
 ;; Make "home" work like in most IDEs.
 (defun smart-beginning-of-line ()
@@ -35,15 +36,22 @@ If point was already at that position, move point to beginning of line."
 (global-set-key "\C-\M-\\" 'smart-indent-region)
 
 (defun long-enough-p ()
+  "Is this word long enough to expand?"
   (> (- (point) (car (bounds-of-thing-at-point 'word))) 2))
+(defun override-p ()
+  "Did we manually override the length limit?"
+  (eq this-command last-command))
 
-(setq smart-tab-always-indent nil)
 ;; Modified from http://emacswiki.org/emacs/TabCompletion
 (defun smart-tab ()
-  "This smart tab is minibuffer compliant: it acts as usual in
-    the minibuffer. Else, if mark is active, indents region. Else if
-    point is at the end of a symbol, expands it. Else indents the
-    current line."
+  "Smart tab does the following:
+    In the mini-buffer: expand the word.
+
+    If mark is active: indent the region.
+
+    If we are at the end of the word or call twice: expand the word.
+
+    Otherwise: indent the current line."
   (interactive)
   ;; Always expend in the buffer.
   (if (minibufferp)
@@ -54,16 +62,18 @@ If point was already at that position, move point to beginning of line."
                        (region-end))
       ;; Are we at the end of a word?
       (if (looking-at "\\_>")
-          (progn
-           (if smart-tab-always-indent
-               (indent-for-tab-command) nil)
-           (if (long-enough-p)
-               (dabbrev-expand nil) nil))
+          (if (long-enough-p)
+              (dabbrev-expand nil)
+            (if (override-p)
+                (progn
+                  (dabbrev--reset-global-variables)
+                  (dabbrev-expand nil))
+              nil))
         (indent-for-tab-command)))))
 ;; Make dabbrev-replace case insensitive.
 (setq dabbrev-case-replace nil)
 ;; Replace dabbrev-expand with hippie-expand.
-(global-set-key (kbd "M-/") 'hippie-expand)
+;; (global-set-key (kbd "M-/") 'hippie-expand)
 ;; Bind to tab.
 (global-set-key (kbd "C-i") 'smart-tab)
 ;; Function to enable autosave.
@@ -78,8 +88,10 @@ If point was already at that position, move point to beginning of line."
 
 ;; Make yank indent.
 ;; Modified from: http://emacswiki.org/emacs/AutoIndentation
-(setq yank-no-indent-modes '())
+;; (setq yank-no-indent-modes '())
 
+;; Disabled because it has been simpler/safer to
+;; indent region after a yank.
 ;; (dolist (command '(yank yank-pop))
 ;;   (eval `(defadvice ,command (after indent-region activate)
 ;;            (not current-prefix-arg)
