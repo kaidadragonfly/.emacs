@@ -11,6 +11,7 @@
 (when (fboundp 'iswitchb-default-keybindings)
   (iswitchb-default-keybindings))
 ;; Make line numbers have a space after them.
+(defvar linum-format)
 (setq linum-format "%3d ")
 ;; Highlight parenthesis.
 (show-paren-mode 1)
@@ -29,6 +30,7 @@
 ;; Set compilation window height.
 (setq compilation-window-height 0)      ;Hide the window.
 ;; Silence flyspell welcome message.
+(defvar flyspell-issue-welcome-flag)
 (setq flyspell-issue-welcome-flag nil)
 ;; Follow version control links.
 (setq vc-follow-symlinks t)
