@@ -29,10 +29,10 @@
           (iedit-mode))))))
 
 ;; Bind to M-'.
-(global-set-key "\M-'" 'iedit-local)
+(global-set-key (kbd "M-'") 'iedit-local)
 
 ;; Bind to M-"
-(global-set-key "\M-\"" 'iedit-global)
+(global-set-key (kbd "M-\"") 'iedit-global)
 
 ;; Make C-g disable iedit-mode.
 (defadvice keyboard-quit (before keyboard-quit-iedit activate)

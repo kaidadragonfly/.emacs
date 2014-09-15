@@ -25,4 +25,4 @@
 (add-hook
  'js2-mode-hook
  (lambda ()
-   (local-set-key [f8] 'js2-next-error)))
+   (local-set-key (kbd "<f8>") 'js2-next-error)))

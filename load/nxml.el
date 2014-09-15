@@ -17,7 +17,7 @@
    (defvar flyspell-prog-text-faces)
    (add-to-list 'flyspell-prog-text-faces 'nxml-text-face)
    ;; Add "automatic" indentation.   
-   (local-set-key "\C-m" 'reindent-then-newline-and-indent)))
+   (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)))
 
 ;; Setup xml-mode for xul
 (setq auto-mode-alist

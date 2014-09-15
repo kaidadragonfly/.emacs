@@ -17,10 +17,11 @@ in by flymake).  "
   ;; Enable flymake
   (flymake-mode-on)
   ;; Bind compile to F5.
-  (local-set-key [f5] 'compile)
+  (local-set-key (kbd "<f5>") 'compile)
   ;; And to C-cC-c
-  (local-set-key "\C-c\C-c" (lambda () (interactive) (compile compile-command))))
-
+  (local-set-key (kbd "C-c C-c") (lambda ()
+                                   (interactive)
+                                   (compile compile-command))))
 
 (add-hook 'latex-mode-hook 'latex-init)
 (add-hook 'LaTeX-mode-hook 'latex-init)

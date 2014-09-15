@@ -10,7 +10,7 @@
    ;; Turn on subword mode.
    (subword-mode)
    ;; Make enter indent.
-   (local-set-key "\C-m" 'newline-and-indent)
+   (local-set-key (kbd "RET") 'newline-and-indent)
    (local-set-key (kbd "<backtab>") 'python-indent-dedent-line-backspace)
    ;; Four spaces, no tabs, don't guess!
    (defvar python-guess-indent)
@@ -38,4 +38,7 @@
    ;; Start flymake on file load.
    (add-hook 'find-file-hook 'flymake-find-file-hook)
    ;; Rebind indent-region to whitespace cleanup
-   (global-set-key "\C-\M-\\" 'whitespace-cleanup)))
+   (local-set-key (kbd "C-M-\\") 'whitespace-cleanup)
+   ;; Clean up whitespace on save.
+   (add-hook 'before-save-hook 'whitespace-cleanup)))
+

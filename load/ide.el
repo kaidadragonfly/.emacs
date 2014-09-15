@@ -12,8 +12,8 @@
     (back-to-indentation)
     (and (= oldpos (point))
          (beginning-of-line))))
-(global-set-key [home] 'smart-beginning-of-line)
-(global-set-key "\C-a" 'smart-beginning-of-line)
+(global-set-key (kbd "<home>") 'smart-beginning-of-line)
+(global-set-key (kbd "C-a") 'smart-beginning-of-line)
 
 ;; Indent the whole buffer.
 (defun indent-whole-buffer ()
@@ -33,7 +33,7 @@
   (whitespace-cleanup))
 
 ;; Rebind over indent-region.
-(global-set-key "\C-\M-\\" 'smart-indent-region)
+(global-set-key (kbd "C-M-\\") 'smart-indent-region)
 
 (defun long-enough-p ()
   "Is this word long enough to expand?"
@@ -97,3 +97,4 @@
 (cua-selection-mode t)
 ;; (kbd "C-j") is Ctrl + Enter
 (global-set-key (kbd "C-j") 'cua-set-rectangle-mark)
+
