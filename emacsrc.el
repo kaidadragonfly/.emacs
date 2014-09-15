@@ -102,3 +102,6 @@ Kills the old scratch buffer.  "
  '(font-lock-function-name-face ((((class color) (min-colors 88) (background light)) (:foreground "blue"))))
  '(font-lock-keyword-face ((((class color) (min-colors 88) (background light)) (:foreground "magenta"))))
  '(font-lock-type-face ((((class color) (min-colors 88) (background light)) (:foreground "green")))))
+
+;; Byte compile elisp files.
+(byte-recompile-directory (expand-file-name "~/.emacs.d") 0)
