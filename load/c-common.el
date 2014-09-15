@@ -17,7 +17,8 @@
    (local-set-key [f5] 'compile)
    ;; And to C-cC-c
    (local-set-key "\C-c\C-c" 'compile)
-   ;; Setup indentation.  
+   ;; Setup indentation.
+   (defvar c-basic-offset)
    (setq c-basic-offset 4)
    ;; Have tabs (in C mode) mirror c-indentation.  
    (set (make-local-variable 'tab-width) c-basic-offset)
@@ -35,4 +36,5 @@
                     (whitespace-cleanup)
                     (save-buffer)))
    ;; Make smart-tab always indent.
+   (defvar smart-tab-always-indent)
    (set (make-local-variable 'smart-tab-always-indent) t)))

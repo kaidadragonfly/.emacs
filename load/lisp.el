@@ -8,4 +8,5 @@
    ;; Make newline magically indent.  :)
    (local-set-key "\C-m" 'reindent-then-newline-and-indent)
    ;; Make smart-tab always indent.
-   (set (make-local-variable 'smart-tab-always-indent) t)))
+   (defvar smart-tab-always-indent)
+   (setq-local smart-tab-always-indent t)))
