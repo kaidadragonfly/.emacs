@@ -26,7 +26,7 @@
 
 
 ;;; Commentary:
-;; 
+;;
 ;; This library tries to indent java annotations
 ;; (http://java.sun.com/j2se/1.5.0/docs/guide/language/annotations.html)
 ;; like the code examples listed in the webpage.
@@ -54,9 +54,10 @@
 (defun c-preprend-offset (symbol offset)
   "Find the offset entry for SYMBOL and add OFFSET at the front of the list.
 See `c-set-offset' for a description of OFFSET and SYMBOL."
+  (defvar c-offsets-alist)
   (let ((old-offset (cdr-safe (or (assq symbol c-offsets-alist)
                                   (assq symbol (get 'c-offsets-alist
-                                                      'c-stylevar-fallback))))))
+                                                    'c-stylevar-fallback))))))
     (if old-offset
         (if (listp old-offset)
             (c-set-offset symbol (cons offset old-offset))
@@ -79,15 +80,17 @@ It does this by moving across the region from the start of
 LANGELEM to the beginning of this line one sexp at a time.  If
 during this traversal, this function only sees whitespaces
 followed by either a '@' or a '(' then it returns t."
+  (declare-function c-point "cc-defs.el")
   (save-excursion
-    (condition-case err ;; return nil if  any errors are thrown by forward-sexp
+    (condition-case err ;; return nil if  any errors are thrown by
+        ;; forward-sexp
         (let* ((lim (1- (c-point 'bol)))
                (throws (catch 'notAnno
-		     (goto-char (cdr langelem))
-		     (while (< (point) lim)
-                       (if (not (looking-at "\\(\\s \\|\n\\)*\\(@\\|(\\)"))
-			   (throw 'notAnno t))
-                       (forward-sexp 1)))))
+                         (goto-char (cdr langelem))
+                         (while (< (point) lim)
+                           (if (not (looking-at "\\(\\s \\|\n\\)*\\(@\\|(\\)"))
+                               (throw 'notAnno t))
+                           (forward-sexp 1)))))
           (if (not throws)
               t)))))
 
@@ -142,16 +145,17 @@ Works with arglist-intro.
 
 Indents as
 @RequestForEnhancement(
-    id	     = 2868724,
+    id       = 2868724,
 ...
 
 instead of
 @RequestForEnhancement(
-                       id	     = 2868724,
+                       id            = 2868724,
 ...
 
 Argument LANGELEM The language element being indented."
-    (if (c-only-java-annotations-p langelem)
+  (defvar c-basic-offset)
+  (if (c-only-java-annotations-p langelem)
       c-basic-offset))
 
 (provide 'java-mode-indent-annotations)
