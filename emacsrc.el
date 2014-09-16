@@ -77,10 +77,10 @@ Kills the old scratch buffer.  "
 ;; Add support for compressed files.
 (auto-compression-mode 1)
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
  '(initial-buffer-choice nil)
  '(js2-auto-indent-p t)
@@ -91,10 +91,10 @@ Kills the old scratch buffer.  "
  '(save-place t nil (saveplace))
  '(scroll-bar-mode (quote right)))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(default ((t (:inherit t :height 96 :width normal :family "DejaVu Sans Mono"))))
  '(comint-highlight-prompt ((t (:foreground "white"))))
  '(flymake-errline ((((class color) (background light)) (:background "color-52" :weight bold))))
@@ -104,4 +104,7 @@ Kills the old scratch buffer.  "
  '(font-lock-type-face ((((class color) (min-colors 88) (background light)) (:foreground "green")))))
 
 ;; Byte compile elisp files.
-(byte-recompile-directory (expand-file-name "~/.emacs.d") 0)
+(with-temp-message ""
+  (byte-recompile-directory (expand-file-name "~/.emacs.d") 0))
+;; Disable vc-git
+(remove-hook 'find-file-hooks 'vc-find-file-hook)
