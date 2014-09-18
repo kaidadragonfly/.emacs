@@ -1,10 +1,3 @@
-(defun python-backtab ()
-  (interactive)
-  (save-excursion
-    (back-to-indentation)
-    (declare-function python-indent-dedent-line-backspace "python.el" nil)
-    (python-indent-dedent-line-backspace)))
-
 (add-hook
  'python-mode-hook
  (lambda ()
@@ -18,7 +11,6 @@
    (subword-mode)
    ;; Make enter indent.
    (local-set-key (kbd "RET") 'newline-and-indent)
-   (local-set-key (kbd "<backtab>") 'python-backtab)
    ;; Four spaces, no tabs, don't guess!
    (defvar python-guess-indent)
    (setq tab-width 4
