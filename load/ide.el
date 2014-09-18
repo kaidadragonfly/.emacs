@@ -38,7 +38,9 @@
 (defun long-enough-p ()
   "Is this word long enough to expand?"
   (let ((old-point (point)))
-    (save-excursion (> (- old-point (point)) 2))))
+    (save-excursion
+      (backward-word)
+      (> (- old-point (point)) 2))))
 
 (defun override-p ()
   "Did we manually override the length limit?"
