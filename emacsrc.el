@@ -106,17 +106,4 @@ Kills the old scratch buffer.  "
 ;; Byte compile elisp files.
 (with-temp-message ""
   (byte-recompile-directory (expand-file-name "~/.emacs.d") 0))
-;; Disable vc-git
-(remove-hook 'find-file-hooks 'vc-find-file-hook)
 
-;; mouse integration
-(require 'mouse) ;; needed for iterm2 compatibility
-(xterm-mouse-mode)
-(global-set-key [mouse-4] '(lambda ()
-                             (interactive)
-                             (scroll-down
-                              1)))
-(global-set-key [mouse-5] '(lambda ()
-                             (interactive)
-                             (scroll-up
-                              1)))
