@@ -14,6 +14,5 @@ the minibuffer.  "
    (set (make-local-variable 'post-command-hook)
 	(cons 'show-fly-err-at-point post-command-hook))
    ;; Setup keybindings.  
-   (local-set-key (kbd "<f5>") 'flymake-compile)
    (local-set-key (kbd "<f7>") 'flymake-goto-prev-error)
    (local-set-key (kbd "<f8>") 'flymake-goto-next-error)))

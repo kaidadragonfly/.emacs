@@ -34,6 +34,9 @@
      (defvar flymake-allowed-file-name-masks)
      (add-to-list 'flymake-allowed-file-name-masks
                   '("\\.py\\'" flymake-pylint-init)))
+   ;; Re-check syntax with F5
+   (local-set-key (kbd "<f5>") 'flymake-start-syntax-check)
+   
    ;; Start flymake on file load.
    (add-hook 'find-file-hook 'flymake-find-file-hook)
    ;; Rebind indent-region to whitespace cleanup
