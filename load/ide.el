@@ -90,7 +90,7 @@
 ;; Function to enable autosave.
 ;; From: http://emacswiki.org/emacs/AutoSave
 (defun save-buffer-if-visiting-file (&optional args)
-  "Save the current buffer only if it is visiting a file"
+  "Save the current buffer only if it is visiting a file."
   (interactive)
   (if (and (buffer-file-name) (buffer-modified-p))
       (save-some-buffers t)))
@@ -99,4 +99,10 @@
 (cua-selection-mode t)
 ;; (kbd "C-j") is Ctrl + Enter
 (global-set-key (kbd "C-j") 'cua-set-rectangle-mark)
+;; Revert buffer
+(defun do-revert ()
+  "Revert the current buffer without asking."
+  (interactive)
+  (revert-buffer t t))
 
+(global-set-key (kbd "C-c r") 'do-revert)
