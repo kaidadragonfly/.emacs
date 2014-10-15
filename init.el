@@ -89,6 +89,7 @@ Kills the old scratch buffer.  "
  '(js2-indent-on-enter-key t)
  '(js2-mirror-mode nil)
  '(save-place t nil (saveplace))
+ '(scala-indent:align-parameters t)
  '(scroll-bar-mode (quote right)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -103,7 +104,10 @@ Kills the old scratch buffer.  "
  '(font-lock-keyword-face ((((class color) (min-colors 88) (background light)) (:foreground "magenta"))))
  '(font-lock-type-face ((((class color) (min-colors 88) (background light)) (:foreground "green")))))
 
+;; Only use one window when opening multiple files.
+(add-hook 'emacs-startup-hook
+          (lambda () (delete-other-windows)) t)
+
 ;; Byte compile elisp files.
 (with-temp-message ""
   (byte-recompile-directory (expand-file-name "~/.emacs.d") 0))
-
