@@ -106,3 +106,5 @@
   (revert-buffer t t))
 
 (global-set-key (kbd "C-c r") 'do-revert)
+(global-set-key (kbd "C-c C-r") 'do-revert)
+(global-set-key (kbd "C-c #") 'sort-lines)
