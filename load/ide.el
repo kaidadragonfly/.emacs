@@ -1,6 +1,25 @@
 ;; Features to make emacs more competitive with IDEs.
 (require 'dabbrev)
 
+;; Install various packages.
+(ignore-errors
+  (require 'package)
+  (add-to-list 'package-archives
+               '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  (package-initialize)
+
+  (unless (package-installed-p 'scala-mode2)
+    (package-refresh-contents)
+    (package-install 'scala-mode2))
+
+  (unless (package-installed-p 'fill-column-indicator)
+    (package-refresh-contents)
+    (package-install 'fill-column-indicator))
+
+  (unless (package-installed-p 'markdown-mode)
+    (package-refresh-contents)
+    (package-install 'markdown-mode)))
+
 ;; Make "home" work like in most IDEs.
 (defun smart-beginning-of-line ()
   "Move point to first non-whitespace character or beginning-of-line.
