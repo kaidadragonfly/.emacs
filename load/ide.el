@@ -124,6 +124,15 @@
   (interactive)
   (revert-buffer t t))
 
+(defun smart-sort-lines ()
+  "If the mark is active, sorts region.
+   Otherwise it sorts the current paragraph."
+  (interactive)
+  (save-excursion
+    (unless mark-active (mark-paragraph))
+    (sort-lines nil (region-beginning) (region-end))))
+
 (global-set-key (kbd "C-c r") 'do-revert)
 (global-set-key (kbd "C-c C-r") 'do-revert)
-(global-set-key (kbd "C-c #") 'sort-lines)
+(global-set-key (kbd "C-c #") 'smart-sort-lines)
+(global-set-key (kbd "M-#") 'smart-sort-lines)
