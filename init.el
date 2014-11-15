@@ -7,7 +7,8 @@
 ;; Make file completion case insensitive.
 (setq read-file-name-completion-ignore-case t)
 ;; Display buffers interactively when switching.
-(iswitchb-mode t)
+(require 'ido)
+(ido-mode t)
 (when (fboundp 'iswitchb-default-keybindings)
   (iswitchb-default-keybindings))
 ;; Make line numbers have a space after them.
@@ -90,6 +91,7 @@ Kills the old scratch buffer.  "
  '(js2-mirror-mode nil)
  '(save-place t nil (saveplace))
  '(scala-indent:align-parameters t)
+ '(scala-indent:default-run-on-strategy 1)
  '(scroll-bar-mode (quote right)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -111,3 +113,4 @@ Kills the old scratch buffer.  "
 ;; Byte compile elisp files.
 (with-temp-message ""
   (byte-recompile-directory (expand-file-name "~/.emacs.d") 0))
+(put 'narrow-to-region 'disabled nil)

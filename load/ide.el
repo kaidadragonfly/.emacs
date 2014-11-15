@@ -18,7 +18,11 @@
 
   (unless (package-installed-p 'markdown-mode)
     (package-refresh-contents)
-    (package-install 'markdown-mode)))
+    (package-install 'markdown-mode))
+
+  (unless (package-installed-p 'dockerfile-mode)
+    (package-refresh-contents)
+    (package-install 'dockerfile-mode)))
 
 ;; Make "home" work like in most IDEs.
 (defun smart-beginning-of-line ()
