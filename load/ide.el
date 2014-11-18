@@ -22,7 +22,14 @@
 
   (unless (package-installed-p 'dockerfile-mode)
     (package-refresh-contents)
-    (package-install 'dockerfile-mode)))
+    (package-install 'dockerfile-mode))
+
+  (unless (package-installed-p 'flycheck)
+    (package-refresh-contents)
+    (package-install 'flycheck)))
+
+;; Init flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; Make "home" work like in most IDEs.
 (defun smart-beginning-of-line ()

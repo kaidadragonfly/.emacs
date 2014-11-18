@@ -19,4 +19,3 @@
    (local-set-key (kbd "C-M-\\") 'whitespace-cleanup)
    ;; Clean up whitespace on save.
    (add-hook 'before-save-hook 'whitespace-cleanup)))
-

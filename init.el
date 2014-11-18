@@ -83,6 +83,9 @@ Kills the old scratch buffer.  "
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
+ '(flycheck-disabled-checkers (quote (emacs-lisp-checkdoc)))
+ '(flycheck-display-errors-delay 0.1)
+ '(global-flycheck-mode t nil (flycheck))
  '(initial-buffer-choice nil)
  '(js2-auto-indent-p t)
  '(js2-bounce-indent-p nil)
@@ -100,8 +103,6 @@ Kills the old scratch buffer.  "
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit t :height 96 :width normal :family "DejaVu Sans Mono"))))
  '(comint-highlight-prompt ((t (:foreground "white"))))
- ;; '(flymake-errline ((((class color) (background light)) (:background "color-52" :weight bold))))
- ;; '(flymake-warnline ((((class color) (background light)) (:background "color-23" :weight bold))))
  '(font-lock-function-name-face ((((class color) (min-colors 88) (background light)) (:foreground "blue"))))
  '(font-lock-keyword-face ((((class color) (min-colors 88) (background light)) (:foreground "magenta"))))
  '(font-lock-type-face ((((class color) (min-colors 88) (background light)) (:foreground "green")))))
