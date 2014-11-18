@@ -3,19 +3,6 @@
   (turn-on-auto-fill)
   ;; Enable flyspell.
   (flyspell-mode 1)
-  ;; Allow rebinding of flymake functions.
-  (require 'flymake)
-  ;; Fix Flymake for LaTeX.
-  (defun flymake-get-tex-args (file-name)
-    "Interfaces between chktex and flymake.
-
-Calls chktex with appropriate flags and the correct file-name (passed
-in by flymake).  "
-    (list "chktex" (list "-q" "-v0" "-n1" "-n6" "-n11" "-n12" "-n13"
-                         "-n15" "-n17" "-n26" "-n36""-n37" "-n38"
-                         file-name)))
-  ;; Enable flymake
-  (flymake-mode-on)
   ;; Bind compile to F5.
   (local-set-key (kbd "<f5>") 'compile)
   ;; And to C-cC-c

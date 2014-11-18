@@ -100,8 +100,8 @@ Kills the old scratch buffer.  "
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit t :height 96 :width normal :family "DejaVu Sans Mono"))))
  '(comint-highlight-prompt ((t (:foreground "white"))))
- '(flymake-errline ((((class color) (background light)) (:background "color-52" :weight bold))))
- '(flymake-warnline ((((class color) (background light)) (:background "color-23" :weight bold))))
+ ;; '(flymake-errline ((((class color) (background light)) (:background "color-52" :weight bold))))
+ ;; '(flymake-warnline ((((class color) (background light)) (:background "color-23" :weight bold))))
  '(font-lock-function-name-face ((((class color) (min-colors 88) (background light)) (:foreground "blue"))))
  '(font-lock-keyword-face ((((class color) (min-colors 88) (background light)) (:foreground "magenta"))))
  '(font-lock-type-face ((((class color) (min-colors 88) (background light)) (:foreground "green")))))
