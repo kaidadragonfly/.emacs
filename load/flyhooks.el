@@ -6,7 +6,8 @@
   :error-patterns
   ((error line-start "[error] " (file-name) ":" line ": "
           (message (zero-or-more not-newline)
-                   (zero-or-more "\n" blank (zero-or-more not-newline)))
+                   (one-or-more "\n" blank
+                                 (zero-or-more not-newline)))
           line-end))
   :modes scala-mode)
 
