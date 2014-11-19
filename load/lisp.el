@@ -9,4 +9,6 @@
    (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)
    ;; Make smart-tab always indent.
    (defvar smart-tab-always-indent)
-   (setq-local smart-tab-always-indent t)))
+   (setq-local smart-tab-always-indent t)
+   ;; Use the proper load path.
+   (setq flycheck-emacs-lisp-load-path load-path)))

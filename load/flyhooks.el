@@ -4,7 +4,10 @@
   "Checker for compilation with SBT"
   :command ("esbt")
   :error-patterns
-  ((error line-start "[error] " (file-name) ":" line ": " (message) line-end))
+  ((error line-start "[error] " (file-name) ":" line ": "
+          (message (zero-or-more not-newline)
+                   (zero-or-more "\n" blank (zero-or-more not-newline)))
+          line-end))
   :modes scala-mode)
 
 (flycheck-add-next-checker 'sbt 'scala)

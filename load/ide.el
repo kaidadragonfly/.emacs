@@ -43,6 +43,7 @@
     (and (= oldpos (point))
          (beginning-of-line))))
 (global-set-key (kbd "<home>") 'smart-beginning-of-line)
+(global-set-key (kbd "<end>") 'move-end-of-line)
 (global-set-key (kbd "C-a") 'smart-beginning-of-line)
 
 ;; Indent the whole buffer.
