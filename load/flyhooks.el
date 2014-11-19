@@ -8,3 +8,7 @@
   :modes scala-mode)
 
 (flycheck-add-next-checker 'sbt 'scala)
+
+(global-set-key (kbd "<f7>") 'flycheck-previous-error)
+(global-set-key (kbd "<f8>") 'flycheck-buffer)
+(global-set-key (kbd "<f9>") 'flycheck-next-error)
