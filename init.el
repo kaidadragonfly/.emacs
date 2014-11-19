@@ -114,6 +114,11 @@ Kills the old scratch buffer.  "
           (lambda () (delete-other-windows)) t)
 
 ;; Byte compile elisp files.
-(with-temp-message ""
-  (byte-recompile-directory (expand-file-name "~/.emacs.d") 0))
-(put 'narrow-to-region 'disabled nil)
+(defvar-local init-bc "")
+
+(declare-function string/starts-with "ide.el" str, prefix)
+(if (string/starts-with
+     (byte-recompile-directory (expand-file-name "~/.emacs.d") 0)
+     "Done (Total of 0 files compiled")
+    nil
+    (load-file "~/.emacs.d/init.el"))
