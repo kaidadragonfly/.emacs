@@ -12,6 +12,9 @@
      (subword-mode)
      (auto-revert-mode t)
      (local-set-key (kbd "RET") 'newline-and-indent)
+     ;; Rebuild tags.
+     (add-hook 'find-file-hook 'rebuild-tags nil t)
+     (add-hook 'after-save-hook 'rebuild-tags nil t)
      ;; Show margin.
      (require 'fill-column-indicator)
      (declare-function fci-mode

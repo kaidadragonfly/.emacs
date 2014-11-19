@@ -148,3 +148,24 @@
 (global-set-key (kbd "C-c C-r") 'do-revert)
 (global-set-key (kbd "C-c #") 'smart-sort-lines)
 (global-set-key (kbd "M-#") 'smart-sort-lines)
+
+;; Enable narrow-to-region
+(put 'narrow-to-region 'disabled nil)
+
+(defun rebuild-tags ()
+  (shell-command-to-string "rebuild-tags"))
+
+(defun proj-root ()
+  (substring (shell-command-to-string "proj-root") 0 -1))
+
+(defun string/ends-with (string suffix)
+  "Return t if STRING ends with SUFFIX."
+  (and (string-match (rx-to-string `(: ,suffix eos) t)
+                     string)
+       t))
+
+(defun string/starts-with (string prefix)
+  "Return t if STRING starts with prefix."
+  (and (string-match (rx-to-string `(: bos ,prefix) t)
+                     string)
+       t))
