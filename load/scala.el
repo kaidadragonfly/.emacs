@@ -2,6 +2,12 @@
 ;; Using ignore-errors so that the rest of the config loads on earlier
 ;; versions.
 (ignore-errors
+  ;; Split out a sbt-config-mode from scala-mode.
+  ;; (this is mostly to disable flycheck for sbt files.)
+  (define-derived-mode scala-config-mode scala-mode "Sbt-Config"
+    "A mode for editing .sbt files."
+    nil)
+
   (add-hook
    'scala-mode-hook
    (lambda ()
@@ -27,16 +33,11 @@
      (setq-local fci-rule-character-color "color-234")
      (if (> (window-width) (current-fill-column))
          (progn (fci-mode)
-                (toggle-truncate-lines nil)))))
-  ;; Split out a sbt-config-mode from scala-mode.
-  ;; (this is mostly to disable flycheck for sbt files.)
-  (setq auto-mode-alist
-        (delq (assoc "\\.\\(scala\\|sbt\\)\\'" auto-mode-alist)
-              auto-mode-alist))
-  (add-to-list 'auto-mode-alist '("\\.scala\\'" . scala-mode))
-
-  (define-derived-mode sbt-config-mode scala-mode "Sbt-Config"
-    "A mode for editing .sbt files."
-    nil)
-  
-  (add-to-list 'auto-mode-alist '("\\.sbt\\'" . sbt-config-mode)))
+                (toggle-truncate-lines nil)))
+     ;; Switch to scala-config-mode if .sbt file.
+     (require 'rx)
+     (declare-function string/ends-with ".ide.el" str suffix)
+     (if (string/ends-with buffer-file-name ".sbt")
+         (progn
+           (declare-function scala-config-mode "scala.el")
+           (scala-config-mode)) nil))))
