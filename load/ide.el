@@ -153,7 +153,7 @@
 (put 'narrow-to-region 'disabled nil)
 
 (defun rebuild-tags ()
-  (shell-command-to-string "rebuild-tags"))
+  (shell-command-to-string "rebuild-tags &"))
 
 (defun proj-root ()
   (substring (shell-command-to-string "proj-root") 0 -1))

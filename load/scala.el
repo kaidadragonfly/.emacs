@@ -12,6 +12,8 @@
      (subword-mode)
      (auto-revert-mode t)
      (local-set-key (kbd "RET") 'newline-and-indent)
+     ;; Use tags.
+     (setq-local tags-file-name (concat (proj-root) "/.tags"))
      ;; Rebuild tags.
      (add-hook 'find-file-hook 'rebuild-tags nil t)
      (add-hook 'after-save-hook 'rebuild-tags nil t)
