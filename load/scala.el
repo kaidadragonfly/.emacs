@@ -13,6 +13,7 @@
      (auto-revert-mode t)
      (local-set-key (kbd "RET") 'newline-and-indent)
      ;; Use tags.
+     (declare-function proj-root "ide.el" nil)
      (setq-local tags-file-name (concat (proj-root) "/.tags"))
      ;; Rebuild tags.
      (add-hook 'find-file-hook 'rebuild-tags nil t)
@@ -26,4 +27,16 @@
      (setq-local fci-rule-character-color "color-234")
      (if (> (window-width) (current-fill-column))
          (progn (fci-mode)
-                (toggle-truncate-lines nil))))))
+                (toggle-truncate-lines nil)))))
+  ;; Split out a sbt-config-mode from scala-mode.
+  ;; (this is mostly to disable flycheck for sbt files.)
+  (setq auto-mode-alist
+        (delq (assoc "\\.\\(scala\\|sbt\\)\\'" auto-mode-alist)
+              auto-mode-alist))
+  (add-to-list 'auto-mode-alist '("\\.scala\\'" . scala-mode))
+
+  (define-derived-mode sbt-config-mode scala-mode "Sbt-Config"
+    "A mode for editing .sbt files."
+    nil)
+  
+  (add-to-list 'auto-mode-alist '("\\.sbt\\'" . sbt-config-mode)))

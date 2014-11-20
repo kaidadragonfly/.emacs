@@ -8,6 +8,11 @@
           (message (zero-or-more not-newline)
                    (one-or-more "\n" blank
                                  (zero-or-more not-newline)))
+          line-end)
+   (warn line-start "[warn] " (file-name) ":" line ": "
+          (message (zero-or-more not-newline)
+                   (one-or-more "\n" blank
+                                 (zero-or-more not-newline)))
           line-end))
   :modes scala-mode)
 
