@@ -26,6 +26,7 @@
  'tags-table-mode-hook
  (lambda ()
    (auto-revert-mode t)))
+(global-set-key (kbd "C-c M-,") 'tags-search)
 
 ;; Indent the whole buffer.
 (defun indent-whole-buffer ()
