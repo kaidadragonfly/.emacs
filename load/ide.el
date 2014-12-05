@@ -1,33 +1,6 @@
 ;; Features to make emacs more competitive with IDEs.
 (require 'dabbrev)
 
-;; Install various packages.
-(ignore-errors
-  (require 'package)
-  (add-to-list 'package-archives
-               '("melpa" . "http://melpa.milkbox.net/packages/") t)
-  (package-initialize)
-
-  (unless (package-installed-p 'scala-mode2)
-    (package-refresh-contents)
-    (package-install 'scala-mode2))
-
-  (unless (package-installed-p 'fill-column-indicator)
-    (package-refresh-contents)
-    (package-install 'fill-column-indicator))
-
-  (unless (package-installed-p 'markdown-mode)
-    (package-refresh-contents)
-    (package-install 'markdown-mode))
-
-  (unless (package-installed-p 'dockerfile-mode)
-    (package-refresh-contents)
-    (package-install 'dockerfile-mode))
-
-  (unless (package-installed-p 'flycheck)
-    (package-refresh-contents)
-    (package-install 'flycheck)))
-
 ;; Init flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
@@ -45,6 +18,14 @@
 (global-set-key (kbd "<home>") 'smart-beginning-of-line)
 (global-set-key (kbd "<end>") 'move-end-of-line)
 (global-set-key (kbd "C-a") 'smart-beginning-of-line)
+
+;; Setup tags.
+(ignore-errors
+  (setq tags-file-name (concat (proj-root) "/.tags")))
+(add-hook
+ 'tags-table-mode-hook
+ (lambda ()
+   (auto-revert-mode t)))
 
 ;; Indent the whole buffer.
 (defun indent-whole-buffer ()
@@ -142,7 +123,13 @@
   (interactive)
   (save-excursion
     (unless mark-active (mark-paragraph))
-    (sort-lines nil (region-beginning) (region-end))))
+    (let ((beg (progn (goto-char (region-beginning))
+                      (line-beginning-position)))
+          (end (progn (goto-char (region-end))
+                      (line-end-position))))
+      (sort-lines nil beg end)
+      (indent-region beg end)
+      (untabify beg end))))
 
 (global-set-key (kbd "C-c r") 'do-revert)
 (global-set-key (kbd "C-c C-r") 'do-revert)

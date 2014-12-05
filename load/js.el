@@ -4,15 +4,12 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 (defun js-hook-fun ()
-   ;; Activate auto-fill-mode.  
-   (auto-fill-mode t)
-   ;; Enable Flyspell.  
-   (flyspell-prog-mode)
-   ;; Allow movement between subwords.  
-   (when (fboundp 'c-subword-mode)
-     (c-subword-mode 1))
-   (when (fboundp 'subword-mode)
-     (subword-mode 1)))
+  ;; Activate auto-fill-mode.
+  (auto-fill-mode t)
+  ;; Enable Flyspell.
+  (flyspell-prog-mode)
+  ;; Allow movement between subwords.
+  (subword-mode 1))
 
 (add-hook 'js-mode-hook 'js-hook-fun)
 (add-hook 'js2-mode-hook 'js-hook-fun)

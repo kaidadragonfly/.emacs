@@ -9,10 +9,9 @@
    ;; Deactivate Abbrev mode.
    (abbrev-mode 0)
    ;; Allow movement between subwords.
-   (when (fboundp 'c-subword-mode)
-     (c-subword-mode 1))
-   (when (fboundp 'subword-mode)
-     (subword-mode 1))
+   (subword-mode 1)
+   (let ((entry (assq 'subword-mode minor-mode-alist)))
+     (when entry (setcdr entry '(nil))))
    ;; Bind compile to F5.
    (local-set-key (kbd "<f5>") 'compile)
    ;; And to C-cC-c
@@ -33,3 +32,4 @@
    ;; Make smart-tab always indent.
    (defvar smart-tab-always-indent)
    (set (make-local-variable 'smart-tab-always-indent) t)))
+

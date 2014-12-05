@@ -7,15 +7,25 @@
     (flyspell-prog-mode)
     (auto-fill-mode 0)
     (set-fill-column 80)
-    (subword-mode)
     (auto-revert-mode t)
     (local-set-key (kbd "RET") 'newline-and-indent)
+    ;; Setup scalastyle.
+    (defvar flycheck-scalastyle-jar)
+    (setq-local flycheck-scalastyle-jar
+                (expand-file-name
+                 "~/.emacs.d/lib/scalastyle_2.10-0.6.0-batch.jar"))
+    (defvar flycheck-scalastylerc)
+    (setq-local flycheck-scalastylerc
+          (concat (proj-root) "/scalastyle-config.xml"))
     ;; Use tags.
+    (require 'etags)
     (declare-function proj-root "ide.el" nil)
-    (setq-local tags-file-name (concat (proj-root) "/.tags"))
     ;; Rebuild tags.
     (add-hook 'find-file-hook 'rebuild-tags nil t)
     (add-hook 'after-save-hook 'rebuild-tags nil t)
+    ;; Only check syntax on load and save
+    (defvar flycheck-check-syntax-automatically)
+    (setq-local flycheck-check-syntax-automatically '(save))
     ;; Show margin.
     (require 'fill-column-indicator)
     (declare-function fci-mode
@@ -42,7 +52,6 @@
      (require 'rx)
      (declare-function string/ends-with ".ide.el" str suffix)
      (if (string/ends-with buffer-file-name ".sbt")
-         (progn
-           (scala-config-mode))
+         (scala-config-mode)
        (scala-init))))
   (add-hook 'scala-config-mode-hook 'scala-init))
