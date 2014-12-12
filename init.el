@@ -38,6 +38,9 @@
 (setq flyspell-issue-welcome-flag nil)
 ;; Follow version control links.
 (setq vc-follow-symlinks t)
+;; Save file location between runs.
+(require 'saveplace)
+(setq-default save-place t)
 
 ;;-----------------------------------------------------------------------------
 ;; Workarounds.
@@ -97,7 +100,6 @@ Kills the old scratch buffer.  "
  '(js2-enter-indents-newline t)
  '(js2-indent-on-enter-key t)
  '(js2-mirror-mode nil)
- '(save-place t nil (saveplace))
  '(scala-indent:align-parameters t)
  '(scala-indent:default-run-on-strategy 1)
  '(scroll-bar-mode (quote right)))
@@ -121,7 +123,16 @@ Kills the old scratch buffer.  "
 
 (declare-function string/starts-with "ide.el" str, prefix)
 (if (string/starts-with
-     (byte-recompile-directory (expand-file-name "~/.emacs.d") 0)
+     (byte-recompile-directory (expand-file-name "~/.emacs.d") 0 nil)
      "Done (Total of 0 files compiled")
     nil
-    (load-file "~/.emacs.d/init.el"))
+  (load-file "~/.emacs.d/init.el"))
+
+;; Make spelling handle camel-case
+(defvar ispell-program-name)
+(defvar ispell-extra-args)
+(setq ispell-program-name "aspell")
+;; -C makes aspell accept run-together words
+;; --run-together-limit is maximum number of words that can be
+;; strung together.
+(setq ispell-extra-args '("-C" "--sug-mode=ultra" "--run-together-limit=5"))

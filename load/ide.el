@@ -2,6 +2,7 @@
 (require 'dabbrev)
 
 ;; Init flycheck
+(declare-function global-flycheck-mode "flycheck.el")
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; Make "home" work like in most IDEs.
@@ -18,15 +19,6 @@
 (global-set-key (kbd "<home>") 'smart-beginning-of-line)
 (global-set-key (kbd "<end>") 'move-end-of-line)
 (global-set-key (kbd "C-a") 'smart-beginning-of-line)
-
-;; Setup tags.
-(ignore-errors
-  (setq tags-file-name (concat (proj-root) "/.tags")))
-(add-hook
- 'tags-table-mode-hook
- (lambda ()
-   (auto-revert-mode t)))
-(global-set-key (kbd "C-c M-,") 'tags-search)
 
 ;; Indent the whole buffer.
 (defun indent-whole-buffer ()
@@ -122,15 +114,17 @@
   "If the mark is active, sorts region.
    Otherwise it sorts the current paragraph."
   (interactive)
+
   (save-excursion
     (unless mark-active (mark-paragraph))
-    (let ((beg (progn (goto-char (region-beginning))
-                      (line-beginning-position)))
-          (end (progn (goto-char (region-end))
-                      (line-end-position))))
-      (sort-lines nil beg end)
-      (indent-region beg end)
-      (untabify beg end))))
+    ;; (let ((beg (progn (goto-char (region-beginning))
+    ;;                   (line-beginning-position)))
+    ;;       (end (progn (goto-char (region-end))
+    ;;                   (line-end-position))))
+
+    (sort-lines nil (region-beginning) (region-end))
+    (indent-region (region-beginning) (region-end))
+    (untabify (region-beginning) (region-end))))
 
 (global-set-key (kbd "C-c r") 'do-revert)
 (global-set-key (kbd "C-c C-r") 'do-revert)
@@ -144,7 +138,11 @@
   (shell-command-to-string "rebuild-tags &"))
 
 (defun proj-root ()
-  (substring (shell-command-to-string "proj-root") 0 -1))
+  (let ((res (shell-command-to-string
+              "git rev-parse --show-toplevel 2>/dev/null")))
+    (if (> (length res) 0)
+        (substring res 0 -1)
+      ".")))
 
 (defun string/ends-with (string suffix)
   "Return t if STRING ends with SUFFIX."
@@ -157,3 +155,14 @@
   (and (string-match (rx-to-string `(: bos ,prefix) t)
                      string)
        t))
+
+;; Setup tags.
+(let ((tags-file  (concat (proj-root) "/.tags")))
+  (if (file-exists-p tags-file)
+      (setq tags-file-name tags-file)))
+
+(add-hook
+ 'tags-table-mode-hook
+ (lambda ()
+   (auto-revert-mode t)))
+(global-set-key (kbd "C-c M-,") 'tags-search)

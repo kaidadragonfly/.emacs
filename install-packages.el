@@ -6,6 +6,10 @@
 		   '("melpa" . "http://melpa.milkbox.net/packages/") t)
       (package-initialize)
 
+      (unless (package-installed-p 'groovy-mode)
+        (package-refresh-contents)
+        (package-install 'groovy-mode))
+      
       (unless (package-installed-p 'scala-mode2)
 	(package-refresh-contents)
 	(package-install 'scala-mode2))
