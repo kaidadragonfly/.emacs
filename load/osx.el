@@ -11,4 +11,14 @@
       (global-set-key (kbd "<mouse-5>") '(lambda ()
                                            (interactive)
                                            (scroll-up
-                                            1)))))
+                                            1)))
+      (declare-function cua-copy-region (arg) "cua-base.el")
+      (defun smart-copy-region ()
+        (interactive)
+        (cua-copy-region nil)
+        (shell-command-on-region
+         (region-beginning)
+         (region-end)
+         "pbcopy")
+        (message ""))
+      (global-set-key (kbd "M-w") 'smart-copy-region)))

@@ -8,6 +8,8 @@
    (setq comment-auto-fill-only-comments t) ; Only fill comments.
    ;; Turn on subword mode.
    (subword-mode)
+   (let ((entry (assq 'subword-mode minor-mode-alist)))
+     (when entry (setcdr entry '(nil))))
    ;; Make enter indent.
    (local-set-key (kbd "RET") 'newline-and-indent)
    ;; Four spaces, no tabs, don't guess!
