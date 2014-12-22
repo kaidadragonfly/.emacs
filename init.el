@@ -28,9 +28,17 @@
 (when (and (fboundp 'window-system) (not (window-system))) (menu-bar-mode 0))
 ;; Reload changed files automatically.
 (global-auto-revert-mode)
-;; Save all backup files in one directory.
+;; Save all backup & autosave files in one directory.
 (if (file-directory-p "~/.emacs.d/backups")
-    (setq backup-directory-alist '(("." . "~/.emacs.d/backups"))))
+    (progn
+      (setq backup-directory-alist
+            '((".*" . "~/.emacs.d/backups")))
+      (setq auto-save-list-file-prefix "~/.emacs.d/backups")
+      (setq auto-save-file-name-transforms
+            '((".*" "~/.emacs.d/backups" t)))))
+;; Disable interlocking, prevent dropping of hidden symlinks.
+(setq create-lockfiles nil)
+
 ;; Set compilation window height.
 (setq compilation-window-height 0)      ;Hide the window.
 ;; Silence flyspell welcome message.
