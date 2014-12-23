@@ -32,10 +32,10 @@
 (if (file-directory-p "~/.emacs.d/backups")
     (progn
       (setq backup-directory-alist
-            '((".*" . "~/.emacs.d/backups")))
-      (setq auto-save-list-file-prefix "~/.emacs.d/backups")
+            '((".*" . "~/.emacs.d/backups/")))
+      (setq auto-save-list-file-prefix "~/.emacs.d/backups/")
       (setq auto-save-file-name-transforms
-            '((".*" "~/.emacs.d/backups" t)))))
+            '((".*" "~/.emacs.d/backups/" t)))))
 ;; Disable interlocking, prevent dropping of hidden symlinks.
 (setq create-lockfiles nil)
 
