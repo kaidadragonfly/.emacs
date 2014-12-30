@@ -9,6 +9,10 @@
       (unless (package-installed-p 'groovy-mode)
         (package-refresh-contents)
         (package-install 'groovy-mode))
+
+      (unless (package-installed-p 'js2-mode)
+        (package-refresh-contents)
+        (package-install 'js2-mode))
       
       (unless (package-installed-p 'scala-mode2)
 	(package-refresh-contents)

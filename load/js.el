@@ -9,7 +9,9 @@
   ;; Enable Flyspell.
   (flyspell-prog-mode)
   ;; Allow movement between subwords.
-  (subword-mode 1))
+  (subword-mode 1)
+  (let ((entry (assq 'subword-mode minor-mode-alist)))
+     (when entry (setcdr entry '(nil)))))
 
 (add-hook 'js-mode-hook 'js-hook-fun)
 (add-hook 'js2-mode-hook 'js-hook-fun)
