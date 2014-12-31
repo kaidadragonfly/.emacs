@@ -1,3 +1,17 @@
+(defun test ()
+  "Open the test for the current file."
+  (interactive)
+  (let ((base (replace-regexp-in-string
+               "/src/main/" "/src/test/" buffer-file-name)))
+    (find-file (replace-regexp-in-string "[.]scala" "Test.scala" base))))
+   
+(defun main ()
+  "Open the main source for the current file."
+  (interactive)
+  (let ((base (replace-regexp-in-string
+               "/src/test/" "/src/main/" buffer-file-name)))
+    (find-file (replace-regexp-in-string "Test[.]scala" ".scala" base))))
+
 ;; The following requires emacs 24.
 ;; Using ignore-errors so that the rest of the config loads on earlier
 ;; versions.

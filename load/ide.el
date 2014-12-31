@@ -156,6 +156,13 @@
                      string)
        t))
 
+(defun save-all-files ()
+  "Save all modified files."
+  (interactive)
+  (save-some-buffers t))
+
+(global-set-key (kbd "C-x s") 'save-all-files)
+
 ;; Setup tags.
 (let ((tags-file  (concat (proj-root) "/.tags")))
   (if (file-exists-p tags-file)
