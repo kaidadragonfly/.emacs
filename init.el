@@ -1,4 +1,3 @@
-(setq debug-on-error t)
 ;; Load custom elisp files.
 (add-to-list 'load-path "~/.emacs.d/lib")
 ;; Initialize packages.

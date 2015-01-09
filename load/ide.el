@@ -172,4 +172,12 @@
  'tags-table-mode-hook
  (lambda ()
    (auto-revert-mode t)))
+
+(declare-function find-tag-interactive "etags.el")
+(defun find-tag-case (tagname &optional next-p regexp-p)
+  (interactive (find-tag-interactive "Find tag: "))
+  (let ((tags-case-fold-search nil))
+    (find-tag tagname)))
+
 (global-set-key (kbd "C-c M-,") 'tags-search)
+(global-set-key (kbd "C-c M-.") 'find-tag-case)
