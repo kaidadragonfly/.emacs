@@ -11,7 +11,7 @@
    (defadvice nxml-indent-line (after nxml-indent-line activate)
      (sgml-mode)
      (sgml-indent-line)
-     (sgml-mode))
+     (nxml-mode))
    ;; Enable Flyspell.  
    (flyspell-prog-mode)
    (defvar flyspell-prog-text-faces)
