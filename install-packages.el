@@ -1,39 +1,22 @@
 ;; Install various packages.
-(if (>= emacs-major-version 24)
-    (progn
-      (require 'package)
-      (add-to-list 'package-archives
-		   '("melpa" . "http://melpa.milkbox.net/packages/") t)
-      (package-initialize)
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
 
-      (unless (package-installed-p 'groovy-mode)
-        (package-refresh-contents)
-        (package-install 'groovy-mode))
 
-      (unless (package-installed-p 'js2-mode)
-        (package-refresh-contents)
-        (package-install 'js2-mode))
-      
-      (unless (package-installed-p 'scala-mode2)
-	(package-refresh-contents)
-	(package-install 'scala-mode2))
+(defun require-package (pkg)
+  "Guarantee that `pkg` is installed."
+  (unless (package-installed-p pkg)
+    (package-refresh-contents)
+    (package-install pkg)))
 
-      (unless (package-installed-p 'markdown-mode)
-	(package-refresh-contents)
-	(package-install 'markdown-mode))
-
-      (unless (package-installed-p 'dockerfile-mode)
-	(package-refresh-contents)
-	(package-install 'dockerfile-mode))
-
-      (unless (package-installed-p 'iedit)
-	(package-refresh-contents)
-	(package-install 'iedit))
-
-      (unless (package-installed-p 'fill-column-indicator)
-	(package-refresh-contents)
-	(package-install 'fill-column-indicator))
-
-      (unless (package-installed-p 'flycheck)
-	(package-refresh-contents)
-	(package-install 'flycheck))))
+(require-package 'groovy-mode)
+(require-package 'js2-mode)
+(require-package 'scala-mode2)
+(require-package 'markdown-mode)
+(require-package 'json-mode)
+(require-package 'dockerfile-mode)
+(require-package 'iedit)
+(require-package 'fill-column-indicator)
+(require-package 'flycheck)
