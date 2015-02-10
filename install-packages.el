@@ -4,7 +4,6 @@
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
-
 (defun require-package (pkg)
   "Guarantee that `pkg` is installed."
   (unless (package-installed-p pkg)

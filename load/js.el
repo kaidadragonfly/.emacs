@@ -16,11 +16,6 @@
 (add-hook 'js-mode-hook 'js-hook-fun)
 (add-hook 'js2-mode-hook 'js-hook-fun)
 
-;; Setup js2-mode for json
-(setq auto-mode-alist
-      (cons '("\\.json$" . (lambda () (js2-mode)))
-            auto-mode-alist))
-
 (add-hook
  'js2-mode-hook
  (lambda ()

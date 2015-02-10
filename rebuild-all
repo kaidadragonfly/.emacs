@@ -1,6 +1,7 @@
 #!/bin/bash
 
 rm -r ~/.emacs.d/elpa
+./clean-bytecode
 
 emacs \
     --no-init-file \
