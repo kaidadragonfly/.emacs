@@ -1,5 +1,7 @@
 ;; Load custom elisp files.
 (add-to-list 'load-path "~/.emacs.d/lib")
+;; Load legacy compatability.  
+(load "~/.emacs.d/lib/legacy-compat.el")
 ;; Initialize packages.
 (load "~/.emacs.d/install-packages")
 
@@ -8,11 +10,6 @@
 ;;----------------------------------------------------------------------------
 ;; Make file completion case insensitive.
 (setq read-file-name-completion-ignore-case t)
-;; Display buffers interactively when switching.
-(require 'ido)
-(ido-mode t)
-(when (fboundp 'iswitchb-default-keybindings)
-  (iswitchb-default-keybindings))
 ;; Make line numbers have a space after them.
 (defvar linum-format)
 (setq linum-format "%3d ")
@@ -112,6 +109,7 @@ Kills the old scratch buffer.  "
  '(js2-indent-on-enter-key t)
  '(js2-mirror-mode nil)
  '(js2-skip-preprocessor-directives t)
+ '(js2-strict-missing-semi-warning nil)
  '(scala-indent:align-parameters t)
  '(scala-indent:default-run-on-strategy 1)
  '(scroll-bar-mode (quote right)))
