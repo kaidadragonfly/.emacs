@@ -8,10 +8,12 @@
   (auto-fill-mode t)
   ;; Enable Flyspell.
   (flyspell-prog-mode)
+  ;; Clean whitespace on save.
+  (add-hook 'before-save-hook 'whitespace-cleanup)
   ;; Allow movement between subwords.
   (subword-mode 1)
   (let ((entry (assq 'subword-mode minor-mode-alist)))
-     (when entry (setcdr entry '(nil)))))
+    (when entry (setcdr entry '(nil)))))
 
 (add-hook 'js-mode-hook 'js-hook-fun)
 (add-hook 'js2-mode-hook 'js-hook-fun)
