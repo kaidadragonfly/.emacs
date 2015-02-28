@@ -1,6 +1,9 @@
 ;; Features to make emacs more competitive with IDEs.
 (require 'dabbrev)
 
+;; Smart completion.
+(ido-mode)
+
 ;; Init flycheck
 (declare-function global-flycheck-mode "flycheck.el")
 (add-hook 'after-init-hook #'global-flycheck-mode)
@@ -104,6 +107,14 @@
 (cua-selection-mode t)
 ;; (kbd "C-j") is Ctrl + Enter
 (global-set-key (kbd "C-j") 'cua-set-rectangle-mark)
+
+;; from here: http://www.masteringemacs.org/article/fixing-mark-commands-transient-mark-mode
+(defun exchange-point-and-mark-no-activate()
+  "Swap point and mark without selecting"
+  (interactive)
+  (exchange-point-and-mark)
+  (deactivate-mark nil))
+(global-set-key (kbd "C-x C-x") 'exchange-point-and-mark-no-activate)
 ;; Revert buffer
 (defun do-revert ()
   "Revert the current buffer without asking."
@@ -133,9 +144,6 @@
 
 ;; Enable narrow-to-region
 (put 'narrow-to-region 'disabled nil)
-
-(defun rebuild-tags ()
-  (shell-command-to-string "rebuild-tags &"))
 
 (defun proj-root ()
   (let ((res (shell-command-to-string
