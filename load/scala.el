@@ -4,7 +4,7 @@
   (let ((base (replace-regexp-in-string
                "/src/main/" "/src/test/" buffer-file-name)))
     (find-file (replace-regexp-in-string "[.]scala" "Test.scala" base))))
-   
+
 (defun main ()
   "Open the main source for the current file."
   (interactive)
@@ -24,22 +24,12 @@
               (set-fill-column 80)
               (auto-revert-mode t)
               (local-set-key (kbd "RET") 'newline-and-indent)
-              ;; Setup scalastyle.
-              (defvar flycheck-scalastyle-jar)
-              (setq-local flycheck-scalastyle-jar
-                          (expand-file-name
-                           "~/.emacs.d/lib/scalastyle_2.10-0.6.0-batch.jar"))
-              (defvar flycheck-scalastylerc)
-              (setq-local flycheck-scalastylerc
-                          (concat (proj-root) "/scalastyle-config.xml"))
               ;; Use tags.
               (require 'etags)
-              (declare-function proj-root "ide.el" nil)
-              ;; Rebuild tags.
-              (add-hook 'after-save-hook 'rebuild-tags nil t)
               ;; Only check syntax on load and save
               (defvar flycheck-check-syntax-automatically)
-              (setq-local flycheck-check-syntax-automatically '(save))
+              (setq-local flycheck-check-syntax-automatically
+                          '(mode-enabled save))
               ;; Show margin.
               (require 'fill-column-indicator)
               (declare-function fci-mode
@@ -51,5 +41,22 @@
                   (progn (fci-mode)
                          (toggle-truncate-lines nil))))))
 
-(declare-function rebuild-tags "ide.el")
-(eval-after-load "scala-mode" '(rebuild-tags))
+;; Define a sbt checker!
+(require 'flycheck)
+(flycheck-define-checker sbt
+  "Checker for compilation with SBT"
+  :command ("esbt")
+  :error-patterns
+  ((error line-start "[error] " (file-name) ":" line ": "
+          (message (zero-or-more not-newline)
+                   (one-or-more "\n" blank
+                                (zero-or-more not-newline)))
+          line-end)
+   (warn line-start "[warn] " (file-name) ":" line ": "
+         (message (zero-or-more not-newline)
+                  (one-or-more "\n" blank
+                               (zero-or-more not-newline)))
+         line-end))
+  :modes scala-mode)
+
+(flycheck-add-next-checker 'sbt 'scala)
