@@ -61,6 +61,10 @@
 
 (flycheck-add-next-checker 'sbt 'scala)
 
+;; Rebuild tags on save.
+(declare-function rebuild-tags "ide.el")
+(eval-after-load "scala-mode" '(rebuild-tags))
+
 ;; Don't perform syntax checks for sbt configuration files.
 (define-derived-mode sbt-mode scala-mode "Sbt"
   "A mode for sbt configuration files.")

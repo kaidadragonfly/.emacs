@@ -189,3 +189,6 @@
 
 (global-set-key (kbd "C-c M-,") 'tags-search)
 (global-set-key (kbd "C-c M-.") 'find-tag-case)
+
+(defun rebuild-tags ()
+  (shell-command-to-string "rebuild-tags &"))
