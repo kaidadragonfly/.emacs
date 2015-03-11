@@ -2,7 +2,7 @@
 (require 'dabbrev)
 
 ;; Smart completion.
-(ido-mode)
+(ido-mode t)
 
 ;; Init flycheck
 (declare-function global-flycheck-mode "flycheck.el")
@@ -187,7 +187,16 @@
   (let ((tags-case-fold-search nil))
     (find-tag tagname)))
 
+(defun smart-find-tag (tagname &optional next-p regexp-p)
+  (interactive (find-tag-interactive "Find tag: "))
+  (let ((case-fold-search nil))
+    (if (not (string-match-p "[[:upper:]]" tagname))
+        (find-tag tagname next-p regexp-p)
+      (find-tag-case tagname next-p regexp-p))))
+
+
 (global-set-key (kbd "C-c M-,") 'tags-search)
+(global-set-key (kbd "M-.") 'smart-find-tag)
 (global-set-key (kbd "C-c M-.") 'find-tag-case)
 
 (defun rebuild-tags ()
