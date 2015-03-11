@@ -55,10 +55,10 @@
 (eval-after-load "scala-mode" '(rebuild-tags))
 
 ;; Don't perform syntax checks for sbt configuration files.
-(define-derived-mode sbt-mode scala-mode "Sbt"
+(define-derived-mode sbt-conf-mode scala-mode ".Sbt"
   "A mode for sbt configuration files.")
 ;; Remove old scala-mode entries.
 (setq auto-mode-alist
       (remove (rassoc 'scala-mode auto-mode-alist) auto-mode-alist))
-(add-to-list 'auto-mode-alist '("\\.sbt\\'" . sbt-mode))
+(add-to-list 'auto-mode-alist '("\\.sbt\\'" . sbt-conf-mode))
 (add-to-list 'auto-mode-alist '("\\.scala\\'" . scala-mode))

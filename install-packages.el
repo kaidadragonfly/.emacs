@@ -20,3 +20,4 @@
 (require-package 'fill-column-indicator)
 (require-package 'flycheck)
 (require-package 'sql-indent)
+(require-package 'sbt-mode)
