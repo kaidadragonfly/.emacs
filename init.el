@@ -112,7 +112,8 @@ Kills the old scratch buffer.  "
  '(js2-strict-missing-semi-warning nil)
  '(scala-indent:align-parameters t)
  '(scala-indent:default-run-on-strategy 1)
- '(scroll-bar-mode (quote right)))
+ '(scroll-bar-mode (quote right))
+ '(sql-indent-offset 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
