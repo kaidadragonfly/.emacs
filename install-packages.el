@@ -21,3 +21,4 @@
 (require-package 'flycheck)
 (require-package 'sql-indent)
 (require-package 'sbt-mode)
+(require-package 'yaml-mode)
