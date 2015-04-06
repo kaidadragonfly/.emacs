@@ -22,3 +22,4 @@
 (require-package 'sql-indent)
 (require-package 'sbt-mode)
 (require-package 'yaml-mode)
+(require-package 's)
