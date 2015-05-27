@@ -23,3 +23,5 @@
 (require-package 'sbt-mode)
 (require-package 'yaml-mode)
 (require-package 's)
+(require-package 'feature-mode)
+(require-package 'toml-mode)
