@@ -40,7 +40,7 @@
           (message (zero-or-more not-newline)
                    (zero-or-more "\n" blank (zero-or-more not-newline)))
           line-end)
-   (warn line-start "[warn] "
+   (warning line-start "[warn] "
          (file-name) ":" line ":" (optional (one-or-more digit) ":") " "
          (message (zero-or-more not-newline)
                   (zero-or-more "\n" blank (zero-or-more not-newline)))
