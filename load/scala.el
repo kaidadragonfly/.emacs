@@ -24,7 +24,8 @@
             (setq-local fci-rule-character-color "color-234")
             (if (> (window-width) (current-fill-column))
                 (progn (fci-mode)
-                       (toggle-truncate-lines nil)))))
+                       (toggle-truncate-lines nil)))
+          (add-hook (make-local-variable 'after-save-hook) 'rebuild-tags)))
 
 ;; Define a sbt checker!
 (require 'flycheck)
