@@ -20,7 +20,8 @@
    ;; Rebind indent-region to whitespace cleanup
    (local-set-key (kbd "C-M-\\") 'whitespace-cleanup)
    ;; Clean up whitespace on save.
-   (add-hook 'before-save-hook 'whitespace-cleanup)))
+   (add-hook 'before-save-hook 'whitespace-cleanup)
+   (add-hook (make-local-variable 'after-save-hook) 'rebuild-tags)))
 
 (require 'flycheck)
 (flycheck-add-next-checker 'python-flake8 'python-pylint)
