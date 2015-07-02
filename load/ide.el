@@ -198,7 +198,9 @@
 
 (global-set-key (kbd "C-c M-,") 'tags-search)
 (global-set-key (kbd "M-.") 'smart-find-tag)
+(global-set-key (kbd "M-?") 'etags-select-find-tag)
 (global-set-key (kbd "C-c M-.") 'find-tag-case)
 
+(setq tags-revert-without-query 1)
 (defun rebuild-tags ()
   (shell-command-to-string "rebuild-tags &"))
