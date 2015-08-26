@@ -10,7 +10,6 @@
     (package-refresh-contents)
     (package-install pkg)))
 
-(require-package 'groovy-mode)
 (require-package 'js2-mode)
 (require-package 'scala-mode2)
 (require-package 'markdown-mode)
