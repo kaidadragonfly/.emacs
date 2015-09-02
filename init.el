@@ -108,11 +108,15 @@ Kills the old scratch buffer.  "
  '(js2-basic-offset 2)
  '(js2-bounce-indent-p nil)
  '(js2-enter-indents-newline t)
+ '(js2-global-externs (quote ("crypto")))
  '(js2-include-node-externs t)
  '(js2-indent-on-enter-key t)
  '(js2-mirror-mode nil)
  '(js2-skip-preprocessor-directives t)
  '(js2-strict-missing-semi-warning nil)
+ '(mode-line-format
+   (quote
+    ("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position "  " mode-line-modes mode-line-misc-info mode-line-end-spaces)))
  '(scala-indent:align-parameters t)
  '(scala-indent:default-run-on-strategy 1)
  '(scroll-bar-mode (quote right))
