@@ -108,7 +108,7 @@ Kills the old scratch buffer.  "
  '(js2-basic-offset 2)
  '(js2-bounce-indent-p nil)
  '(js2-enter-indents-newline t)
- '(js2-global-externs (quote ("describe", "it")))
+ '(js2-global-externs (quote ("describe" "it")))
  '(js2-include-node-externs t)
  '(js2-indent-on-enter-key t)
  '(js2-mirror-mode nil)
