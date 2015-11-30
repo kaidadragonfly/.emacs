@@ -5,4 +5,6 @@
  (lambda ()
    (local-unset-key (kbd "<backtab>"))
    (defvar markdown-indent-on-enter "markdown-mode.el")
-   (setq markdown-indent-on-enter nil)))
+   (setq markdown-indent-on-enter nil)
+   ;; Clean whitespace on save.
+   (add-hook 'before-save-hook 'whitespace-cleanup)))

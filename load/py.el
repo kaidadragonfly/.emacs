@@ -21,7 +21,8 @@
    (local-set-key (kbd "C-M-\\") 'whitespace-cleanup)
    ;; Clean up whitespace on save.
    (add-hook 'before-save-hook 'whitespace-cleanup)
-   (add-hook (make-local-variable 'after-save-hook) 'rebuild-tags)))
+   (add-hook (make-local-variable 'after-save-hook) 'rebuild-tags)
+   (setq-local comment-inline-offset 2)))
 
 (require 'flycheck)
 (flycheck-add-next-checker 'python-flake8 'python-pylint)
