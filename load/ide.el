@@ -176,11 +176,6 @@
   (if (file-exists-p tags-file)
       (setq tags-file-name tags-file)))
 
-(add-hook
- 'tags-table-mode-hook
- (lambda ()
-   (auto-revert-mode t)))
-
 (declare-function find-tag-interactive "etags.el")
 (defun find-tag-case (tagname &optional next-p regexp-p)
   (interactive (find-tag-interactive "Find tag: "))
