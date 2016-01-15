@@ -3,8 +3,8 @@
  (lambda ()
    ;; Check spelling.
    (flyspell-prog-mode)
-   ;; Turn on auto-fill-mode
-   (auto-fill-mode 1)
+   ;; Don't autofill
+   (auto-fill-mode 0)
    ;; Make enter indent.
    (local-set-key (kbd "C-m") 'newline-and-indent)
    ;; Clean up whitespace on save.
