@@ -1,6 +1,9 @@
 ;; Install various packages.
 (require 'package)
 
+(defvar tls-program)
+(defvar gnutls-verify-error)
+(defvar gnutls-trustfiles)
 (let ((trustfile
        (replace-regexp-in-string
 	"\\\\" "/"
@@ -25,22 +28,22 @@
   (setq gnutls-verify-error t)
   (setq gnutls-trustfiles (list trustfile)))
 
-(eval-when-compile
-  (require 'cl)
-  (let ((bad-hosts
-	 (loop for bad
-	       in `("https://wrong.host.badssl.com/"
-		    "https://self-signed.badssl.com/")
-	       if (condition-case e
-		      (url-retrieve
-		       bad (lambda (retrieved) t))
-		    (error nil))
-	       collect bad)))
-    (if bad-hosts
-	(error (format "tls misconfigured; retrieved %s ok"
-		       bad-hosts))
-      (url-retrieve "https://badssl.com"
-		    (lambda (retrieved) t)))))
+;; (eval-when-compile
+;;   (require 'cl)
+;;   (let ((bad-hosts
+;; 	 (loop for bad
+;; 	       in `("https://wrong.host.badssl.com/"
+;; 		    "https://self-signed.badssl.com/")
+;; 	       if (condition-case e
+;; 		      (url-retrieve
+;; 		       bad (lambda (retrieved) t))
+;; 		    (error nil))
+;; 	       collect bad)))
+;;     (if bad-hosts
+;; 	(error (format "tls misconfigured; retrieved %s ok"
+;; 		       bad-hosts))
+;;       (url-retrieve "https://badssl.com"
+;; 		    (lambda (retrieved) t)))))
 
 (setq package-archives
       '(("gnu" . "https://elpa.gnu.org/packages/")
@@ -67,3 +70,4 @@
 (require-package 's)
 (require-package 'feature-mode)
 (require-package 'toml-mode)
+(require-package 'elixir-mode)
