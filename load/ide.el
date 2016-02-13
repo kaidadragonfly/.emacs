@@ -57,6 +57,7 @@
 (defvar smart-tab-always-indent nil)
 (setq-local smart-tab-always-indent nil)
 
+(add-hook 'after-init-hook 'global-company-mode)
 ;; Modified from http://emacswiki.org/emacs/TabCompletion
 (defun smart-tab ()
   "Smart tab does the following:
@@ -75,19 +76,8 @@
     (if mark-active
         (indent-region (region-beginning)
                        (region-end))
-      ;; Are we at the end of a word?
-      (if (looking-at "\\_>")
-          (progn
-            (if smart-tab-always-indent
-                (indent-for-tab-command) nil)
-            (if (long-enough-p)
-                (dabbrev-expand nil)
-              (if (override-p)
-                  (progn
-                    (dabbrev--reset-global-variables)
-                    (dabbrev-expand nil)
-                    (indent-for-tab-command)))))
-        (indent-for-tab-command)))))
+      (indent-for-tab-command))))
+
 ;; Make dabbrev-replace case insensitive.
 ;; insensitive.
 (setq dabbrev-case-replace nil)
@@ -215,4 +205,5 @@
   ;; compilation-exit-message-function
   (cons msg code))
 ;; Specify my function (maybe I should have done a lambda function)
+(defvar compilation-exit-message-function)
 (setq compilation-exit-message-function 'compilation-exit-autoclose)
