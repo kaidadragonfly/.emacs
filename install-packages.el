@@ -71,4 +71,3 @@
 (require-package 'feature-mode)
 (require-package 'toml-mode)
 (require-package 'elixir-mode)
-(require-package 'company)
