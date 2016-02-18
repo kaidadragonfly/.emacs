@@ -215,4 +215,5 @@
   ;; compilation-exit-message-function
   (cons msg code))
 ;; Specify my function (maybe I should have done a lambda function)
+(defvar compilation-exit-message-function)
 (setq compilation-exit-message-function 'compilation-exit-autoclose)
