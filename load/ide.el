@@ -198,7 +198,7 @@
 
 (setq tags-revert-without-query 1)
 (defun rebuild-tags ()
-  (shell-command-to-string "rebuild-tags &"))
+  (start-process "rebuild-tags" nil "rebuild-tags"))
 
 ;; Helper for compilation. Close the compilation window if
 ;; there was no error at all.
