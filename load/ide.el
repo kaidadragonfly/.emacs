@@ -108,13 +108,6 @@
 ;; (kbd "C-j") is Ctrl + Enter
 (global-set-key (kbd "C-j") 'cua-set-rectangle-mark)
 
-;; from here: http://www.masteringemacs.org/article/fixing-mark-commands-transient-mark-mode
-(defun exchange-point-and-mark-no-activate()
-  "Swap point and mark without selecting"
-  (interactive)
-  (exchange-point-and-mark)
-  (deactivate-mark nil))
-(global-set-key (kbd "C-x C-x") 'exchange-point-and-mark-no-activate)
 ;; Revert buffer
 (defun do-revert ()
   "Revert the current buffer without asking."
@@ -191,15 +184,20 @@
       (find-tag tagname next-p regexp-p)
     (find-tag-case tagname next-p regexp-p)))
 
-(global-set-key (kbd "C-c M-,") 'tags-search)
 (global-set-key (kbd "M-.") 'smart-find-tag)
-(global-set-key (kbd "M-?") 'etags-select-find-tag)
 (global-set-key (kbd "C-c M-.") 'find-tag-case)
 
 (setq tags-revert-without-query 1)
 (defun rebuild-tags ()
   (start-process "rebuild-tags" nil "rebuild-tags"))
 
+(defun end-of-line-p ()
+  (let ((p (point)))
+    (save-excursion
+      (end-of-visible-line)
+      (= p (point)))))
+
+;; From here: https://www.emacswiki.org/emacs/ModeCompile
 ;; Helper for compilation. Close the compilation window if
 ;; there was no error at all.
 (defun compilation-exit-autoclose (status code msg)
@@ -217,3 +215,28 @@
 ;; Specify my function (maybe I should have done a lambda function)
 (defvar compilation-exit-message-function)
 (setq compilation-exit-message-function 'compilation-exit-autoclose)
+
+;; Wrap parameter lists.
+(defvar wrap-parameter)
+;; Move to the start of the parameter list.
+(defvar start-of-parameter-list)
+;; Move to the end of the parameter list.
+(defvar end-of-parameter-list)
+
+(defun wrap-until (limit max-loops)
+  (when (and (< 0 max-loops) (< (point) limit))
+    (progn
+      (funcall wrap-parameter)
+      (wrap-until limit (- max-loops 1)))))
+
+(defun wrap-parameter-list ()
+  (interactive)
+  (beginning-of-line)
+  (funcall start-of-parameter-list)
+  (let ((return
+         (min (save-excursion
+                (funcall end-of-parameter-list)
+                (point))
+              (point-max))))
+    (wrap-until return 32)
+    (funcall end-of-parameter-list)))

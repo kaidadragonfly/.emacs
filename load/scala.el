@@ -14,7 +14,8 @@
                         '(mode-enabled save))
             ;; Disable "scala" checker.
             (defvar flycheck-disabled-checkers "flycheck.el")
-            (setq flycheck-disabled-checkers (cons 'scala flycheck-disabled-checkers))
+            (setq flycheck-disabled-checkers
+                  (cons 'scala flycheck-disabled-checkers))
             ;; Show margin.
             (require 'fill-column-indicator)
             (declare-function fci-mode
@@ -25,7 +26,7 @@
             (if (> (window-width) (current-fill-column))
                 (progn (fci-mode)
                        (toggle-truncate-lines nil)))
-          (add-hook (make-local-variable 'after-save-hook) 'rebuild-tags)))
+            (add-hook (make-local-variable 'after-save-hook) 'rebuild-tags)))
 
 ;; Define a sbt checker!
 (require 'flycheck)
@@ -42,10 +43,10 @@
                    (zero-or-more "\n" blank (zero-or-more not-newline)))
           line-end)
    (warning line-start "[warn] "
-         (file-name) ":" line ":" (optional (one-or-more digit) ":") " "
-         (message (zero-or-more not-newline)
-                  (zero-or-more "\n" blank (zero-or-more not-newline)))
-         line-end))
+            (file-name) ":" line ":" (optional (one-or-more digit) ":") " "
+            (message (zero-or-more not-newline)
+                     (zero-or-more "\n" blank (zero-or-more not-newline)))
+            line-end))
   :modes scala-mode)
 
 (flycheck-add-next-checker 'sbt 'scala)
@@ -63,3 +64,50 @@
       (remove (rassoc 'scala-mode auto-mode-alist) auto-mode-alist))
 (add-to-list 'auto-mode-alist '("\\.sbt\\'" . sbt-conf-mode))
 (add-to-list 'auto-mode-alist '("\\.scala\\'" . scala-mode))
+
+(declare-function end-of-line-p "ide.el" nil)
+
+(require 'scala-mode2)
+
+(defun scala-start-of-parameter-list ()
+    (search-forward "(" nil nil))
+
+(defun scala-end-of-parameter-p ()
+  (let ((p (char-after (point))))
+    (or (= p ?\,)
+        (= p ?\)))))
+
+(defun scala-end-of-parameter ()
+  "Move point to the end of parameter (i.e., to the comma or
+close-parenthesis after it).  Assumes that it is currently on the
+type or name."
+  (interactive)
+  (scala-syntax:skip-forward-ignorable)
+  (while (not (scala-end-of-parameter-p))
+    (scala-syntax:forward-sexp)
+    (scala-syntax:skip-forward-ignorable)))
+
+(defun scala-end-of-parameter-list ()
+  (interactive)
+  (scala-end-of-parameter)
+  (while (= (char-after (point)) ?\,)
+    (forward-char)
+        (scala-end-of-parameter)))
+
+(defun scala-wrap-parameter ()
+  (scala-end-of-parameter)
+  (forward-char)
+  (unless (end-of-line-p)
+    (newline-and-indent)))
+
+(defvar wrap-parameter)
+(setq wrap-parameter 'scala-wrap-parameter)
+(make-local-variable wrap-parameter)
+
+(defvar start-of-parameter-list)
+(setq start-of-parameter-list 'scala-start-of-parameter-list)
+(make-local-variable start-of-parameter-list)
+
+(defvar end-of-parameter-list)
+(setq end-of-parameter-list 'scala-end-of-parameter-list)
+(make-local-variable end-of-parameter-list)
