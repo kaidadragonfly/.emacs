@@ -240,3 +240,12 @@
               (point-max))))
     (wrap-until return 32)
     (funcall end-of-parameter-list)))
+
+;; Fancy compilation behavior:
+(require 'compile)
+
+(defadvice compile-goto-error
+    (after goto-error-single-window () activate)
+  (delete-other-windows))
+
+(global-set-key (kbd "M-z") 'zap-up-to-char)

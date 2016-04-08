@@ -58,6 +58,7 @@
 
 (require-package 'js2-mode)
 (require-package 'scala-mode2)
+(require-package 'sbt-mode)
 (require-package 'markdown-mode)
 (require-package 'json-mode)
 (require-package 'dockerfile-mode)
