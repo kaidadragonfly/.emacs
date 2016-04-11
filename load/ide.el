@@ -249,3 +249,9 @@
   (delete-other-windows))
 
 (global-set-key (kbd "M-z") 'zap-up-to-char)
+
+;; Exit without asking us about processes.
+(defadvice save-buffers-kill-emacs
+    (before save-buffers-kill-emacs-kill-procs () activate)
+  (dolist (proc (process-list))
+    (set-process-query-on-exit-flag proc nil)))

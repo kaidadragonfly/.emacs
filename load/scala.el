@@ -111,3 +111,9 @@ type or name."
 (defvar end-of-parameter-list)
 (setq end-of-parameter-list 'scala-end-of-parameter-list)
 (make-local-variable end-of-parameter-list)
+
+(add-hook
+ 'sbt-mode-hook
+ (lambda ()
+   (local-set-key (kbd "<f7>") 'compilation-previous-error)
+   (local-set-key (kbd "<f9>") 'compilation-next-error)))
