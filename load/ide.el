@@ -248,6 +248,7 @@
     (after goto-error-single-window () activate)
   (delete-other-windows))
 
+(require 'misc)
 (global-set-key (kbd "M-z") 'zap-up-to-char)
 
 ;; Exit without asking us about processes.
