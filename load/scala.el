@@ -11,7 +11,7 @@
             ;; Only check syntax on load and save
             (defvar flycheck-check-syntax-automatically)
             (setq-local flycheck-check-syntax-automatically
-                        '(save))
+                        '(mode-enabled save))
             ;; Disable "scala" checker.
             (defvar flycheck-disabled-checkers "flycheck.el")
             (setq flycheck-disabled-checkers
