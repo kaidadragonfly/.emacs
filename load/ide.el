@@ -249,7 +249,7 @@
   (delete-other-windows))
 
 (require 'misc)
-(global-set-key (kbd "M-z") 'zap-up-to-char)
+(global-set-key (kbd "M-Z") 'zap-up-to-char)
 
 ;; Exit without asking us about processes.
 (defadvice save-buffers-kill-emacs
