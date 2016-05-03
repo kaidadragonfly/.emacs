@@ -1,4 +1,4 @@
-(if (eq system-type 'darwin)
+(if (equal (getenv "TERM_PROGRAM") "iTerm.app")
     (progn
       ;; mouse integration
       (require 'mouse) ;; needed for iterm2 compatibility
