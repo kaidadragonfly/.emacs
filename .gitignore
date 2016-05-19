@@ -4,3 +4,5 @@ old
 tramp
 elpa
 *.elc
+places
+ido.last
