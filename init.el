@@ -130,6 +130,7 @@ Kills the old scratch buffer.  "
  '(sql-indent-offset 2)
  '(tls-checktrust t)
  '(web-mode-code-indent-offset 2)
+ '(web-mode-css-indent-offset 2)
  '(web-mode-markup-indent-offset 2)
  '(yaml-indent-offset 2))
 (custom-set-faces
