@@ -70,6 +70,7 @@
 (require-package 'scala-mode2)
 (require-package 'sql-indent)
 (require-package 'toml-mode)
+(require-package 'web-mode)
 (require-package 'yaml-mode)
 
 ;; This appears to have compilation errors.

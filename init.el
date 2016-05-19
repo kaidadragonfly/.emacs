@@ -93,6 +93,11 @@ Kills the old scratch buffer.  "
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
+ '(c-default-style
+   (quote
+    ((java-mode . "bsd")
+     (awk-mode . "awk")
+     (other . "gnu"))))
  '(case-fold-search t)
  '(confirm-kill-emacs nil)
  '(flycheck-checkers
@@ -124,6 +129,8 @@ Kills the old scratch buffer.  "
  '(scroll-bar-mode (quote right))
  '(sql-indent-offset 2)
  '(tls-checktrust t)
+ '(web-mode-code-indent-offset 2)
+ '(web-mode-markup-indent-offset 2)
  '(yaml-indent-offset 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -134,7 +141,8 @@ Kills the old scratch buffer.  "
  '(font-lock-function-name-face ((((class color) (min-colors 88) (background light)) (:foreground "blue"))))
  '(font-lock-keyword-face ((((class color) (min-colors 88) (background light)) (:foreground "magenta"))))
  '(font-lock-type-face ((((class color) (min-colors 88) (background light)) (:foreground "green"))))
- '(ido-subdir ((t (:foreground "brightblue")))))
+ '(ido-subdir ((t (:foreground "brightblue"))))
+ '(web-mode-html-tag-bracket-face ((t (:foreground "color-240")))))
 
 ;; Only use one window when opening multiple files.
 (add-hook 'emacs-startup-hook
