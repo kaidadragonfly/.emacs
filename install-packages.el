@@ -72,6 +72,8 @@
 (require-package 'toml-mode)
 (require-package 'web-mode)
 (require-package 'yaml-mode)
+(require-package 'rust-mode)
+(require-package 'flycheck-rust)
 
 ;; This appears to have compilation errors.
 ;; (require-package 'sbt-mode)
