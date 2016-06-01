@@ -70,6 +70,7 @@
 (require-package 'scala-mode2)
 (require-package 'sql-indent)
 (require-package 'toml-mode)
+(require-package 'web-mode)
 (require-package 'yaml-mode)
 (require-package 'rust-mode)
 (require-package 'flycheck-rust)
