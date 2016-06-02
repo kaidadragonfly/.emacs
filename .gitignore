@@ -6,3 +6,4 @@ elpa
 *.elc
 places
 ido.last
+.tags

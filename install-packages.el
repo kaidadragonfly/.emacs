@@ -46,8 +46,9 @@
 ;; 		    (lambda (retrieved) t)))))
 
 (setq package-archives
-      '(("gnu" . "https://elpa.gnu.org/packages/")
-	("melpa" . "https://melpa.org/packages/")))
+      '(("melpa-stable" . "https://stable.melpa.org/packages/")
+	("melpa" . "https://melpa.org/packages/")
+	("gnu" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
 
 (defun require-package (pkg)
@@ -61,19 +62,19 @@
 (require-package 'feature-mode)
 (require-package 'fill-column-indicator)
 (require-package 'flycheck)
+(require-package 'flycheck-rust)
 (require-package 'haskell-mode)
 (require-package 'iedit)
 (require-package 'js2-mode)
 (require-package 'json-mode)
 (require-package 'markdown-mode)
+(require-package 'rust-mode)
 (require-package 's)
-(require-package 'scala-mode2)
 (require-package 'sql-indent)
 (require-package 'toml-mode)
 (require-package 'web-mode)
 (require-package 'yaml-mode)
-(require-package 'rust-mode)
-(require-package 'flycheck-rust)
 
-;; This appears to have compilation errors.
+;; scala-mode2 appears to have disappeared from melpa.org
+(add-to-list 'load-path "~/.emacs.d/lib/scala-mode2")
 ;; (require-package 'sbt-mode)

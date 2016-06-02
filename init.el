@@ -4,6 +4,7 @@
 (load "~/.emacs.d/lib/legacy-compat.el")
 ;; Initialize packages.
 (load "~/.emacs.d/install-packages")
+(load "~/.emacs.d/ide")
 
 ;;----------------------------------------------------------------------------
 ;; Interface related items.
