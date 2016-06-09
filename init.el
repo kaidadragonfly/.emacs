@@ -108,6 +108,7 @@ Kills the old scratch buffer.  "
  '(flycheck-display-errors-delay 0.1)
  '(flycheck-idle-change-delay 1.0)
  '(flycheck-python-pylint-executable "epylint")
+ '(flycheck-shellcheck-excluded-warnings (quote ("1090" "1091" "2001" "2012" "2129")))
  '(global-flycheck-mode t nil (flycheck))
  '(initial-buffer-choice nil)
  '(ispell-highlight-face (quote flyspell-incorrect))
@@ -125,6 +126,7 @@ Kills the old scratch buffer.  "
  '(mode-line-format
    (quote
     ("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position "  " mode-line-modes mode-line-misc-info mode-line-end-spaces)))
+ '(ruby-deep-indent-paren nil)
  '(scala-indent:align-parameters t)
  '(scala-indent:default-run-on-strategy 1)
  '(scroll-bar-mode (quote right))

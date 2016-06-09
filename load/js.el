@@ -29,3 +29,9 @@
 (require 'flycheck)
 ;; use eslint with web-mode for jsx files
 (flycheck-add-mode 'javascript-eslint 'web-mode)
+
+(require 'web-mode)
+(defun web-mode-jsx ()
+    (interactive)
+  (web-mode)
+  (web-mode-set-content-type "jsx"))
