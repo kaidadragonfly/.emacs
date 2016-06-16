@@ -6,7 +6,7 @@
 
 (defun js-hook-fun ()
   ;; Activate auto-fill-mode.
-  (set-fill-column 80)
+  (set-fill-column 100)
   (auto-fill-mode t)
   ;; Enable Flyspell.
   (flyspell-prog-mode)
