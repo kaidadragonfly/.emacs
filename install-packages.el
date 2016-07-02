@@ -57,6 +57,7 @@
     (package-refresh-contents)
     (package-install pkg)))
 
+(require-package 'apples-mode)
 (require-package 'dockerfile-mode)
 (require-package 'elixir-mode)
 (require-package 'feature-mode)
@@ -70,6 +71,7 @@
 (require-package 'markdown-mode)
 (require-package 'rust-mode)
 (require-package 's)
+(require-package 'scss-mode)
 (require-package 'sql-indent)
 (require-package 'toml-mode)
 (require-package 'web-mode)
