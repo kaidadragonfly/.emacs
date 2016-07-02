@@ -132,9 +132,13 @@ Kills the old scratch buffer.  "
  '(scroll-bar-mode (quote right))
  '(sql-indent-offset 2)
  '(tls-checktrust t)
+ '(web-mode-attr-indent-offset 2)
+ '(web-mode-attr-value-indent-offset 2)
  '(web-mode-code-indent-offset 2)
  '(web-mode-css-indent-offset 2)
+ '(web-mode-enable-control-block-indentation nil)
  '(web-mode-markup-indent-offset 2)
+ '(web-mode-script-padding 0)
  '(yaml-indent-offset 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
