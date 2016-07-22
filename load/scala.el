@@ -30,27 +30,23 @@
 
 ;; Define a sbt checker!
 (require 'flycheck)
-(flycheck-define-checker sbt
-  "Checker for compilation with SBT"
-  :command ("esbt")
+(flycheck-define-checker scala-syncheck
+  "Checker for compilation with sbt and scalac"
+  :command ("scala-syncheck")
   :error-patterns
-  ((error line-start "[error] "
-          ;; Ignore column info for now, since scalastyle uses 0
-          ;; indexed columns, instead of one indexed, and it's
-          ;; non-trivial to work around.
-          (file-name) ":" line ":" (optional (one-or-more digit) ":") " "
+  ((error line-start
+          (file-name) ":" line ": error: "
           (message (zero-or-more not-newline)
                    (zero-or-more "\n" blank (zero-or-more not-newline)))
           line-end)
-   (warning line-start "[warn] "
-            (file-name) ":" line ":" (optional (one-or-more digit) ":") " "
+   (warning line-start
+            (file-name) ":" line ": warn: "
             (message (zero-or-more not-newline)
                      (zero-or-more "\n" blank (zero-or-more not-newline)))
             line-end))
   :modes scala-mode)
 
-(flycheck-add-next-checker 'sbt 'scala)
-
+(flycheck-add-next-checker 'scala-syncheck 'scala)
 
 ;; Rebuild tags on save.
 (declare-function rebuild-tags "ide.el")
