@@ -12,10 +12,6 @@
             (defvar flycheck-check-syntax-automatically)
             (setq-local flycheck-check-syntax-automatically
                         '(mode-enabled save))
-            ;; Disable "scala" checker.
-            (defvar flycheck-disabled-checkers "flycheck.el")
-            (setq flycheck-disabled-checkers
-                  (cons 'scala flycheck-disabled-checkers))
             ;; Show margin.
             (require 'fill-column-indicator)
             (declare-function fci-mode
@@ -28,7 +24,7 @@
                        (toggle-truncate-lines nil)))
             (add-hook (make-local-variable 'after-save-hook) 'rebuild-tags)))
 
-;; Define a sbt checker!
+;; Define a custom scala checker!
 (require 'flycheck)
 (flycheck-define-checker scala-syncheck
   "Checker for compilation with sbt and scalac"
@@ -47,6 +43,10 @@
   :modes scala-mode)
 
 (flycheck-add-next-checker 'scala-syncheck 'scala)
+
+;; Remove built in scala checkers.
+(add-to-list 'flycheck-disabled-checkers 'scala)
+(add-to-list 'flycheck-disabled-checkers 'scala-scalastyle)
 
 ;; Rebuild tags on save.
 (declare-function rebuild-tags "ide.el")
