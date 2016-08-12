@@ -150,6 +150,7 @@ Kills the old scratch buffer.  "
  '(font-lock-keyword-face ((((class color) (min-colors 88) (background light)) (:foreground "magenta"))))
  '(font-lock-type-face ((((class color) (min-colors 88) (background light)) (:foreground "green"))))
  '(ido-subdir ((t (:foreground "brightblue"))))
+ '(jdee-font-lock-package-face ((t (:foreground "blue"))))
  '(web-mode-html-tag-bracket-face ((t (:foreground "color-240")))))
 
 ;; Only use one window when opening multiple files.

@@ -1,5 +1,6 @@
 ;; Features to make emacs more competitive with IDEs.
 (require 'dabbrev)
+(require 'cc-mode)
 
 ;; Smart completion.
 (ido-mode t)
@@ -28,6 +29,8 @@
   "indent whole buffer"
   (interactive)
   (indent-region (point-min) (point-max) nil))
+
+
 
 ;; Smart indent region.
 (defun smart-indent-region ()

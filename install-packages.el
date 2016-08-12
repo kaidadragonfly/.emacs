@@ -66,11 +66,13 @@
 (require-package 'flycheck-rust)
 (require-package 'haskell-mode)
 (require-package 'iedit)
+(require-package 'jdee)
 (require-package 'js2-mode)
 (require-package 'json-mode)
 (require-package 'markdown-mode)
 (require-package 'rust-mode)
 (require-package 's)
+(require-package 'sbt-mode)
 (require-package 'scss-mode)
 (require-package 'sql-indent)
 (require-package 'toml-mode)
@@ -79,4 +81,4 @@
 
 ;; scala-mode2 appears to have disappeared from melpa.org
 (add-to-list 'load-path "~/.emacs.d/lib/scala-mode2")
-;; (require-package 'sbt-mode)
+
