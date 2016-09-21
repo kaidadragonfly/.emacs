@@ -2,14 +2,16 @@
     (progn
       ;; mouse integration
       (require 'mouse) ;; needed for iterm2 compatibility
+      (require 'mwheel)
+      
       (xterm-mouse-mode)
+      (defvar mouse-wheel-progressive-speed)
+      (setq mouse-wheel-progressive-speed nil)
+      (defvar mouse-wheel-scroll-amount)
+      (setq mouse-wheel-scroll-amount '(1))
 
-      (global-set-key (kbd "<mouse-4>") '(lambda ()
-                                           (interactive)
-                                           (scroll-down 1)))
-      (global-set-key (kbd "<mouse-5>") '(lambda ()
-                                           (interactive)
-                                           (scroll-up 1)))
+      (mouse-wheel-mode 1)
+      
       (declare-function cua-copy-region (arg) "cua-base.el")
       (defun smart-copy-region ()
         (interactive)
