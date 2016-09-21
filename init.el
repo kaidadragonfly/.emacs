@@ -101,6 +101,7 @@ Kills the old scratch buffer.  "
      (other . "gnu"))))
  '(case-fold-search t)
  '(confirm-kill-emacs nil)
+ '(css-indent-offset 2)
  '(flycheck-checkers
    (quote
     (scala-syncheck ada-gnat asciidoc c/c++-clang c/c++-gcc c/c++-cppcheck cfengine chef-foodcritic coffee coffee-coffeelint coq css-csslint d-dmd elixir emacs-lisp emacs-lisp-checkdoc erlang eruby-erubis fortran-gfortran go-gofmt go-golint go-vet go-build go-test go-errcheck haml handlebars haskell-ghc haskell-hlint html-tidy javascript-jshint javascript-eslint javascript-gjslint json-jsonlint less lua make perl perl-perlcritic php php-phpmd php-phpcs puppet-parser puppet-lint python-flake8 python-pylint racket rpm-rpmlint rst rst-sphinx ruby-rubocop ruby-rubylint ruby ruby-jruby rust-cargo sass scala scala-scalastyle scss sh-bash sh-posix-dash sh-posix-bash sh-zsh sh-shellcheck slim tex-chktex tex-lacheck texinfo verilog-verilator xml-xmlstarlet xml-xmllint yaml-jsyaml yaml-ruby)))
@@ -148,6 +149,7 @@ Kills the old scratch buffer.  "
  '(comint-highlight-prompt ((t (:foreground "white"))))
  '(font-lock-function-name-face ((((class color) (min-colors 88) (background light)) (:foreground "blue"))))
  '(font-lock-keyword-face ((((class color) (min-colors 88) (background light)) (:foreground "magenta"))))
+ '(font-lock-string-face ((t (:foreground "dark magenta"))))
  '(font-lock-type-face ((((class color) (min-colors 88) (background light)) (:foreground "green"))))
  '(ido-subdir ((t (:foreground "brightblue"))))
  '(jdee-font-lock-package-face ((t (:foreground "blue"))))
