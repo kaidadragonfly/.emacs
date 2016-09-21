@@ -42,7 +42,9 @@
             line-end))
   :modes scala-mode)
 
-(flycheck-add-next-checker 'scala-syncheck 'scala)
+;; Disabled for now until subprojects work properly.
+;; (flycheck-add-next-checker 'scala-syncheck 'scala)
+(add-to-list 'flycheck-disabled-checkers 'scala-syncheck)
 
 ;; Remove built in scala checkers.
 (add-to-list 'flycheck-disabled-checkers 'scala)
