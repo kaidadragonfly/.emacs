@@ -172,25 +172,9 @@
   (if (file-exists-p tags-file)
       (setq tags-file-name tags-file)))
 
-(declare-function find-tag-interactive "etags.el")
-(defun find-tag-case (tagname &optional next-p regexp-p)
-  (interactive (find-tag-interactive "Find tag: "))
-  (let ((tags-case-fold-search nil))
-    (find-tag tagname)))
-
 (require 'etags)
-(require 's)
-(defun smart-find-tag (tagname &optional next-p regexp-p)
-  (interactive (find-tag-interactive "Find tag: "))
-  (if (let ((case-fold-search nil))
-        (not (s-matches? "[[:upper:]]" tagname)))
-      (find-tag tagname next-p regexp-p)
-    (find-tag-case tagname next-p regexp-p)))
-
-(global-set-key (kbd "M-.") 'smart-find-tag)
-(global-set-key (kbd "C-c M-.") 'find-tag-case)
-
 (setq tags-revert-without-query 1)
+
 (defun rebuild-tags ()
   (start-process "rebuild-tags" nil "rebuild-tags"))
 
@@ -259,3 +243,5 @@
     (before save-buffers-kill-emacs-kill-procs () activate)
   (dolist (proc (process-list))
     (set-process-query-on-exit-flag proc nil)))
+
+(global-company-mode)
