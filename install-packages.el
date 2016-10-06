@@ -57,6 +57,7 @@
     (package-refresh-contents)
     (package-install pkg)))
 
+(require-package 'alchemist)
 (require-package 'apples-mode)
 (require-package 'dockerfile-mode)
 (require-package 'elixir-mode)
