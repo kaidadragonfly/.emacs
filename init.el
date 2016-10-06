@@ -127,6 +127,9 @@ Kills the old scratch buffer.  "
  '(mode-line-format
    (quote
     ("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position "  " mode-line-modes mode-line-misc-info mode-line-end-spaces)))
+ '(package-selected-packages
+   (quote
+    (alchemist yaml-mode web-mode toml-mode sql-indent scss-mode scala-mode2 sbt-mode s rust-mode projectile markdown-mode json-mode js2-mode jdee iedit haskell-mode flycheck-rust fill-column-indicator feature-mode etags-select elixir-mode dockerfile-mode company apples-mode)))
  '(ruby-deep-indent-paren nil)
  '(scala-indent:align-parameters t)
  '(scala-indent:default-run-on-strategy 1)
@@ -147,12 +150,17 @@ Kills the old scratch buffer.  "
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(comint-highlight-prompt ((t (:foreground "white"))))
- '(font-lock-function-name-face ((((class color) (min-colors 88) (background light)) (:foreground "blue"))))
- '(font-lock-keyword-face ((((class color) (min-colors 88) (background light)) (:foreground "magenta"))))
- '(font-lock-string-face ((t (:foreground "dark magenta"))))
+ '(font-lock-builtin-face ((t (:foreground "brightblack"))))
+ '(font-lock-comment-face ((t (:foreground "red"))))
+ '(font-lock-constant-face ((t (:foreground "blue"))))
+ '(font-lock-function-name-face ((t (:foreground "cyan"))))
+ '(font-lock-keyword-face ((t (:foreground "magenta" :weight bold))))
+ '(font-lock-string-face ((t (:foreground "color-105"))))
  '(font-lock-type-face ((((class color) (min-colors 88) (background light)) (:foreground "green"))))
+ '(font-lock-variable-name-face ((t (:foreground "dark orange"))))
  '(ido-subdir ((t (:foreground "brightblue"))))
  '(jdee-font-lock-package-face ((t (:foreground "blue"))))
+ '(minibuffer-prompt ((t (:foreground "blue"))))
  '(web-mode-html-tag-bracket-face ((t (:foreground "color-240")))))
 
 ;; Only use one window when opening multiple files.
