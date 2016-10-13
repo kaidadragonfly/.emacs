@@ -64,6 +64,7 @@
 (require-package 'feature-mode)
 (require-package 'fill-column-indicator)
 (require-package 'flycheck)
+(require-package 'flycheck-mix)
 (require-package 'flycheck-rust)
 (require-package 'haskell-mode)
 (require-package 'iedit)

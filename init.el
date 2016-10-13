@@ -150,6 +150,7 @@ Kills the old scratch buffer.  "
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(comint-highlight-prompt ((t (:foreground "white"))))
+ '(elixir-atom-face ((t (:foreground "blue"))))
  '(font-lock-builtin-face ((t (:foreground "brightblack"))))
  '(font-lock-comment-face ((t (:foreground "red"))))
  '(font-lock-constant-face ((t (:foreground "blue"))))
@@ -161,6 +162,7 @@ Kills the old scratch buffer.  "
  '(ido-subdir ((t (:foreground "brightblue"))))
  '(jdee-font-lock-package-face ((t (:foreground "blue"))))
  '(minibuffer-prompt ((t (:foreground "blue"))))
+ '(warning ((t (:foreground "brightred" :weight bold))))
  '(web-mode-html-tag-bracket-face ((t (:foreground "color-240")))))
 
 ;; Only use one window when opening multiple files.
