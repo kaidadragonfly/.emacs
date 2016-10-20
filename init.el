@@ -45,7 +45,7 @@
 (setq vc-follow-symlinks t)
 ;; Save file location between runs.
 (require 'saveplace)
-(if (fboundp #'save-place-mode)
+(if (fboundp 'save-place-mode)
   (save-place-mode +1)
   (setq-default save-place t))
 
