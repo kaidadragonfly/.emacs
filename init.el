@@ -45,7 +45,9 @@
 (setq vc-follow-symlinks t)
 ;; Save file location between runs.
 (require 'saveplace)
-(setq-default save-place t)
+(if (fboundp #'save-place-mode)
+  (save-place-mode +1)
+  (setq-default save-place t))
 
 ;;-----------------------------------------------------------------------------
 ;; Workarounds.
@@ -151,6 +153,7 @@ Kills the old scratch buffer.  "
  ;; If there is more than one, they won't work right.
  '(comint-highlight-prompt ((t (:foreground "white"))))
  '(elixir-atom-face ((t (:foreground "blue"))))
+ '(elixir-attribute-face ((t (:foreground "magenta"))))
  '(font-lock-builtin-face ((t (:foreground "brightblack"))))
  '(font-lock-comment-face ((t (:foreground "red"))))
  '(font-lock-constant-face ((t (:foreground "blue"))))
