@@ -10,8 +10,8 @@
    (abbrev-mode 0)
    ;; Allow movement between subwords.
    (subword-mode 1)
-   (let ((entry (assq 'subword-mode minor-mode-alist)))
-     (when entry (setcdr entry '(nil))))
+   (require 'diminish)
+   (diminish 'subword-mode)
    ;; Bind compile to F5.
    (local-set-key (kbd "<f5>") 'compile)
    ;; And to C-cC-c

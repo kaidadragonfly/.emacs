@@ -10,8 +10,8 @@
    (auto-fill-mode 1)
    ;; Allow movement between subwords.
    (subword-mode 1)
-   (let ((entry (assq 'subword-mode minor-mode-alist)))
-     (when entry (setcdr entry '(nil))))
+   (require 'diminish)
+   (diminish 'subword-mode)
    ;; Activate flyspell-prog-mode.
    (flyspell-prog-mode)
    ;; Make newline automatically indent the next line.

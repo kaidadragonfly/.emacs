@@ -245,3 +245,5 @@
     (set-process-query-on-exit-flag proc nil)))
 
 (global-company-mode)
+(require 'diminish)
+(diminish 'company-mode)

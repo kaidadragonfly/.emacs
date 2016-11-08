@@ -14,8 +14,8 @@
   (add-hook 'before-save-hook 'whitespace-cleanup)
   ;; Allow movement between subwords.
   (subword-mode 1)
-  (let ((entry (assq 'subword-mode minor-mode-alist)))
-    (when entry (setcdr entry '(nil)))))
+  (require 'diminish)
+  (diminish 'subword-mode))
 
 (require 'web-mode)
 (add-hook 'js-mode-hook 'js-hook-fun)

@@ -59,6 +59,7 @@
 
 (require-package 'alchemist)
 (require-package 'apples-mode)
+(require-package 'diminish)
 (require-package 'dockerfile-mode)
 (require-package 'elixir-mode)
 (require-package 'feature-mode)
