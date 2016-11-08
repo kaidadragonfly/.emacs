@@ -145,6 +145,7 @@ Kills the old scratch buffer.  "
  '(web-mode-enable-control-block-indentation nil)
  '(web-mode-markup-indent-offset 2)
  '(web-mode-script-padding 0)
+ '(xref-prompt-for-identifier t)
  '(yaml-indent-offset 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -190,3 +191,5 @@ Kills the old scratch buffer.  "
 ;; --run-together-limit is maximum number of words that can be
 ;; strung together.
 (setq ispell-extra-args '("-C" "--sug-mode=ultra" "--run-together-limit=5"))
+;; Disable eldoc (it interferes with flycheck)
+(global-eldoc-mode 0)

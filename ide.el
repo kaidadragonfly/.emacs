@@ -247,3 +247,12 @@
 (global-company-mode)
 (require 'diminish)
 (diminish 'company-mode)
+
+(defun xref-goto-xref-close ()
+  "Go to the xref then close the window!"
+  (interactive)
+  (xref-goto-xref)
+  (delete-other-windows))
+
+;; Make xref-goto-ref close window on jump.
+(define-key xref--button-map (kbd "RET") 'xref-goto-xref-close)
