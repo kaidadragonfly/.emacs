@@ -1,3 +1,5 @@
+(package-initialize)
+
 ;; Load custom elisp files.
 (add-to-list 'load-path "~/.emacs.d/lib")
 ;; Load legacy compatability.
@@ -106,7 +108,7 @@ Kills the old scratch buffer.  "
  '(css-indent-offset 2)
  '(flycheck-checkers
    (quote
-    (scala-syncheck ada-gnat asciidoc c/c++-clang c/c++-gcc c/c++-cppcheck cfengine chef-foodcritic coffee coffee-coffeelint coq css-csslint d-dmd elixir emacs-lisp emacs-lisp-checkdoc erlang eruby-erubis fortran-gfortran go-gofmt go-golint go-vet go-build go-test go-errcheck haml handlebars haskell-ghc haskell-hlint html-tidy javascript-jshint javascript-eslint javascript-gjslint json-jsonlint less lua make perl perl-perlcritic php php-phpmd php-phpcs puppet-parser puppet-lint python-flake8 python-pylint racket rpm-rpmlint rst rst-sphinx ruby-rubocop ruby-rubylint ruby ruby-jruby rust-cargo sass scala scala-scalastyle scss sh-bash sh-posix-dash sh-posix-bash sh-zsh sh-shellcheck slim tex-chktex tex-lacheck texinfo verilog-verilator xml-xmlstarlet xml-xmllint yaml-jsyaml yaml-ruby)))
+    (ada-gnat asciidoc c/c++-clang c/c++-gcc c/c++-cppcheck cfengine chef-foodcritic coffee coffee-coffeelint coq css-csslint d-dmd elixir emacs-lisp emacs-lisp-checkdoc erlang eruby-erubis fortran-gfortran go-gofmt go-golint go-vet go-build go-test go-errcheck haml handlebars haskell-ghc haskell-hlint html-tidy javascript-jshint javascript-eslint javascript-gjslint json-jsonlint less lua make perl perl-perlcritic php php-phpmd php-phpcs puppet-parser puppet-lint python-flake8 python-pylint racket rpm-rpmlint rst rst-sphinx ruby-rubocop ruby-rubylint ruby ruby-jruby rust-cargo sass scala scala-scalastyle scss sh-bash sh-posix-dash sh-posix-bash sh-zsh sh-shellcheck slim tex-chktex tex-lacheck texinfo verilog-verilator xml-xmlstarlet xml-xmllint yaml-jsyaml yaml-ruby)))
  '(flycheck-disabled-checkers (quote (emacs-lisp-checkdoc)))
  '(flycheck-display-errors-delay 0.1)
  '(flycheck-idle-change-delay 1.0)
@@ -132,6 +134,9 @@ Kills the old scratch buffer.  "
  '(package-selected-packages
    (quote
     (alchemist yaml-mode web-mode toml-mode sql-indent scss-mode scala-mode2 sbt-mode s rust-mode projectile markdown-mode json-mode js2-mode jdee iedit haskell-mode flycheck-rust fill-column-indicator feature-mode etags-select elixir-mode dockerfile-mode company apples-mode)))
+ '(paren-face-modes
+   (quote
+    (lisp-mode emacs-lisp-mode lisp-interaction-mode ielm-mode scheme-mode inferior-scheme-mode clojure-mode cider-repl-mode nrepl-mode arc-mode inferior-arc-mode elixir-mode)))
  '(ruby-deep-indent-paren nil)
  '(scala-indent:align-parameters t)
  '(scala-indent:default-run-on-strategy 1)
@@ -166,6 +171,7 @@ Kills the old scratch buffer.  "
  '(ido-subdir ((t (:foreground "brightblue"))))
  '(jdee-font-lock-package-face ((t (:foreground "blue"))))
  '(minibuffer-prompt ((t (:foreground "blue"))))
+ '(parenthesis ((t (:foreground "brightblack"))))
  '(warning ((t (:foreground "brightred" :weight bold))))
  '(web-mode-html-tag-bracket-face ((t (:foreground "color-240")))))
 
@@ -191,5 +197,7 @@ Kills the old scratch buffer.  "
 ;; --run-together-limit is maximum number of words that can be
 ;; strung together.
 (setq ispell-extra-args '("-C" "--sug-mode=ultra" "--run-together-limit=5"))
-;; Disable eldoc (it interferes with flycheck)
+;; Disable eldoc (it interferes with flycheck).
 (global-eldoc-mode 0)
+;; Load paren-face-mode.
+(global-paren-face-mode 1)

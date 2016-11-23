@@ -49,7 +49,6 @@
       '(("melpa-stable" . "https://stable.melpa.org/packages/")
 	("melpa" . "https://melpa.org/packages/")
 	("gnu" . "https://elpa.gnu.org/packages/")))
-(package-initialize)
 
 (defun require-package (pkg)
   "Guarantee that `pkg` is installed."
@@ -73,6 +72,7 @@
 (require-package 'js2-mode)
 (require-package 'json-mode)
 (require-package 'markdown-mode)
+(require-package 'paren-face)
 (require-package 'rust-mode)
 (require-package 's)
 (require-package 'sbt-mode)

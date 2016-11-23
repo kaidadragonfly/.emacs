@@ -14,4 +14,7 @@
    ;; Disable foodcritic, because our chef files are sad.
    (defvar flycheck-disabled-checkers "flycheck.el")
    (setq flycheck-disabled-checkers
-         (cons 'chef-foodcritic flycheck-disabled-checkers))))
+         (cons 'chef-foodcritic flycheck-disabled-checkers))
+   ;; Make do/end less prominent.
+   (defvar paren-face-regexp)
+   (setq-local paren-face-regexp "do\\|end")))

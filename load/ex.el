@@ -3,4 +3,7 @@
  (lambda ()
    (alchemist-mode t)
    (require 'flycheck-mix)
-   (flycheck-mix-setup)))
+   (flycheck-mix-setup)
+   ;; Make do/end less prominent.
+   (defvar paren-face-regexp)
+   (setq-local paren-face-regexp "do\\|end")))
