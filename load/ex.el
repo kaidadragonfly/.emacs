@@ -6,4 +6,4 @@
    (flycheck-mix-setup)
    ;; Make do/end less prominent.
    (defvar paren-face-regexp)
-   (setq-local paren-face-regexp "do\\|end")))
+   (setq-local paren-face-regexp "\\(^\\|[[:space:]]\\)\\(do\\|end\\)\\b")))
