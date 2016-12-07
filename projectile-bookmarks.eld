@@ -1,0 +1,1 @@
+("~/.emacs.d/" "~/Developer/Socrata/dsmapi/" "~/Developer/Socrata/frontend/" "~/Developer/Socrata/cheetah/")

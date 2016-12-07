@@ -137,12 +137,22 @@ Kills the old scratch buffer.  "
  '(paren-face-modes
    (quote
     (lisp-mode emacs-lisp-mode lisp-interaction-mode ielm-mode scheme-mode inferior-scheme-mode clojure-mode cider-repl-mode nrepl-mode arc-mode inferior-arc-mode elixir-mode ruby-mode)))
+ '(projectile-mode t nil (projectile))
+ '(projectile-mode-line
+   (quote
+    (:eval
+     (if
+         (file-remote-p default-directory)
+         " Projectile"
+       (format " [%s]"
+               (projectile-project-name))))))
  '(ruby-deep-indent-paren nil)
  '(scala-indent:align-parameters t)
  '(scala-indent:default-run-on-strategy 1)
  '(scroll-bar-mode (quote right))
  '(sql-indent-offset 2)
  '(tls-checktrust t)
+ '(vc-follow-symlinks t)
  '(web-mode-attr-indent-offset 2)
  '(web-mode-attr-value-indent-offset 2)
  '(web-mode-code-indent-offset 2)
@@ -158,6 +168,8 @@ Kills the old scratch buffer.  "
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(comint-highlight-prompt ((t (:foreground "white"))))
+ '(custom-group-tag ((t (:inherit variable-pitch :foreground "blue" :weight bold :height 1.2))))
+ '(custom-variable-tag ((t (:foreground "blue" :weight bold))))
  '(elixir-atom-face ((t (:foreground "blue"))))
  '(elixir-attribute-face ((t (:foreground "magenta"))))
  '(font-lock-builtin-face ((t (:foreground "brightblack"))))
@@ -171,7 +183,7 @@ Kills the old scratch buffer.  "
  '(ido-subdir ((t (:foreground "brightblue"))))
  '(jdee-font-lock-package-face ((t (:foreground "blue"))))
  '(minibuffer-prompt ((t (:foreground "blue"))))
- '(parenthesis ((t (:foreground "brightblack"))))
+ '(parenthesis ((t (:foreground "black"))))
  '(warning ((t (:foreground "brightred" :weight bold))))
  '(web-mode-html-tag-bracket-face ((t (:foreground "color-240")))))
 

@@ -256,3 +256,7 @@
 
 ;; Make xref-goto-ref close window on jump.
 (define-key xref--button-map (kbd "RET") 'xref-goto-xref-close)
+
+;; Set up projectile.
+(require 'projectile)
+(global-set-key (kbd "<f6>") 'projectile-find-file)
