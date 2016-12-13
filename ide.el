@@ -91,9 +91,6 @@
                     (dabbrev-expand nil)
                     (indent-for-tab-command)))))
         (indent-for-tab-command)))))
-;; Make dabbrev-replace case insensitive.
-;; insensitive.
-(setq dabbrev-case-replace nil)
 ;; Replace dabbrev-expand with hippie-expand.
 (global-set-key (kbd "M-/") 'hippie-expand)
 ;; Bind to tab.
@@ -245,6 +242,7 @@
     (set-process-query-on-exit-flag proc nil)))
 
 (global-company-mode)
+
 (require 'diminish)
 (diminish 'company-mode)
 

@@ -104,6 +104,8 @@ Kills the old scratch buffer.  "
      (awk-mode . "awk")
      (other . "gnu"))))
  '(case-fold-search t)
+ '(company-dabbrev-downcase nil)
+ '(company-dabbrev-ignore-case nil)
  '(confirm-kill-emacs nil)
  '(css-indent-offset 2)
  '(flycheck-checkers
