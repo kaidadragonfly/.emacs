@@ -13,3 +13,8 @@
     (modify-syntax-entry ?\[ "(]" syntax-table)
     (modify-syntax-entry ?\] ")[" syntax-table)
     syntax-table))
+
+(add-hook
+ 'yaml-mode-hook
+ (lambda ()
+   (auto-fill-mode 0)))
