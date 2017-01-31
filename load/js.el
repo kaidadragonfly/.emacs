@@ -12,6 +12,8 @@
   (flyspell-prog-mode)
   ;; Clean whitespace on save.
   (add-hook 'before-save-hook 'whitespace-cleanup)
+  ;; Rebuild tags on save.
+  (add-hook (make-local-variable 'after-save-hook) 'rebuild-tags)
   ;; Allow movement between subwords.
   (subword-mode 1)
   (require 'diminish)
