@@ -245,6 +245,7 @@
 
 (require 'diminish)
 (diminish 'company-mode)
+(diminish 'projectile-mode)
 
 (defun xref-goto-xref-close ()
   "Go to the xref then close the window!"
