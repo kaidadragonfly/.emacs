@@ -243,10 +243,6 @@
 
 (global-company-mode)
 
-(require 'diminish)
-(diminish 'company-mode)
-(diminish 'projectile-mode)
-
 (defun xref-goto-xref-close ()
   "Go to the xref then close the window!"
   (interactive)
@@ -259,3 +255,7 @@
 ;; Set up projectile.
 (require 'projectile)
 (global-set-key (kbd "<f6>") 'projectile-find-file)
+
+(require 'diminish)
+(diminish 'company-mode)
+(diminish 'projectile-mode)
