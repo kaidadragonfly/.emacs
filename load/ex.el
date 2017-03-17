@@ -11,6 +11,8 @@
    (flycheck-mix-setup)
    ;; Bind alchemist-help-search-at-point to F1
    (local-set-key (kbd "<f1>") 'alchemist-help-search-at-point)
+   ;; Clean up whitespace on save.
+   (add-hook 'before-save-hook 'whitespace-cleanup)
    ;; Make do/end less prominent.
    (defvar paren-face-regexp)
    (setq-local paren-face-regexp "\\(^\\|[[:space:]]\\)\\(do\\|end\\)\\b")))
