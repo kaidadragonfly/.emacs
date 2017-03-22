@@ -185,7 +185,7 @@ Kills the old scratch buffer.  "
  '(ido-subdir ((t (:foreground "brightblue"))))
  '(jdee-font-lock-package-face ((t (:foreground "blue"))))
  '(minibuffer-prompt ((t (:foreground "blue"))))
- '(parenthesis ((t (:foreground "black"))))
+ '(parenthesis ((t (:foreground "white"))))
  '(warning ((t (:foreground "brightred" :weight bold))))
  '(web-mode-html-tag-bracket-face ((t (:foreground "color-240")))))
 
