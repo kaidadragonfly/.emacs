@@ -15,4 +15,5 @@
    (add-hook 'before-save-hook 'whitespace-cleanup)
    ;; Make do/end less prominent.
    (defvar paren-face-regexp)
-   (setq-local paren-face-regexp "\\(^\\|[[:space:]]\\)\\(do\\|end\\)\\b")))
+   (setq-local paren-face-regexp
+               (rx symbol-start (or "do" "end") symbol-end))))
