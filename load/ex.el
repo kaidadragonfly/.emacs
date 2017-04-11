@@ -11,9 +11,16 @@
    (flycheck-mix-setup)
    ;; Bind alchemist-help-search-at-point to F1
    (local-set-key (kbd "<f1>") 'alchemist-help-search-at-point)
+   ;; Bind M-. and M-/
+   (defvar alchemist-mode-map)
+   (define-key alchemist-mode-map (kbd "M-.") 'xref-find-definitions)
    ;; Clean up whitespace on save.
    (add-hook 'before-save-hook 'whitespace-cleanup)
+   ;; Rebuild tags after save.
+   (add-hook (make-local-variable 'after-save-hook) 'rebuild-tags)
    ;; Make do/end less prominent.
    (defvar paren-face-regexp)
    (setq-local paren-face-regexp
                (rx symbol-start (or "do" "end") symbol-end))))
+
+
