@@ -66,6 +66,7 @@
 (require-package 'flycheck)
 (require-package 'flycheck-mix)
 (require-package 'flycheck-rust)
+(require-package 'git-commit)
 (require-package 'haskell-mode)
 (require-package 'iedit)
 (require-package 'jdee)

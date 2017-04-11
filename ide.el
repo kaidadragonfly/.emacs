@@ -2,6 +2,9 @@
 (require 'dabbrev)
 (require 'cc-mode)
 
+;; Handle git commits nicely.
+(require 'git-commit)
+
 ;; Smart completion.
 (ido-mode t)
 
