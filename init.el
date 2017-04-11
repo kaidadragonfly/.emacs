@@ -186,6 +186,11 @@ Kills the old scratch buffer.  "
  '(jdee-font-lock-package-face ((t (:foreground "blue"))))
  '(minibuffer-prompt ((t (:foreground "blue"))))
  '(parenthesis ((t (:foreground "black"))))
+ '(smerge-markers ((t (:background "white" :foreground "black"))))
+ '(smerge-mine ((t (:background "#660000"))))
+ '(smerge-other ((t (:background "#336633"))))
+ '(smerge-refined-added ((t (:inherit smerge-refined-change :background "color-22"))))
+ '(smerge-refined-removed ((t (:inherit smerge-refined-change :background "color-88"))))
  '(warning ((t (:foreground "brightred" :weight bold))))
  '(web-mode-html-tag-bracket-face ((t (:foreground "color-240")))))
 
