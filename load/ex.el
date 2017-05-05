@@ -18,6 +18,10 @@
    (add-hook 'before-save-hook 'whitespace-cleanup)
    ;; Rebuild tags after save.
    (add-hook (make-local-variable 'after-save-hook) 'rebuild-tags)
+   ;; Allow movement between subwords.
+   (subword-mode 1)
+   (require 'diminish)
+   (diminish 'subword-mode)
    ;; Make do/end less prominent.
    (defvar paren-face-regexp)
    (setq-local paren-face-regexp
