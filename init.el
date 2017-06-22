@@ -114,7 +114,7 @@ Kills the old scratch buffer.  "
  '(flycheck-disabled-checkers (quote (emacs-lisp-checkdoc)))
  '(flycheck-display-errors-delay 0.1)
  '(flycheck-idle-change-delay 1.0)
- '(flycheck-python-pylint-executable "epylint")
+ '(flycheck-python-pylint-executable nil)
  '(flycheck-shellcheck-excluded-warnings (quote ("1090" "1091" "2001" "2012" "2129")))
  '(global-flycheck-mode t nil (flycheck))
  '(initial-buffer-choice nil)
