@@ -16,6 +16,8 @@
 ;; Make line numbers have a space after them.
 (defvar linum-format)
 (setq linum-format "%3d ")
+;; Disable `electric-indent-mode`
+(electric-indent-mode 0)
 ;; Highlight parenthesis.
 (show-paren-mode 1)
 ;; Get rid of the initially useful, but ultimately annoying splash screen.
