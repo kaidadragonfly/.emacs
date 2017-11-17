@@ -69,7 +69,6 @@
 (require-package 'git-commit)
 (require-package 'haskell-mode)
 (require-package 'iedit)
-(require-package 'jdee)
 (require-package 'js2-mode)
 (require-package 'json-mode)
 (require-package 'markdown-mode)

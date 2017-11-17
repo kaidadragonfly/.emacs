@@ -137,7 +137,7 @@ Kills the old scratch buffer.  "
     ("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position "  " mode-line-modes mode-line-misc-info mode-line-end-spaces)))
  '(package-selected-packages
    (quote
-    (alchemist yaml-mode web-mode toml-mode sql-indent scss-mode scala-mode2 sbt-mode s rust-mode projectile markdown-mode json-mode js2-mode jdee iedit haskell-mode flycheck-rust fill-column-indicator feature-mode etags-select elixir-mode dockerfile-mode company apples-mode)))
+    (alchemist yaml-mode web-mode toml-mode sql-indent scss-mode scala-mode2 sbt-mode s rust-mode projectile markdown-mode json-mode js2-mode iedit haskell-mode flycheck-rust fill-column-indicator feature-mode etags-select elixir-mode dockerfile-mode company apples-mode)))
  '(paren-face-modes
    (quote
     (lisp-mode emacs-lisp-mode lisp-interaction-mode ielm-mode scheme-mode inferior-scheme-mode clojure-mode cider-repl-mode nrepl-mode arc-mode inferior-arc-mode elixir-mode ruby-mode)))
@@ -185,7 +185,6 @@ Kills the old scratch buffer.  "
  '(font-lock-type-face ((((class color) (min-colors 88) (background light)) (:foreground "green"))))
  '(font-lock-variable-name-face ((t (:foreground "dark orange"))))
  '(ido-subdir ((t (:foreground "brightblue"))))
- '(jdee-font-lock-package-face ((t (:foreground "blue"))))
  '(minibuffer-prompt ((t (:foreground "blue"))))
  '(parenthesis ((t (:foreground "black"))))
  '(smerge-markers ((t (:background "white" :foreground "black"))))
