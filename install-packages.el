@@ -59,7 +59,6 @@
 (require-package 'alchemist)
 (require-package 'apples-mode)
 (require-package 'diminish)
-(require-package 'dockerfile-mode)
 (require-package 'elixir-mode)
 (require-package 'feature-mode)
 (require-package 'fill-column-indicator)
@@ -76,13 +75,17 @@
 (require-package 'projectile)
 (require-package 'rust-mode)
 (require-package 's)
-(require-package 'sbt-mode)
-(require-package 'scss-mode)
 (require-package 'sql-indent)
-(require-package 'toml-mode)
-(require-package 'web-mode)
-(require-package 'yaml-mode)
+
+
+;;; Packages installed for Socrata that I probably won't use on my own.
+
+;; (require-package 'dockerfile-mode)
+;; (require-package 'sbt-mode)
+;; (require-package 'scss-mode)
+;; (require-package 'web-mode)
+;; (require-package 'yaml-mode)
+;; (require-package 'toml-mode)
 
 ;; scala-mode2 appears to have disappeared from melpa.org
-(add-to-list 'load-path "~/.emacs.d/lib/scala-mode2")
-
+;; (add-to-list 'load-path "~/.emacs.d/lib/scala-mode2")
