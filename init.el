@@ -1,5 +1,12 @@
 (package-initialize)
 
+(defvar default-gc-threshold)
+(setq default-gc-threshold gc-cons-threshold)
+
+;; Make startup faster by reducing the frequency of garbage
+;; collection.  The default is 800 kilobytes.  Measured in bytes.
+(setq gc-cons-threshold (* 64 1024 1024))
+
 ;; Load custom elisp files.
 (add-to-list 'load-path "~/.emacs.d/lib")
 ;; Load legacy compatability.
@@ -23,7 +30,7 @@
 ;; Get rid of the initially useful, but ultimately annoying splash screen.
 (setq inhibit-startup-message t)
 ;; Give buffers unique names.
-(require 'uniquify)
+(eval-when-compile (require 'uniquify))
 (setq uniquify-buffer-name-style 'forward)
 ;; Remove menu bar in text-mode.
 (when (and (fboundp 'window-system) (not (window-system))) (menu-bar-mode 0))
@@ -48,7 +55,7 @@
 ;; Follow version control links.
 (setq vc-follow-symlinks t)
 ;; Save file location between runs.
-(require 'saveplace)
+(eval-when-compile (require 'saveplace))
 (if (fboundp 'save-place-mode)
   (save-place-mode +1)
   (setq-default save-place t))
@@ -224,3 +231,16 @@ Kills the old scratch buffer.  "
 (global-eldoc-mode 0)
 ;; Load paren-face-mode.
 (global-paren-face-mode 1)
+
+;; Use a hook so the message doesn't get clobbered by other messages.
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (message "Emacs ready in %s with %d garbage collections."
+                     (format "%.2f seconds"
+                             (float-time
+                              (time-subtract after-init-time before-init-time)))
+                     gcs-done)))
+
+;; Make gc pauses faster by decreasing the threshold.
+(setq gc-cons-threshold default-gc-threshold)
+

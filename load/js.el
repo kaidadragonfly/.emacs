@@ -16,7 +16,7 @@
   (add-hook (make-local-variable 'after-save-hook) 'rebuild-tags)
   ;; Allow movement between subwords.
   (subword-mode 1)
-  (require 'diminish)
+  (eval-when-compile (require 'diminish))
   (diminish 'subword-mode))
 
 (add-hook

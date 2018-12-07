@@ -1,9 +1,9 @@
 ;; Features to make emacs more competitive with IDEs.
 (require 'dabbrev)
-(require 'cc-mode)
+(eval-when-compile (require 'cc-mode))
 
 ;; Handle git commits nicely.
-(require 'git-commit)
+(eval-when-compile (require 'git-commit))
 
 ;; Smart completion.
 (ido-mode t)
@@ -172,7 +172,7 @@
   (if (file-exists-p tags-file)
       (setq tags-file-name tags-file)))
 
-(require 'etags)
+(eval-when-compile (require 'etags))
 (setq tags-revert-without-query 1)
 
 (defun rebuild-tags ()
@@ -229,13 +229,13 @@
     (funcall end-of-parameter-list)))
 
 ;; Fancy compilation behavior:
-(require 'compile)
+(eval-when-compile (require 'compile))
 
 (defadvice compile-goto-error
     (after goto-error-single-window () activate)
   (delete-other-windows))
 
-(require 'misc)
+(eval-when-compile (require 'misc))
 (global-set-key (kbd "M-Z") 'zap-up-to-char)
 
 ;; Exit without asking us about processes.
@@ -246,6 +246,7 @@
 
 (global-company-mode)
 
+(require 'xref)
 (defun xref-goto-xref-close ()
   "Go to the xref then close the window!"
   (interactive)
@@ -256,9 +257,9 @@
 (define-key xref--button-map (kbd "RET") 'xref-goto-xref-close)
 
 ;; Set up projectile.
-(require 'projectile)
+(eval-when-compile (require 'projectile))
 (global-set-key (kbd "<f6>") 'projectile-find-file)
 
-(require 'diminish)
+(eval-when-compile (require 'diminish))
 (diminish 'company-mode)
 (diminish 'projectile-mode)

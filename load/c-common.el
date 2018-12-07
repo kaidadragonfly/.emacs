@@ -10,7 +10,7 @@
    (abbrev-mode 0)
    ;; Allow movement between subwords.
    (subword-mode 1)
-   (require 'diminish)
+   (eval-when-compile (require 'diminish))
    (diminish 'subword-mode)
    ;; Bind compile to F5.
    (local-set-key (kbd "<f5>") 'compile)

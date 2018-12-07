@@ -10,7 +10,7 @@
    (auto-fill-mode 1)
    ;; Allow movement between subwords.
    (subword-mode 1)
-   (require 'diminish)
+   (eval-when-compile (require 'diminish))
    (diminish 'subword-mode)
    ;; Activate flyspell-prog-mode.
    (flyspell-prog-mode)

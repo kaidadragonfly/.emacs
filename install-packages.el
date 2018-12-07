@@ -56,7 +56,7 @@
     (package-refresh-contents)
     (package-install pkg)))
 
-(require-package 'alchemist)
+;; (require-package 'alchemist)
 (require-package 'apples-mode)
 (require-package 'diminish)
 (require-package 'elixir-mode)
