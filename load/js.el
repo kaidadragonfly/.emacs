@@ -19,13 +19,6 @@
   (require 'diminish)
   (diminish 'subword-mode))
 
-(require 'web-mode)
-(add-hook 'js-mode-hook 'js-hook-fun)
-(add-hook 'js2-mode-hook 'js-hook-fun)
-(add-hook 'web-mode-hook 'js-hook-fun)
-(add-hook 'web-mode-hook (lambda ()
-                           (web-mode-set-content-type "jsx")))
-
 (add-hook
  'js2-mode-hook
  (lambda ()

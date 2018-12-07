@@ -77,16 +77,3 @@
 (require-package 'rust-mode)
 (require-package 's)
 (require-package 'sql-indent)
-
-
-;;; Packages installed for Socrata that I probably won't use on my own.
-
-;; (require-package 'dockerfile-mode)
-;; (require-package 'sbt-mode)
-;; (require-package 'scss-mode)
-;; (require-package 'web-mode)
-;; (require-package 'yaml-mode)
-;; (require-package 'toml-mode)
-
-;; scala-mode2 appears to have disappeared from melpa.org
-;; (add-to-list 'load-path "~/.emacs.d/lib/scala-mode2")
