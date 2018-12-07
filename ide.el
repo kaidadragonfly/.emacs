@@ -3,7 +3,7 @@
 (eval-when-compile (require 'cc-mode))
 
 ;; Handle git commits nicely.
-(eval-when-compile (require 'git-commit))
+(require 'git-commit)
 
 ;; Smart completion.
 (ido-mode t)
