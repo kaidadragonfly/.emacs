@@ -7,4 +7,8 @@
    (defvar markdown-indent-on-enter "markdown-mode.el")
    (setq markdown-indent-on-enter nil)
    ;; Clean whitespace on save.
-   (add-hook 'before-save-hook 'whitespace-cleanup)))
+   (add-hook 'before-save-hook 'whitespace-cleanup)
+   ;; Disable flycheck
+   (flycheck-mode 0)
+   ;; Disable company-mode
+   (company-mode 0)))

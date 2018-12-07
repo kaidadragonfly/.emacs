@@ -71,6 +71,7 @@
 (require-package 'js2-mode)
 (require-package 'json-mode)
 (require-package 'markdown-mode)
+(require-package 'nanowrimo)
 (require-package 'paren-face)
 (require-package 'projectile)
 (require-package 'rust-mode)
