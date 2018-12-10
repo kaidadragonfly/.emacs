@@ -9,8 +9,6 @@
 
 ;; Load custom elisp files.
 (add-to-list 'load-path "~/.emacs.d/lib")
-;; Load legacy compatability.
-(load "~/.emacs.d/lib/legacy-compat.el")
 ;; Initialize packages.
 (load "~/.emacs.d/install-packages")
 (load "~/.emacs.d/ide")
