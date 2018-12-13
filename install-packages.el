@@ -58,6 +58,7 @@
 
 ;; (require-package 'alchemist)
 (require-package 'apples-mode)
+(require-package 'auto-compile)
 (require-package 'diminish)
 (require-package 'elixir-mode)
 (require-package 'feature-mode)
