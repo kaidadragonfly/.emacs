@@ -191,14 +191,10 @@ Kills the old scratch buffer.  "
           (lambda () (delete-other-windows)) t)
 
 ;; Byte compile elisp files.
-(defvar-local init-bc "")
-
-(declare-function string/starts-with "ide.el" str, prefix)
-(if (string/starts-with
-     (byte-recompile-directory (expand-file-name "~/.emacs.d") 0 nil)
-     "Done (Total of 0 files compiled")
-    nil
-  (load-file "~/.emacs.d/init.el"))
+(setq load-prefer-newer t)
+(require 'auto-compile)
+(auto-compile-on-load-mode 1)
+(auto-compile-on-save-mode 1)
 
 ;; Make spelling handle camel-case
 (defvar ispell-program-name)
