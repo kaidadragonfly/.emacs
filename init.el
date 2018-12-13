@@ -145,7 +145,7 @@ Kills the old scratch buffer.  "
  '(nanowrimo-today-goal-calculation-function (quote nanowrimo-today-goal-from-date))
  '(package-selected-packages
    (quote
-    (alchemist yaml-mode web-mode toml-mode sql-indent scss-mode sbt-mode s rust-mode markdown-mode json-mode js2-mode iedit haskell-mode flycheck-rust fill-column-indicator feature-mode etags-select elixir-mode dockerfile-mode company apples-mode)))
+    (alchemist yaml-mode toml-mode sql-indent scss-mode sbt-mode s rust-mode markdown-mode json-mode js2-mode iedit haskell-mode flycheck-rust fill-column-indicator feature-mode etags-select elixir-mode dockerfile-mode company apples-mode)))
  '(paren-face-modes
    (quote
     (lisp-mode emacs-lisp-mode lisp-interaction-mode ielm-mode scheme-mode inferior-scheme-mode clojure-mode cider-repl-mode nrepl-mode arc-mode inferior-arc-mode elixir-mode ruby-mode)))
@@ -156,13 +156,6 @@ Kills the old scratch buffer.  "
  '(sql-indent-offset 2)
  '(tls-checktrust t)
  '(vc-follow-symlinks t)
- '(web-mode-attr-indent-offset 2)
- '(web-mode-attr-value-indent-offset 2)
- '(web-mode-code-indent-offset 2)
- '(web-mode-css-indent-offset 2)
- '(web-mode-enable-control-block-indentation nil)
- '(web-mode-markup-indent-offset 2)
- '(web-mode-script-padding 0)
  '(xref-prompt-for-identifier t)
  '(yaml-indent-offset 2))
 (custom-set-faces
@@ -191,8 +184,7 @@ Kills the old scratch buffer.  "
  '(smerge-other ((t (:background "#336633"))))
  '(smerge-refined-added ((t (:inherit smerge-refined-change :background "color-22"))))
  '(smerge-refined-removed ((t (:inherit smerge-refined-change :background "color-88"))))
- '(warning ((t (:foreground "brightred" :weight bold))))
- '(web-mode-html-tag-bracket-face ((t (:foreground "color-240")))))
+ '(warning ((t (:foreground "brightred" :weight bold)))))
 
 ;; Only use one window when opening multiple files.
 (add-hook 'emacs-startup-hook
