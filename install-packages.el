@@ -78,3 +78,4 @@
 (require-package 'rust-mode)
 (require-package 's)
 (require-package 'sql-indent)
+(require-package 'use-package)
