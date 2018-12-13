@@ -1,9 +1,23 @@
 ;; Features to make emacs more competitive with IDEs.
-(require 'dabbrev)
 (require 'cc-mode)
+(require 'dabbrev)
+(require 'diminish)
 
 ;; Handle git commits nicely.
-(require 'git-commit)
+;; (require 'git-commit)
+
+;; String utility functions.
+(defun string/ends-with (string suffix)
+  "Return t if STRING ends with SUFFIX."
+  (and (string-match (rx-to-string `(: ,suffix eos) t)
+                     string)
+       t))
+
+(defun string/starts-with (string prefix)
+  "Return t if STRING starts with prefix."
+  (and (string-match (rx-to-string `(: bos ,prefix) t)
+                     string)
+       t))
 
 ;; Smart completion.
 (ido-mode t)
@@ -32,8 +46,6 @@
   "indent whole buffer"
   (interactive)
   (indent-region (point-min) (point-max) nil))
-
-
 
 ;; Smart indent region.
 (defun smart-indent-region ()
@@ -148,18 +160,6 @@
         (substring res 0 -1)
       ".")))
 
-(defun string/ends-with (string suffix)
-  "Return t if STRING ends with SUFFIX."
-  (and (string-match (rx-to-string `(: ,suffix eos) t)
-                     string)
-       t))
-
-(defun string/starts-with (string prefix)
-  "Return t if STRING starts with prefix."
-  (and (string-match (rx-to-string `(: bos ,prefix) t)
-                     string)
-       t))
-
 (defun save-all-files ()
   "Save all modified files."
   (interactive)
@@ -245,6 +245,7 @@
     (set-process-query-on-exit-flag proc nil)))
 
 (global-company-mode)
+(diminish 'company-mode)
 
 (require 'xref)
 (defun xref-goto-xref-close ()
@@ -259,7 +260,4 @@
 ;; Set up projectile.
 (require 'projectile)
 (global-set-key (kbd "<f6>") 'projectile-find-file)
-
-(require 'diminish)
-(diminish 'company-mode)
 (diminish 'projectile-mode)
