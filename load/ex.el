@@ -3,17 +3,18 @@
 (add-hook
  'elixir-mode-hook
  (lambda ()
-   ;; Compile alchemist in a different directory.
-   (make-local-variable 'process-environment)
-   (pushnew "ALCHEMIST_MODE=1" process-environment)
-   (alchemist-mode t)
-   (require 'flycheck-mix)
-   (flycheck-mix-setup)
-   ;; Bind alchemist-help-search-at-point to F1
-   (local-set-key (kbd "<f1>") 'alchemist-help-search-at-point)
-   ;; Bind M-. and M-/
-   (defvar alchemist-mode-map)
-   (define-key alchemist-mode-map (kbd "M-.") 'xref-find-definitions)
+   ;; ;; Compile alchemist in a different directory.
+   ;; (make-local-variable 'process-environment)
+   ;; (pushnew "ALCHEMIST_MODE=1" process-environment)
+   ;; (alchemist-mode t)
+   ;; (require 'flycheck-mix)
+   ;; (flycheck-mix-setup)
+   ;; ;; Bind alchemist-help-search-at-point to F1
+   ;; (local-set-key (kbd "<f1>") 'alchemist-help-search-at-point)
+   ;; ;; Bind M-. and M-/
+   ;; (defvar alchemist-mode-map)
+   ;; (define-key alchemist-mode-map (kbd "M-.") 'xref-find-definitions)
+   
    ;; Bind C-m (newline) to `electric-indent-just-newline`
    (defvar elixir-mode-map)
    (define-key elixir-mode-map (kbd "C-m") 'newline-and-indent)

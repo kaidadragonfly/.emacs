@@ -145,7 +145,7 @@ Kills the old scratch buffer.  "
  '(nanowrimo-today-goal-calculation-function (quote nanowrimo-today-goal-from-date))
  '(package-selected-packages
    (quote
-    (alchemist yaml-mode toml-mode sql-indent scss-mode sbt-mode s rust-mode markdown-mode json-mode js2-mode iedit haskell-mode flycheck-rust fill-column-indicator feature-mode etags-select elixir-mode dockerfile-mode company apples-mode)))
+    (yaml-mode toml-mode sql-indent scss-mode sbt-mode s rust-mode markdown-mode json-mode js2-mode iedit haskell-mode flycheck-rust fill-column-indicator feature-mode etags-select elixir-mode dockerfile-mode company apples-mode)))
  '(paren-face-modes
    (quote
     (lisp-mode emacs-lisp-mode lisp-interaction-mode ielm-mode scheme-mode inferior-scheme-mode clojure-mode cider-repl-mode nrepl-mode arc-mode inferior-arc-mode elixir-mode ruby-mode)))
