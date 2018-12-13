@@ -1,6 +1,6 @@
 ;; Features to make emacs more competitive with IDEs.
 (require 'dabbrev)
-(eval-when-compile (require 'cc-mode))
+(require 'cc-mode)
 
 ;; Handle git commits nicely.
 (require 'git-commit)
@@ -172,7 +172,7 @@
   (if (file-exists-p tags-file)
       (setq tags-file-name tags-file)))
 
-(eval-when-compile (require 'etags))
+(require 'etags)
 (setq tags-revert-without-query 1)
 
 (defun rebuild-tags ()
@@ -229,13 +229,13 @@
     (funcall end-of-parameter-list)))
 
 ;; Fancy compilation behavior:
-(eval-when-compile (require 'compile))
+(require 'compile)
 
 (defadvice compile-goto-error
     (after goto-error-single-window () activate)
   (delete-other-windows))
 
-(eval-when-compile (require 'misc))
+(require 'misc)
 (global-set-key (kbd "M-Z") 'zap-up-to-char)
 
 ;; Exit without asking us about processes.
@@ -257,9 +257,9 @@
 (define-key xref--button-map (kbd "RET") 'xref-goto-xref-close)
 
 ;; Set up projectile.
-(eval-when-compile (require 'projectile))
+(require 'projectile)
 (global-set-key (kbd "<f6>") 'projectile-find-file)
 
-(eval-when-compile (require 'diminish))
+(require 'diminish)
 (diminish 'company-mode)
 (diminish 'projectile-mode)
