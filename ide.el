@@ -4,7 +4,7 @@
 (require 'diminish)
 
 ;; Handle git commits nicely.
-;; (require 'git-commit)
+(use-package git-commit :mode "/\\(\\(\\(COMMIT\\|NOTES\\|PULLREQ\\|TAG\\)_EDIT\\|MERGE_\\|\\)MSG\\|\\(BRANCH\\|EDIT\\)_DESCRIPTION\\)\\'")
 
 ;; String utility functions.
 (defun string/ends-with (string suffix)
