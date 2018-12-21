@@ -139,7 +139,7 @@ Kills the old scratch buffer.  "
  '(js2-strict-missing-semi-warning nil)
  '(mode-line-format
    (quote
-    ("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position "  " mode-line-modes mode-line-misc-info mode-line-end-spaces)))
+    ("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-auto-compile mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position "  " mode-line-modes mode-line-misc-info mode-line-end-spaces)))
  '(nanowrimo-show-suggestions nil)
  '(nanowrimo-show-wpm nil)
  '(nanowrimo-today-goal-calculation-function (quote nanowrimo-today-goal-from-date))
