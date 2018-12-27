@@ -18,3 +18,6 @@
    ;; Make do/end less prominent.
    (defvar paren-face-regexp)
    (setq-local paren-face-regexp "\\(^\\|[[:space:]]\\)\\(do\\|end\\)\\b")))
+
+(require 'flycheck)
+(flycheck-add-next-checker 'ruby 'ruby-rubocop)
