@@ -6,7 +6,7 @@
    ;; Don't autofill
    (auto-fill-mode 0)
    ;; Make enter indent.
-   (local-set-key (kbd "C-m") 'newline-and-indent)
+   (local-set-key (kbd "C-m") 'reindent-then-newline-and-indent)
    ;; Clean up whitespace on save.
    (add-hook 'before-save-hook 'whitespace-cleanup)
    ;; Rebuild tags on save.
