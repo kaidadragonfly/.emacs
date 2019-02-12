@@ -68,7 +68,6 @@
 (require-package 'flycheck-mix)
 (require-package 'flycheck-rust)
 (require-package 'git-commit)
-(require-package 'haskell-mode)
 (require-package 'iedit)
 (require-package 'js2-mode)
 (require-package 'json-mode)
@@ -80,3 +79,4 @@
 (require-package 's)
 (require-package 'sql-indent)
 (require-package 'use-package)
+(require-package 'web-mode)
