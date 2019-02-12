@@ -156,6 +156,8 @@ Kills the old scratch buffer.  "
  '(sql-indent-offset 2)
  '(tls-checktrust t)
  '(vc-follow-symlinks t)
+ '(web-mode-markup-indent-offset 2)
+ '(web-mode-tests-directory "/Users/kaida/css-presentation/tests/")
  '(xref-prompt-for-identifier t)
  '(yaml-indent-offset 2))
 (custom-set-faces
@@ -184,7 +186,11 @@ Kills the old scratch buffer.  "
  '(smerge-other ((t (:background "#336633"))))
  '(smerge-refined-added ((t (:inherit smerge-refined-change :background "color-22"))))
  '(smerge-refined-removed ((t (:inherit smerge-refined-change :background "color-88"))))
- '(warning ((t (:foreground "brightred" :weight bold)))))
+ '(warning ((t (:foreground "brightred" :weight bold))))
+ '(web-mode-doctype-face ((t (:foreground "magenta" :weight bold))))
+ '(web-mode-html-attr-name-face ((t (:foreground "yellow"))))
+ '(web-mode-html-tag-bracket-face ((t (:foreground "white"))))
+ '(web-mode-html-tag-face ((t (:foreground "cyan")))))
 
 ;; Only use one window when opening multiple files.
 (add-hook 'emacs-startup-hook
@@ -195,6 +201,8 @@ Kills the old scratch buffer.  "
 (require 'auto-compile)
 (auto-compile-on-load-mode 1)
 (auto-compile-on-save-mode 1)
+
+;; TODO: add before-save-hook to create .elc files if new .el
 
 ;; Make spelling handle camel-case
 (defvar ispell-program-name)
@@ -220,4 +228,3 @@ Kills the old scratch buffer.  "
 
 ;; Make gc pauses faster by decreasing the threshold.
 (setq gc-cons-threshold default-gc-threshold)
-
