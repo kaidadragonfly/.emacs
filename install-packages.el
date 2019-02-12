@@ -75,6 +75,7 @@
 (require-package 'nanowrimo)
 (require-package 'paren-face)
 (require-package 'projectile)
+(require-package 'rjsx-mode)
 (require-package 'rust-mode)
 (require-package 's)
 (require-package 'sql-indent)
