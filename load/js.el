@@ -8,6 +8,8 @@
   (auto-fill-mode t)
   ;; Enable Flyspell.
   (flyspell-prog-mode)
+  ;; Make enter indent.
+  (local-set-key (kbd "RET") 'newline-and-indent)
   ;; Clean whitespace on save.
   (add-hook 'before-save-hook 'whitespace-cleanup)
   ;; Rebuild tags on save.
