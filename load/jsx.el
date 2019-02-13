@@ -8,10 +8,10 @@
   (define-key rjsx-mode-map (kbd "C-d") nil)
   (define-key rjsx-mode-map ">" nil))
 
-(defun js-electric-char (&optional ARG)
-  (interactive)
+(defun js-electric-char (arg)
+  (interactive "P")
 
-  (self-insert-command (prefix-numeric-value ARG))
+  (self-insert-command (prefix-numeric-value arg))
   (indent-for-tab-command))
 
 (add-hook
