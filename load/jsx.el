@@ -8,6 +8,12 @@
   (define-key rjsx-mode-map (kbd "C-d") nil)
   (define-key rjsx-mode-map ">" nil))
 
+(defun js-electric-char (&optional ARG)
+  (interactive)
+
+  (self-insert-command (prefix-numeric-value ARG))
+  (indent-for-tab-command))
+
 (add-hook
  'rjsx-mode-hook
  (lambda ()
@@ -17,6 +23,10 @@
    (auto-fill-mode)
    ;; Make enter indent.
    (local-set-key (kbd "RET") 'newline-and-indent)
+   ;; Make {, } and ; indent.
+   (local-set-key (kbd "{") 'js-electric-char)
+   (local-set-key (kbd "}") 'js-electric-char)
+   (local-set-key (kbd ";") 'js-electric-char)
    ;; Turn on subword mode.
    (subword-mode)
    (require 'diminish)
