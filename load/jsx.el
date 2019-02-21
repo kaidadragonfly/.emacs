@@ -23,9 +23,9 @@
    (auto-fill-mode)
    ;; Make enter indent.
    (local-set-key (kbd "RET") 'newline-and-indent)
-   ;; Make {, } and ; indent.
-   (local-set-key (kbd "{") 'js-electric-char)
+   ;; Make }, > and ; indent.
    (local-set-key (kbd "}") 'js-electric-char)
+   (local-set-key (kbd ">") 'js-electric-char)
    (local-set-key (kbd ";") 'js-electric-char)
    ;; Turn on subword mode.
    (subword-mode)
