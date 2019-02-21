@@ -11,13 +11,10 @@
    (add-hook 'before-save-hook 'whitespace-cleanup)
    ;; Rebuild tags on save.
    (add-hook (make-local-variable 'after-save-hook) 'rebuild-tags)
-   ;; Disable foodcritic, because our chef files are sad.
+   ;; Disable rubocop
    (defvar flycheck-disabled-checkers "flycheck.el")
    (setq flycheck-disabled-checkers
-         (cons 'chef-foodcritic flycheck-disabled-checkers))
+         (cons 'ruby-rubocop flycheck-disabled-checkers))
    ;; Make do/end less prominent.
    (defvar paren-face-regexp)
    (setq-local paren-face-regexp "\\(^\\|[[:space:]]\\)\\(do\\|end\\)\\b")))
-
-(require 'flycheck)
-(flycheck-add-next-checker 'ruby 'ruby-rubocop)
