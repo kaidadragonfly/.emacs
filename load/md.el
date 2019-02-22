@@ -11,7 +11,7 @@
              (lambda ()
                (unless
                    (string-match "/Developer/" default-directory)
-                 (whitespace-cleanup))))
+                 (whitespace-cleanup))) nil t)
    ;; Use visual-line-mode instead of auto-fill-mode
    (auto-fill-mode 0)
    (visual-line-mode 1)

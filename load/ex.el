@@ -19,9 +19,9 @@
    (defvar elixir-mode-map)
    (define-key elixir-mode-map (kbd "C-m") 'newline-and-indent)
    ;; Clean up whitespace on save.
-   (add-hook 'before-save-hook 'whitespace-cleanup)
+   (add-hook 'before-save-hook 'whitespace-cleanup nil t)
    ;; Rebuild tags after save.
-   (add-hook (make-local-variable 'after-save-hook) 'rebuild-tags)
+   (add-hook (make-local-variable 'after-save-hook) 'rebuild-tags nil t)
    ;; Allow movement between subwords.
    (subword-mode 1)
    (require 'diminish)

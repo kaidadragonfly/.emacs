@@ -8,9 +8,9 @@
    ;; Make enter indent.
    (local-set-key (kbd "C-m") 'reindent-then-newline-and-indent)
    ;; Clean up whitespace on save.
-   (add-hook 'before-save-hook 'whitespace-cleanup)
+   (add-hook 'before-save-hook 'whitespace-cleanup nil t)
    ;; Rebuild tags on save.
-   (add-hook (make-local-variable 'after-save-hook) 'rebuild-tags)
+   (add-hook (make-local-variable 'after-save-hook) 'rebuild-tags nil t)
    ;; Disable rubocop
    (defvar flycheck-disabled-checkers "flycheck.el")
    (setq flycheck-disabled-checkers

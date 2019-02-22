@@ -20,8 +20,8 @@
    ;; Rebind indent-region to whitespace cleanup
    (local-set-key (kbd "C-M-\\") 'whitespace-cleanup)
    ;; Clean up whitespace on save.
-   (add-hook 'before-save-hook 'whitespace-cleanup)
-   (add-hook (make-local-variable 'after-save-hook) 'rebuild-tags)
+   (add-hook 'before-save-hook 'whitespace-cleanup nil t)
+   (add-hook (make-local-variable 'after-save-hook) 'rebuild-tags nil t)
    (setq-local comment-inline-offset 2)))
 
 (require 'flycheck)

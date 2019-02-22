@@ -17,7 +17,7 @@
    ;; Make newline automatically indent the next line.
    (local-set-key (kbd "C-m") 'reindent-then-newline-and-indent)
    ;; Clean whitespace on save.
-   (add-hook 'before-save-hook 'whitespace-cleanup)
+   (add-hook 'before-save-hook 'whitespace-cleanup nil t)
    ;; Make smart-tab always indent.
    (defvar smart-tab-always-indent)
    (set (make-local-variable 'smart-tab-always-indent) t)))
