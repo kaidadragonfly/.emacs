@@ -6,8 +6,12 @@
    (local-unset-key (kbd "<backtab>"))
    (defvar markdown-indent-on-enter "markdown-mode.el")
    (setq markdown-indent-on-enter nil)
-   ;; Clean whitespace on save.
-   (add-hook 'before-save-hook 'whitespace-cleanup)
+   ;; Clean whitespace on save (except in /Developer/).
+   (add-hook 'before-save-hook
+             (lambda ()
+               (unless
+                   (string-match "/Developer/" default-directory)
+                 (whitespace-cleanup))))
    ;; Use visual-line-mode instead of auto-fill-mode
    (auto-fill-mode 0)
    (visual-line-mode 1)
