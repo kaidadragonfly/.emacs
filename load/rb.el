@@ -15,6 +15,11 @@
    (defvar flycheck-disabled-checkers "flycheck.el")
    (setq flycheck-disabled-checkers
          (cons 'ruby-rubocop flycheck-disabled-checkers))
+   ;; Turn on subword-mode
+   (require 'diminish)
+   (subword-mode 1)
+   (diminish 'subword-mode)
    ;; Make do/end less prominent.
    (defvar paren-face-regexp)
-   (setq-local paren-face-regexp "\\(^\\|[[:space:]]\\)\\(do\\|end\\)\\b")))
+   (setq-local paren-face-regexp
+               (rx symbol-start (or "do" "end") symbol-end))))
