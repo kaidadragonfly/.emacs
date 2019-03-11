@@ -7,6 +7,9 @@
    (auto-fill-mode 0)
    ;; Make enter indent.
    (local-set-key (kbd "C-m") 'reindent-then-newline-and-indent)
+   ;; Make smart-tab always indent
+   (defvar smart-tab-always-indent nil)
+   (setq-local smart-tab-always-indent t)
    ;; Clean up whitespace on save.
    (add-hook 'before-save-hook 'whitespace-cleanup nil t)
    ;; Rebuild tags on save.
