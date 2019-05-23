@@ -1,3 +1,6 @@
+(defun rebuild-ripper-tags ()
+  (start-process "ripper-tags" nil "ripper-tags" "-R" "-e"))
+
 (add-hook
  'ruby-mode-hook
  (lambda ()
@@ -13,7 +16,7 @@
    ;; Clean up whitespace on save.
    (add-hook 'before-save-hook 'whitespace-cleanup nil t)
    ;; Rebuild tags on save.
-   (add-hook (make-local-variable 'after-save-hook) 'rebuild-tags nil t)
+   (add-hook (make-local-variable 'after-save-hook) 'rebuild-ripper-tags nil t)
    ;; Disable rubocop
    (defvar flycheck-disabled-checkers "flycheck.el")
    (setq flycheck-disabled-checkers
