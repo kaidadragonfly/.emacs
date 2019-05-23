@@ -1,5 +1,5 @@
 (defun rebuild-ripper-tags ()
-  (start-process "ripper-tags" nil "ripper-tags" "-R" "-e"))
+  (start-process "rebuild-ripper-tags" nil "rebuild-ripper-tags"))
 
 (add-hook
  'ruby-mode-hook
