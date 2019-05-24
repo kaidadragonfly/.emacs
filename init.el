@@ -55,7 +55,7 @@
 ;; Save file location between runs.
 (eval-when-compile (require 'saveplace))
 (if (fboundp 'save-place-mode)
-  (save-place-mode +1)
+    (save-place-mode +1)
   (setq-default save-place t))
 
 ;;-----------------------------------------------------------------------------
@@ -138,7 +138,7 @@ Kills the old scratch buffer.  "
  '(js2-strict-missing-semi-warning nil)
  '(mode-line-format
    (quote
-    ("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-auto-compile mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position "  " mode-line-modes mode-line-misc-info mode-line-end-spaces)))
+    ("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position "  " mode-line-modes mode-line-misc-info mode-line-end-spaces)))
  '(nanowrimo-show-suggestions nil)
  '(nanowrimo-show-wpm nil)
  '(nanowrimo-today-goal-calculation-function (quote nanowrimo-today-goal-from-date))
@@ -200,11 +200,16 @@ Kills the old scratch buffer.  "
 
 ;; Byte compile elisp files.
 (setq load-prefer-newer t)
-(require 'auto-compile)
-(auto-compile-on-load-mode 1)
-(auto-compile-on-save-mode 1)
 
-;; TODO: add before-save-hook to create .elc files if new .el
+(declare-function string/starts-with "ide.el" str, prefix)
+
+(make-thread
+ (lambda ()
+   (if (string/starts-with
+        (byte-recompile-directory (expand-file-name "~/.emacs.d") 0 nil)
+        "Done (Total of 0 files compiled")
+       nil
+     (load-file "~/.emacs.d/init.el"))))
 
 ;; Make spelling handle camel-case
 (defvar ispell-program-name)
