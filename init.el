@@ -67,6 +67,7 @@
 ;;-----------------------------------------------------------------------------
 ;; Load modular settings.
 ;;-----------------------------------------------------------------------------
+(load "~/.emacs.d/lib/elisp-load-dir")
 (require 'elisp-load-dir)
 (elisp-load-dir "~/.emacs.d/load")
 
@@ -203,7 +204,8 @@ Kills the old scratch buffer.  "
 
 (make-thread
  (lambda ()
-   (byte-recompile-directory (expand-file-name "~/.emacs.d") 0 nil)))
+   (let ((inhibit-message t))
+     (byte-recompile-directory (expand-file-name "~/.emacs.d") 0 nil))))
 
 ;; Make spelling handle camel-case
 (defvar ispell-program-name)
