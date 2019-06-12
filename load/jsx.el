@@ -27,6 +27,10 @@
    (local-set-key (kbd "}") 'js-electric-char)
    (local-set-key (kbd ">") 'js-electric-char)
    (local-set-key (kbd ";") 'js-electric-char)
+   ;; Rebuild tags on save.
+   (add-hook (make-local-variable 'after-save-hook) 'rebuild-tags nil t)
+   ;; Use xref for definitions.
+   (local-set-key (kbd "M-.") 'xref-find-definitions)
    ;; Turn on subword mode.
    (subword-mode)
    (require 'diminish)
