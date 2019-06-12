@@ -30,6 +30,4 @@
    ;; Turn on subword mode.
    (subword-mode)
    (require 'diminish)
-   (diminish 'subword-mode)
-   ;; Disable Flycheck (rjsx-mode provides js2 style checking)
-   (flycheck-mode 0)))
+   (diminish 'subword-mode)))
