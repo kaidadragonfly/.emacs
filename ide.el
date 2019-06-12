@@ -133,17 +133,44 @@
   (interactive)
   (revert-buffer t t))
 
+(defun indentation-column ()
+  "Returns the column that this line is indented to."
+  (save-excursion
+    (back-to-indentation)
+    (current-column)))
+
+(defvar mark-block-indent 1)
+(setq-local mark-block-indent 1)
+(defun mark-block ()
+  "Put the point at the beginning of this block, mark at the end.
+   The block marked is the one that contains point or follows point"
+  (interactive)
+
+  (if mark-block-indent (indent-for-tab-command))
+  (if (= (indentation-column) 0)
+      (mark-paragraph)
+    (let* ((depth (indentation-column)))
+      ;; Find end.
+      (while (= (indentation-column) depth)
+        (forward-line 1)
+        (if mark-block-indent (indent-for-tab-command)))
+      (beginning-of-line)
+      (set-mark (point))
+      (forward-line -1)
+      ;; Find beginning.
+      (while (= (indentation-column) depth)
+        (forward-line -1)
+        (if mark-block-indent (indent-for-tab-command)))
+      (forward-line 1)
+      (beginning-of-line))))
+
 (defun smart-sort-lines ()
   "If the mark is active, sorts region.
-   Otherwise it sorts the current paragraph."
+   Otherwise it sorts the current block."
   (interactive)
 
   (save-excursion
-    (unless mark-active (mark-paragraph))
-    ;; (let ((beg (progn (goto-char (region-beginning))
-    ;;                   (line-beginning-position)))
-    ;;       (end (progn (goto-char (region-end))
-    ;;                   (line-end-position))))
+    (unless mark-active (mark-block))
 
     (sort-lines nil (region-beginning) (region-end))
     (indent-region (region-beginning) (region-end))
