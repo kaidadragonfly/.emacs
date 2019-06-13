@@ -18,4 +18,8 @@
    ;; Disable flycheck
    (flycheck-mode 0)
    ;; Disable company-mode
-   (company-mode 0)))
+   (company-mode 0)
+   ;; Turn on subword mode.
+   (subword-mode)
+   (require 'diminish)
+   (diminish 'subword-mode)))
