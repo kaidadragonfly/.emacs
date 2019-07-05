@@ -9,9 +9,13 @@
 
 ;; Load custom elisp files.
 (add-to-list 'load-path "~/.emacs.d/lib")
+
 ;; Initialize packages.
 (load "~/.emacs.d/install-packages")
 (load "~/.emacs.d/ide")
+
+;; Load secrets.
+(load "~/.emacs.d/secrets")
 
 ;;----------------------------------------------------------------------------
 ;; Interface related items.
