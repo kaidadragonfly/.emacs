@@ -15,7 +15,8 @@
 (load "~/.emacs.d/ide")
 
 ;; Load secrets.
-(load "~/.emacs.d/secrets")
+(if (file-exists-p "~/.emacs.d/secrets")
+    (load "~/.emacs.d/secrets"))
 
 ;;----------------------------------------------------------------------------
 ;; Interface related items.
