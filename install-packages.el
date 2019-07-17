@@ -1,4 +1,10 @@
 ;; Install various packages.
+(defun require-package (pkg)
+  "Guarantee that `pkg` is installed."
+  (unless (package-installed-p pkg)
+    (package-refresh-contents)
+    (package-install pkg)))
+
 (make-thread
  (lambda ()
    (require 'package)
@@ -53,12 +59,6 @@
            ("melpa" . "https://melpa.org/packages/")
            ("gnu" . "https://elpa.gnu.org/packages/")))
 
-   (defun require-package (pkg)
-     "Guarantee that `pkg` is installed."
-     (unless (package-installed-p pkg)
-       (package-refresh-contents)
-       (package-install pkg)))
-
    ;; (require-package 'alchemist)
    (require-package 'apples-mode)
    (require-package 'company)
@@ -81,5 +81,6 @@
    (require-package 'rust-mode)
    (require-package 's)
    (require-package 'sql-indent)
+   (require-package 'typescript-mode)
    (require-package 'use-package)
    (require-package 'web-mode)))
