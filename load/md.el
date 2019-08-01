@@ -22,4 +22,13 @@
    ;; Turn on subword mode.
    (subword-mode)
    (require 'diminish)
-   (diminish 'subword-mode)))
+   (diminish 'subword-mode)
+   ;; Make <f5> compile.
+   (local-set-key (kbd "<f5>") 'compile)
+   (defvar compilation-read-command "compile.el")
+   (setq-local compilation-read-command nil)
+   (setq-local compile-command
+               (concat "gfm "
+                       (if buffer-file-name
+                           (shell-quote-argument
+                            (file-name-nondirectory buffer-file-name)))))))

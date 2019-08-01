@@ -51,7 +51,7 @@
 (setq create-lockfiles nil)
 
 ;; Set compilation window height.
-(setq compilation-window-height 0)      ;Hide the window.
+(setq compilation-window-height 0)      ; Hide the window.
 ;; Silence flyspell welcome message.
 (defvar flyspell-issue-welcome-flag)
 (setq flyspell-issue-welcome-flag nil)
