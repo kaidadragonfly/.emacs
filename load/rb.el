@@ -18,7 +18,7 @@
    ;; Rebuild tags on save.
    (add-hook (make-local-variable 'after-save-hook) 'rebuild-tags nil t)
    ;; Disable rubocop
-   (defvar flycheck-disabled-checkers "flycheck.el")
+   (defvar flycheck-disabled-checkers)
    (setq flycheck-disabled-checkers
          (cons 'ruby-rubocop flycheck-disabled-checkers))
    ;; Turn on subword-mode

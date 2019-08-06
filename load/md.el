@@ -4,7 +4,7 @@
  'markdown-mode-hook
  (lambda ()
    (local-unset-key (kbd "<backtab>"))
-   (defvar markdown-indent-on-enter "markdown-mode.el")
+   (defvar markdown-indent-on-enter)
    (setq markdown-indent-on-enter nil)
    ;; Clean whitespace on save (except in /Developer/).
    (add-hook 'before-save-hook
@@ -25,7 +25,7 @@
    (diminish 'subword-mode)
    ;; Make <f5> compile.
    (local-set-key (kbd "<f5>") 'compile)
-   (defvar compilation-read-command "compile.el")
+   (defvar compilation-read-command)
    (setq-local compilation-read-command nil)
    (setq-local compile-command
                (concat "gfm "
