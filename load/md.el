@@ -23,6 +23,9 @@
    (subword-mode)
    (require 'diminish)
    (diminish 'subword-mode)
+   ;; Highlight code blocks
+   (defvar markdown-fontify-code-blocks-natively)
+   (setq markdown-fontify-code-blocks-natively t)
    ;; Make <f5> compile.
    (local-set-key (kbd "<f5>") 'compile)
    (defvar compilation-read-command)
@@ -31,4 +34,5 @@
                (concat "gfm "
                        (if buffer-file-name
                            (shell-quote-argument
-                            (file-name-nondirectory buffer-file-name)))))))
+                            (file-name-nondirectory
+                             buffer-file-name)))))))
