@@ -123,23 +123,7 @@ Kills the old scratch buffer.  "
  '(css-indent-offset 2)
  '(flycheck-checkers
    (quote
-    (ada-gnat asciidoc c/c++-clang c/c++-gcc c/c++-cppcheck
-              cfengine chef-foodcritic coffee coffee-coffeelint
-              coq css-csslint d-dmd elixir emacs-lisp
-              emacs-lisp-checkdoc erlang eruby-erubis
-              fortran-gfortran go-gofmt go-golint go-vet go-build
-              go-test go-errcheck haml handlebars haskell-ghc
-              haskell-hlint html-tidy javascript-jshint
-              javascript-eslint javascript-gjslint json-jsonlint
-              less lua make perl perl-perlcritic php php-phpmd
-              php-phpcs puppet-parser puppet-lint python-flake8
-              python-pylint racket rpm-rpmlint rst rst-sphinx
-              ruby-rubocop ruby-rubylint ruby ruby-jruby
-              rust-cargo sass scala scala-scalastyle scss sh-bash
-              sh-posix-dash sh-posix-bash sh-zsh sh-shellcheck
-              slim tex-chktex tex-lacheck texinfo
-              typescript-tslint verilog-verilator xml-xmlstarlet
-              xml-xmllint yaml-jsyaml yaml-ruby)))
+    (ada-gnat asciidoc c/c++-clang c/c++-gcc c/c++-cppcheck cfengine chef-foodcritic coffee coffee-coffeelint coq css-csslint d-dmd elixir emacs-lisp emacs-lisp-checkdoc erlang eruby-erubis fortran-gfortran go-gofmt go-golint go-vet go-build go-test go-errcheck haml handlebars haskell-ghc haskell-hlint html-tidy javascript-jshint javascript-eslint javascript-gjslint json-jsonlint less lua make perl perl-perlcritic php php-phpmd php-phpcs puppet-parser puppet-lint python-flake8 python-pylint racket rpm-rpmlint rst rst-sphinx ruby-rubocop ruby-rubylint ruby ruby-jruby rust-cargo sass scala scala-scalastyle scss sh-bash sh-posix-dash sh-posix-bash sh-zsh sh-shellcheck slim tex-chktex tex-lacheck texinfo typescript-tslint verilog-verilator xml-xmlstarlet xml-xmllint yaml-jsyaml yaml-ruby)))
  '(flycheck-disabled-checkers (quote (emacs-lisp-checkdoc)))
  '(flycheck-display-errors-delay 0.1)
  '(flycheck-idle-change-delay 1.0)
@@ -193,17 +177,18 @@ Kills the old scratch buffer.  "
  '(elixir-atom-face ((t (:foreground "blue"))))
  '(elixir-attribute-face ((t (:foreground "magenta"))))
  '(flyspell-duplicate ((t nil)))
- '(font-lock-builtin-face ((t (:foreground "brightblack"))))
+ '(font-lock-builtin-face ((t (:foreground "magenta"))))
  '(font-lock-comment-face ((t (:foreground "red"))))
- '(font-lock-constant-face ((t (:foreground "blue"))))
+ '(font-lock-constant-face ((t (:foreground "brightblue"))))
  '(font-lock-function-name-face ((t (:foreground "cyan"))))
  '(font-lock-keyword-face ((t (:foreground "magenta" :weight bold))))
  '(font-lock-string-face ((t (:foreground "color-105"))))
  '(font-lock-type-face ((((class color) (min-colors 88) (background light)) (:foreground "green"))))
  '(font-lock-variable-name-face ((t (:foreground "yellow"))))
+ '(font-lock-warning-face ((t (:foreground "color-178" :weight bold))))
  '(ido-subdir ((t (:foreground "brightblue"))))
  '(minibuffer-prompt ((t (:foreground "blue"))))
- '(parenthesis ((t (:foreground "black"))))
+ '(parenthesis ((t (:foreground "brightblack"))))
  '(smerge-markers ((t (:background "white" :foreground "black"))))
  '(smerge-mine ((t (:background "#660000"))))
  '(smerge-other ((t (:background "#336633"))))
