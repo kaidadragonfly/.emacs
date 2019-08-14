@@ -15,6 +15,4 @@
                          (while (< (car stops)
                                    120)
                            (setq stops (cons (+ 4 (car stops)) stops)))
-                         (nreverse stops)))
-   (setq-local comment-start "#")
-   (font-lock-add-keywords nil '(("#.+" . font-lock-comment-face)))))
+                         (nreverse stops)))))
