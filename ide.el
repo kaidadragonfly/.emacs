@@ -110,6 +110,9 @@
                     (dabbrev-expand nil)
                     (indent-for-tab-command)))))
         (indent-for-tab-command)))))
+;; Ignore buffers that begin with spaces.
+(setq dabbrev-ignored-buffer-regexps
+      (cons "^ " dabbrev-ignored-buffer-regexps))
 ;; Replace dabbrev-expand with hippie-expand.
 (global-set-key (kbd "M-/") 'hippie-expand)
 ;; Bind to tab.
