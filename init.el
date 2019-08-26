@@ -201,6 +201,7 @@ Kills the old scratch buffer.  "
  '(parenthesis ((t (:foreground "brightblack"))))
  '(region ((t (:background "yellow" :foreground "brightwhite"))))
  '(secondary-selection ((t (:background "yellow"))))
+ '(show-paren-match ((t (:background "cyan" :foreground "brightwhite"))))
  '(smerge-markers ((t (:background "white" :foreground "black"))))
  '(smerge-mine ((t (:background "#660000"))))
  '(smerge-other ((t (:background "#336633"))))
