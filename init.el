@@ -10,6 +10,14 @@
 ;; Load custom elisp files.
 (add-to-list 'load-path "~/.emacs.d/lib")
 
+;; Byte compile elisp files.
+(setq load-prefer-newer t)
+
+(make-thread
+ (lambda ()
+   (let ((inhibit-message t))
+     (byte-recompile-directory (expand-file-name "~/.emacs.d") 0 nil))))
+
 ;; Initialize packages.
 (load "~/.emacs.d/install-packages")
 (load "~/.emacs.d/ide")
@@ -219,14 +227,6 @@ Kills the old scratch buffer.  "
 ;; Only use one window when opening multiple files.
 (add-hook 'emacs-startup-hook
           (lambda () (delete-other-windows)) t)
-
-;; Byte compile elisp files.
-(setq load-prefer-newer t)
-
-(make-thread
- (lambda ()
-   (let ((inhibit-message t))
-     (byte-recompile-directory (expand-file-name "~/.emacs.d") 0 nil))))
 
 ;; Make spelling handle camel-case
 (defvar ispell-program-name)
