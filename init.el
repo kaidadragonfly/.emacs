@@ -170,6 +170,7 @@ Kills the old scratch buffer.  "
  '(tls-checktrust t)
  '(vc-follow-symlinks t)
  '(web-mode-code-indent-offset 2)
+ '(web-mode-enable-control-block-indentation t)
  '(web-mode-markup-indent-offset 2)
  '(web-mode-tests-directory "/Users/kaida/css-presentation/tests/")
  '(xref-prompt-for-identifier t)
@@ -219,10 +220,14 @@ Kills the old scratch buffer.  "
  '(vc-annotate-face-CCE4FF ((t (:background "#CCE4FF" :foreground "color-16"))) t)
  '(vc-annotate-face-FFCCCC ((t (:background "#FFCCCC" :foreground "black"))) t)
  '(warning ((t (:foreground "color-214" :weight bold))))
+ '(web-mode-block-delimiter-face ((t (:foreground "magenta"))))
+ '(web-mode-block-face ((t (:background "LightYellow1" :foreground "black"))))
  '(web-mode-doctype-face ((t (:foreground "magenta" :weight bold))))
- '(web-mode-html-attr-name-face ((t (:foreground "yellow"))))
+ '(web-mode-html-attr-name-face ((t (:foreground "brightcyan"))))
  '(web-mode-html-tag-bracket-face ((t (:foreground "white"))))
- '(web-mode-html-tag-face ((t (:foreground "cyan")))))
+ '(web-mode-html-tag-face ((t (:foreground "cyan"))))
+ '(web-mode-inlay-face ((t (:background "LightYellow1" :foreground "black"))))
+ '(web-mode-symbol-face ((t (:foreground "brightblue")))))
 
 ;; Only use one window when opening multiple files.
 (add-hook 'emacs-startup-hook
