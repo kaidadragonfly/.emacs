@@ -47,6 +47,12 @@
 (when (and (fboundp 'window-system) (not (window-system))) (menu-bar-mode 0))
 ;; Reload changed files automatically.
 (global-auto-revert-mode)
+;; Don't show messages when using minibuffer: https://emacs.stackexchange.com/questions/46690/prevent-showing-buffer-reversion-message-while-working-in-the-minibuffer
+(advice-add
+ 'auto-revert-handler
+ :around (lambda (orig-fun &rest args)
+           (let ((auto-revert-verbose (not (minibufferp (window-buffer)))))
+              (apply orig-fun args))))
 ;; Save all backup & autosave files in one directory.
 (if (file-directory-p "~/.emacs.d/backups")
     (progn
