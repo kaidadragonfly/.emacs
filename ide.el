@@ -10,6 +10,16 @@
   ("/\\(\\(\\(COMMIT\\|NOTES\\|PULLREQ\\|TAG\\)_EDIT\\|MERGE_\\|\\)MSG\\|\\(BRANCH\\|EDIT\\)_DESCRIPTION\\)\\'"
    . git-commit-mode))
 
+;; Handle .gitignore nicely.
+(add-to-list 'auto-mode-alist
+             (cons "/\\.gitignore\\'" 'conf-unix-mode))
+
+;; Handle .gitconfig and .git/config nicely.
+(add-to-list 'auto-mode-alist
+             (cons "/\\.git/config\\'" 'conf-unix-mode))
+(add-to-list 'auto-mode-alist
+             (cons "/\\.gitconfig\\'" 'conf-unix-mode))
+
 ;; String utility functions.
 (defun string/ends-with (string suffix)
   "Return t if STRING ends with SUFFIX."
