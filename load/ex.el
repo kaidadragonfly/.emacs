@@ -15,9 +15,8 @@
    ;; (defvar alchemist-mode-map)
    ;; (define-key alchemist-mode-map (kbd "M-.") 'xref-find-definitions)
    
-   ;; Bind C-m (newline) to `electric-indent-just-newline`
    (defvar elixir-mode-map)
-   (define-key elixir-mode-map (kbd "C-m") 'newline-and-indent)
+   (define-key elixir-mode-map (kbd "C-m") 'reindent-then-newline-and-indent)
    ;; Clean up whitespace on save.
    (add-hook 'before-save-hook 'whitespace-cleanup nil t)
    ;; Rebuild tags after save.
