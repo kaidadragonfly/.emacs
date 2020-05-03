@@ -3,6 +3,8 @@
 (require 'dabbrev)
 (require 'diminish)
 
+;; Sometimes the VC system doesn't fully load and errors without this function.
+(defun vc-git-root (arg))
 ;; Handle git commits nicely.
 (use-package
     git-commit
