@@ -29,6 +29,7 @@
 (require-package 'json-mode)
 (require-package 'markdown-mode)
 (require-package 'nanowrimo)
+(require-package 'nginx-mode)
 (require-package 'paren-face)
 (require-package 'projectile)
 (require-package 'rjsx-mode)
