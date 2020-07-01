@@ -16,11 +16,13 @@
    ;; (define-key alchemist-mode-map (kbd "M-.") 'xref-find-definitions)
    
    (defvar elixir-mode-map)
-   (define-key elixir-mode-map (kbd "C-m") 'reindent-then-newline-and-indent)
-   ;; Clean up whitespace on save.
-   (add-hook 'before-save-hook 'whitespace-cleanup nil t)
+   (define-key elixir-mode-map (kbd "C-m") 'newline-and-indent)
+   ;; Format on save.
+   (add-hook 'before-save-hook 'elixir-format nil t)
    ;; Rebuild tags after save.
    (add-hook (make-local-variable 'after-save-hook) 'rebuild-tags nil t)
+   ;; Instead of indenting region format file.
+   (define-key elixir-mode-map (kbd "C-M-\\") 'elixir-format)
    ;; Allow movement between subwords.
    (subword-mode 1)
    (require 'diminish)
