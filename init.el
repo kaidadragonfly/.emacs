@@ -125,27 +125,22 @@ Kills the old scratch buffer.  "
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
- '(c-default-style
-   (quote
-    ((java-mode . "bsd")
-     (awk-mode . "awk")
-     (other . "gnu"))))
+ '(c-default-style '((java-mode . "bsd") (awk-mode . "awk") (other . "gnu")))
  '(case-fold-search t)
  '(company-dabbrev-downcase nil)
  '(company-dabbrev-ignore-case nil)
  '(confirm-kill-emacs nil)
  '(css-indent-offset 2)
  '(flycheck-checkers
-   (quote
-    (ada-gnat asciidoc c/c++-clang c/c++-gcc c/c++-cppcheck cfengine chef-foodcritic coffee coffee-coffeelint coq css-csslint d-dmd elixir emacs-lisp emacs-lisp-checkdoc erlang eruby-erubis fortran-gfortran go-gofmt go-golint go-vet go-build go-test go-errcheck haml handlebars haskell-ghc haskell-hlint html-tidy javascript-jshint javascript-eslint javascript-gjslint json-jsonlint less lua make perl perl-perlcritic php php-phpmd php-phpcs puppet-parser puppet-lint python-flake8 python-pylint racket rpm-rpmlint rst rst-sphinx ruby-rubocop ruby-rubylint ruby ruby-jruby rust-cargo sass scala scala-scalastyle scss sh-bash sh-posix-dash sh-posix-bash sh-zsh sh-shellcheck slim tex-chktex tex-lacheck texinfo typescript-tslint verilog-verilator xml-xmlstarlet xml-xmllint yaml-jsyaml yaml-ruby)))
- '(flycheck-disabled-checkers (quote (emacs-lisp-checkdoc)))
+   '(ada-gnat asciidoc c/c++-clang c/c++-gcc c/c++-cppcheck cfengine chef-foodcritic coffee coffee-coffeelint coq css-csslint d-dmd elixir emacs-lisp emacs-lisp-checkdoc erlang eruby-erubis fortran-gfortran go-gofmt go-golint go-vet go-build go-test go-errcheck haml handlebars haskell-ghc haskell-hlint html-tidy javascript-jshint javascript-eslint javascript-gjslint json-jsonlint less lua make perl perl-perlcritic php php-phpmd php-phpcs puppet-parser puppet-lint python-flake8 python-pylint racket rpm-rpmlint rst rst-sphinx ruby-rubocop ruby-rubylint ruby ruby-jruby rust-cargo sass scala scala-scalastyle scss sh-bash sh-posix-dash sh-posix-bash sh-zsh sh-shellcheck slim tex-chktex tex-lacheck texinfo typescript-tslint verilog-verilator xml-xmlstarlet xml-xmllint yaml-jsyaml yaml-ruby))
+ '(flycheck-disabled-checkers '(emacs-lisp-checkdoc))
  '(flycheck-display-errors-delay 0.1)
  '(flycheck-idle-change-delay 1.0)
  '(flycheck-python-pylint-executable nil)
- '(flycheck-shellcheck-excluded-warnings (quote ("1090" "1091" "2001" "2012" "2129")))
+ '(flycheck-shellcheck-excluded-warnings '("1090" "1091" "2001" "2012" "2129"))
  '(global-flycheck-mode t nil (flycheck))
  '(initial-buffer-choice nil)
- '(ispell-highlight-face (quote flyspell-incorrect))
+ '(ispell-highlight-face 'flyspell-incorrect)
  '(js-indent-level 2)
  '(js2-auto-indent-p t)
  '(js2-bounce-indent-p nil)
@@ -156,21 +151,18 @@ Kills the old scratch buffer.  "
  '(js2-skip-preprocessor-directives t)
  '(js2-strict-missing-semi-warning nil)
  '(mode-line-format
-   (quote
-    ("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position "  " mode-line-modes mode-line-misc-info mode-line-end-spaces)))
+   '("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position "  " mode-line-modes mode-line-misc-info mode-line-end-spaces))
  '(nanowrimo-show-suggestions nil)
  '(nanowrimo-show-wpm nil)
- '(nanowrimo-today-goal-calculation-function (quote nanowrimo-today-goal-from-date))
+ '(nanowrimo-today-goal-calculation-function 'nanowrimo-today-goal-from-date)
  '(package-selected-packages
-   (quote
-    (typescript-mode yaml-mode toml-mode sql-indent scss-mode sbt-mode s rust-mode markdown-mode json-mode js2-mode iedit haskell-mode flycheck-rust fill-column-indicator feature-mode etags-select elixir-mode dockerfile-mode company apples-mode)))
+   '(typescript-mode yaml-mode toml-mode sql-indent scss-mode sbt-mode s rust-mode markdown-mode json-mode js2-mode iedit haskell-mode flycheck-rust fill-column-indicator feature-mode etags-select elixir-mode dockerfile-mode company apples-mode))
  '(paren-face-modes
-   (quote
-    (lisp-mode emacs-lisp-mode lisp-interaction-mode ielm-mode scheme-mode inferior-scheme-mode clojure-mode cider-repl-mode nrepl-mode arc-mode inferior-arc-mode elixir-mode ruby-mode)))
+   '(lisp-mode emacs-lisp-mode lisp-interaction-mode ielm-mode scheme-mode inferior-scheme-mode clojure-mode cider-repl-mode nrepl-mode arc-mode inferior-arc-mode elixir-mode ruby-mode))
  '(ruby-deep-indent-paren nil)
  '(scala-indent:align-parameters t)
  '(scala-indent:default-run-on-strategy 1)
- '(scroll-bar-mode (quote right))
+ '(scroll-bar-mode 'right)
  '(sql-indent-offset 2)
  '(tls-checktrust t)
  '(vc-follow-symlinks t)
