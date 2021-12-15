@@ -13,7 +13,6 @@
         ("melpa" . "https://melpa.org/packages/")
         ("gnu" . "http://elpa.gnu.org/packages/")))
 
-;; (require-package 'alchemist)
 (require-package 'apples-mode)
 (require-package 'company)
 (require-package 'diminish)
@@ -31,6 +30,7 @@
 (require-package 'nginx-mode)
 (require-package 'paren-face)
 (require-package 'projectile)
+(require-package 'racket-mode)
 (require-package 'rjsx-mode)
 (require-package 'rust-mode)
 (require-package 's)
@@ -40,3 +40,4 @@
 (require-package 'use-package)
 (require-package 'web-mode)
 (require-package 'yaml-mode)
+;; (require-package 'alchemist)
