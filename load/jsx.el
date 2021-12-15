@@ -21,6 +21,8 @@
    (flyspell-prog-mode)
    ;; Turn on auto-fill-mode.
    (auto-fill-mode)
+   ;; Turn off flycheck
+   (flycheck-mode 0)
    ;; Make enter indent.
    (local-set-key (kbd "RET") 'newline-and-indent)
    ;; Make }, > and ; indent.
@@ -31,6 +33,9 @@
    (add-hook (make-local-variable 'after-save-hook) 'rebuild-tags nil t)
    ;; Use xref for definitions.
    (local-set-key (kbd "M-.") 'xref-find-definitions)
+   ;; Indent JSX by 2 spaces.
+   (defvar sgml-basic-offset)
+   (setq-local sgml-basic-offset 2)
    ;; Turn on subword mode.
    (subword-mode)
    (require 'diminish)
