@@ -152,9 +152,6 @@ Kills the old scratch buffer.  "
  '(js2-strict-missing-semi-warning nil)
  '(mode-line-format
    '("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position "  " mode-line-modes mode-line-misc-info mode-line-end-spaces))
- '(nanowrimo-show-suggestions nil)
- '(nanowrimo-show-wpm nil)
- '(nanowrimo-today-goal-calculation-function 'nanowrimo-today-goal-from-date)
  '(package-selected-packages
    '(typescript-mode yaml-mode toml-mode sql-indent scss-mode sbt-mode s rust-mode markdown-mode json-mode js2-mode iedit haskell-mode flycheck-rust fill-column-indicator feature-mode etags-select elixir-mode dockerfile-mode company apples-mode))
  '(paren-face-modes
@@ -178,7 +175,7 @@ Kills the old scratch buffer.  "
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(comint-highlight-prompt ((t (:foreground "white"))))
- '(company-scrollbar-bg ((t (:background "wheat" :foreground "black"))))
+ '(company-tooltip-scrollbar-track ((t (:background "wheat" :foreground "black"))))
  '(cua-rectangle ((t (:inherit region :background "magenta" :foreground "white"))))
  '(custom-button-pressed-unraised ((t (:inherit custom-button-unraised :foreground "magenta"))))
  '(custom-changed ((t (:background "blue" :foreground "white"))))
@@ -188,7 +185,7 @@ Kills the old scratch buffer.  "
  '(elixir-atom-face ((t (:foreground "blue"))))
  '(elixir-attribute-face ((t (:foreground "magenta"))))
  '(flyspell-duplicate ((t nil)))
- '(font-lock-builtin-face ((t (:foreground "brightmagenta"))))
+ '(font-lock-builtin-face ((t (:foreground "magenta"))))
  '(font-lock-comment-face ((t (:foreground "red"))))
  '(font-lock-constant-face ((t (:foreground "brightblue"))))
  '(font-lock-function-name-face ((t (:foreground "cyan"))))
