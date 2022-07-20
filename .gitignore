@@ -1,4 +1,5 @@
 *.elc
+.last-package-update-day        
 .tags
 abbrev_defs
 auto-save-list

@@ -251,4 +251,7 @@ Kills the old scratch buffer.  "
 
 ;; Make gc pauses faster by decreasing the threshold.
 (setq gc-cons-threshold default-gc-threshold)
+
 (require 'auto-package-update)
+(setq auto-package-update-prompt-before-update t)
+(auto-package-update-maybe)
