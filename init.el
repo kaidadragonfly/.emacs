@@ -175,7 +175,7 @@ Kills the old scratch buffer.  "
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(comint-highlight-prompt ((t (:foreground "white"))))
- '(company-scrollbar-bg ((t (:background "wheat" :foreground "black"))))
+ '(company-tooltip-scrollbar-track ((t (:background "wheat" :foreground "black"))))
  '(cua-rectangle ((t (:inherit region :background "magenta" :foreground "white"))))
  '(custom-button-pressed-unraised ((t (:inherit custom-button-unraised :foreground "magenta"))))
  '(custom-changed ((t (:background "blue" :foreground "white"))))
@@ -251,3 +251,4 @@ Kills the old scratch buffer.  "
 
 ;; Make gc pauses faster by decreasing the threshold.
 (setq gc-cons-threshold default-gc-threshold)
+(require 'auto-package-update)

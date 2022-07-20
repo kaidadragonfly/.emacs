@@ -14,6 +14,7 @@
         ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (require-package 'apples-mode)
+(require-package 'auto-package-update)
 (require-package 'company)
 (require-package 'diminish)
 (require-package 'elixir-mode)
