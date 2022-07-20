@@ -2,13 +2,14 @@
 (require 'cc-mode)
 (require 'dabbrev)
 (require 'diminish)
+(require 'git-commit)
 
 ;; Sometimes the VC system doesn't fully load and errors without this function.
 (defun vc-git-root (arg))
+
 ;; Handle git commits nicely.
-(use-package git-commit
-  :mode ("/\\(\\(\\(COMMIT\\|NOTES\\|PULLREQ\\|TAG\\)_EDIT\\|MERGE_\\|\\)MSG\\|\\(BRANCH\\|EDIT\\)_DESCRIPTION\\)\\'" . git-commit-mode)
-  :interpreter (git-commit . git-commit-mode))
+(add-to-list 'auto-mode-alist
+  (cons "/\\(\\(\\(COMMIT\\|NOTES\\|PULLREQ\\|TAG\\)_EDIT\\|MERGE_\\|\\)MSG\\|\\(BRANCH\\|EDIT\\)_DESCRIPTION\\)\\'" git-commit-mode))
 
 ;; Handle .gitignore nicely.
 (add-to-list 'auto-mode-alist

@@ -36,7 +36,6 @@
 (require-package 'sql-indent)
 (require-package 'swift-mode)
 (require-package 'typescript-mode)
-(require-package 'use-package)
 (require-package 'web-mode)
 (require-package 'yaml-mode)
 ;; (require-package 'alchemist)
