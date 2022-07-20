@@ -3,8 +3,10 @@
 abbrev_defs
 auto-save-list
 backups
+eln-cache       
 elpa
 ido.last
+ido.last~
 network-security.data   
 old
 places
@@ -12,5 +14,4 @@ projectile-bookmarks.eld
 secrets.el
 semanticdb
 tramp
-ido.last~
 transient

@@ -175,7 +175,7 @@ Kills the old scratch buffer.  "
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(comint-highlight-prompt ((t (:foreground "white"))))
- '(company-tooltip-scrollbar-track ((t (:background "wheat" :foreground "black"))))
+ '(company-scrollbar-bg ((t (:background "wheat" :foreground "black"))))
  '(cua-rectangle ((t (:inherit region :background "magenta" :foreground "white"))))
  '(custom-button-pressed-unraised ((t (:inherit custom-button-unraised :foreground "magenta"))))
  '(custom-changed ((t (:background "blue" :foreground "white"))))
@@ -185,7 +185,7 @@ Kills the old scratch buffer.  "
  '(elixir-atom-face ((t (:foreground "blue"))))
  '(elixir-attribute-face ((t (:foreground "magenta"))))
  '(flyspell-duplicate ((t nil)))
- '(font-lock-builtin-face ((t (:foreground "magenta"))))
+ '(font-lock-builtin-face ((t (:foreground "brightmagenta"))))
  '(font-lock-comment-face ((t (:foreground "red"))))
  '(font-lock-constant-face ((t (:foreground "brightblue"))))
  '(font-lock-function-name-face ((t (:foreground "cyan"))))
