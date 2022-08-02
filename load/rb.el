@@ -1,3 +1,5 @@
+(autoload 'diminish "diminish")
+
 (defun rebuild-ripper-tags ()
   (start-process "rebuild-ripper-tags" nil "rebuild-ripper-tags"))
 
@@ -22,7 +24,6 @@
    (setq flycheck-disabled-checkers
          (cons 'ruby-rubocop flycheck-disabled-checkers))
    ;; Turn on subword-mode
-   (require 'diminish)
    (subword-mode 1)
    (diminish 'subword-mode)
    ;; Make do/end less prominent.

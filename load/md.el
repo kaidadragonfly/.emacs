@@ -1,3 +1,5 @@
+(autoload 'diminish "diminish")
+
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 (add-hook
@@ -21,7 +23,6 @@
    (company-mode 0)
    ;; Turn on subword mode.
    (subword-mode)
-   (require 'diminish)
    (diminish 'subword-mode)
    ;; Highlight code blocks
    (defvar markdown-fontify-code-blocks-natively)

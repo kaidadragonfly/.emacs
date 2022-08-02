@@ -2,6 +2,7 @@
 (eval-when-compile (require 'js2-mode))
 (autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(autoload 'diminish "diminish")
 
 (add-hook
  'js2-mode-hook
@@ -23,5 +24,4 @@
    (local-set-key (kbd "<f8>") 'js2-next-error)
    ;; Allow movement between subwords.
    (subword-mode 1)
-   (require 'diminish)
    (diminish 'subword-mode)))

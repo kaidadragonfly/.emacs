@@ -1,8 +1,9 @@
 ;; mouse integration
-(require 'mouse) ;; needed for iterm2 compatibility
 (require 'mwheel)
 
 (if (equal (getenv "TERM_PROGRAM") "iTerm.app")
+    (require 'mouse) ;; needed for iterm2 compatibility
+  
     (progn
       (xterm-mouse-mode)
       (defvar mouse-wheel-progressive-speed)

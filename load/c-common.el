@@ -1,3 +1,6 @@
+(eval-when-compile (require 'cc-mode))
+(autoload 'diminish "diminish")
+
 ;; Settings to be loaded for C mode, and descendants.
 (add-hook
  'c-mode-common-hook
@@ -10,14 +13,12 @@
    (abbrev-mode 0)
    ;; Allow movement between subwords.
    (subword-mode 1)
-   (require 'diminish)
    (diminish 'subword-mode)
    ;; Bind compile to F5.
    (local-set-key (kbd "<f5>") 'compile)
    ;; And to C-cC-c
    (local-set-key (kbd "C-c C-c") 'compile)
    ;; Setup indentation.
-   (defvar c-basic-offset)
    (setq c-basic-offset 4)
    ;; Have tabs (in C mode) mirror c-indentation.
    (set (make-local-variable 'tab-width) c-basic-offset)
@@ -30,6 +31,5 @@
    ;; Clean whitespace on save.
    (add-hook 'before-save-hook 'whitespace-cleanup nil t)
    ;; Make smart-tab always indent.
-   (defvar smart-tab-always-indent)
    (set (make-local-variable 'smart-tab-always-indent) t)))
 

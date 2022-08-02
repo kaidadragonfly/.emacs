@@ -1,3 +1,5 @@
+(autoload 'diminish "diminish")
+
 (add-hook
  'python-mode-hook
  (lambda ()
@@ -8,7 +10,6 @@
    (setq comment-auto-fill-only-comments t) ; Only fill comments.
    ;; Turn on subword mode.
    (subword-mode)
-   (require 'diminish)
    (diminish 'subword-mode)
    ;; Make enter indent.
    (local-set-key (kbd "RET") 'newline-and-indent)

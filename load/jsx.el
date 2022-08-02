@@ -1,4 +1,6 @@
-(require 'rjsx-mode)
+(eval-when-compile (require 'rjsx-mode))
+(autoload 'rjsx-mode "rjsx-mode" nil t)
+(autoload 'diminish "diminish")
 
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
 (add-to-list 'magic-mode-alist '("import.*react" . rjsx-mode))
@@ -38,5 +40,4 @@
    (setq-local sgml-basic-offset 2)
    ;; Turn on subword mode.
    (subword-mode)
-   (require 'diminish)
    (diminish 'subword-mode)))

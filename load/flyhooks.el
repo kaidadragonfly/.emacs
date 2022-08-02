@@ -1,4 +1,5 @@
-(require 'flycheck)
+(eval-when-compile (require 'flycheck))
+(autoload 'flycheck-buffer "flycheck" nil t)
 
 (defun touch-and-check-buffer ()
   "Touch and save the buffer before checking syntax."

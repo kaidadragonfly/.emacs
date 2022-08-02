@@ -1,3 +1,5 @@
+(autoload 'diminish "diminish")
+
 (add-hook
  'typescript-mode-hook
  (lambda ()
@@ -19,5 +21,4 @@
    (add-hook 'before-save-hook 'whitespace-cleanup nil t)
    ;; Allow movement between subwords.
    (subword-mode 1)
-   (require 'diminish)
    (diminish 'subword-mode)))

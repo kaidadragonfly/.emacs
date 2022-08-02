@@ -1,5 +1,3 @@
-(eval-when-compile (require 'cl))
-
 (add-hook
  'elixir-mode-hook
  (lambda ()
