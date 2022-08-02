@@ -1,12 +1,11 @@
 ;; Features to make emacs more competitive with IDEs.
-(require 'cc-mode)
 (require 'dabbrev)
 (require 'diminish)
 
 ;; Sometimes the VC system doesn't fully load and errors without this function.
 (defun vc-git-root (arg))
 ;; Handle git commits nicely.
-(autoload 'git-commit-mode "git-commit" "Git Commit Mode." t)
+(autoload 'git-commit-mode "git-commit")
 (add-to-list 'auto-mode-alist
   (cons
    "/\\(\\(\\(COMMIT\\|NOTES\\|PULLREQ\\|TAG\\)_EDIT\\|MERGE_\\|\\)MSG\\|\\(BRANCH\\|EDIT\\)_DESCRIPTION\\)\\'"
