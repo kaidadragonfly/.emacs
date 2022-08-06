@@ -254,4 +254,5 @@ Kills the old scratch buffer.  "
 
 (require 'auto-package-update)
 (setq auto-package-update-prompt-before-update t)
+(setq auto-package-update-interval 21)
 (auto-package-update-maybe)
