@@ -15,8 +15,12 @@
    
    (defvar elixir-mode-map)
    (define-key elixir-mode-map (kbd "C-m") 'newline-and-indent)
+   (defun elixir-format-quietly ()
+     (interactive)
+     (let ((inhibit-message t))
+       (elixir-format)))
    ;; Format on save.
-   (add-hook 'before-save-hook 'elixir-format nil t)
+   (add-hook 'before-save-hook 'elixir-format-quietly nil t)
    ;; Rebuild tags after save.
    (add-hook (make-local-variable 'after-save-hook) 'rebuild-tags nil t)
    ;; Instead of indenting region format file.
