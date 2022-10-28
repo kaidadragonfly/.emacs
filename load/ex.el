@@ -1,18 +1,6 @@
 (add-hook
  'elixir-mode-hook
  (lambda ()
-   ;; ;; Compile alchemist in a different directory.
-   ;; (make-local-variable 'process-environment)
-   ;; (pushnew "ALCHEMIST_MODE=1" process-environment)
-   ;; (alchemist-mode t)
-   ;; (require 'flycheck-mix)
-   ;; (flycheck-mix-setup)
-   ;; ;; Bind alchemist-help-search-at-point to F1
-   ;; (local-set-key (kbd "<f1>") 'alchemist-help-search-at-point)
-   ;; ;; Bind M-. and M-/
-   ;; (defvar alchemist-mode-map)
-   ;; (define-key alchemist-mode-map (kbd "M-.") 'xref-find-definitions)
-   
    (defvar elixir-mode-map)
    (define-key elixir-mode-map (kbd "C-m") 'newline-and-indent)
    (defun elixir-format-quietly ()
@@ -29,9 +17,21 @@
    (subword-mode 1)
    (require 'diminish)
    (diminish 'subword-mode)
+   ;; Disable flycheck, enable eglot
+   (flycheck-mode 0)
+   (eglot-ensure)
+   (require 'seq)
+   (setq
+    mode-line-misc-info
+    (seq-filter
+     (lambda (pair) (not (eql (car pair) 'eglot--managed-mode)))
+     mode-line-misc-info))
    ;; Make do/end less prominent.
    (defvar paren-face-regexp)
    (setq-local paren-face-regexp
                (rx symbol-start (or "do" "end") symbol-end))))
 
-
+(require 'eglot)
+(add-to-list
+ 'eglot-server-programs
+ '(elixir-mode . ("sh" "/opt/homebrew/bin/elixir-ls")))

@@ -17,6 +17,7 @@
 (require-package 'auto-package-update)
 (require-package 'company)
 (require-package 'diminish)
+(require-package 'eglot)
 (require-package 'elixir-mode)
 (require-package 'feature-mode)
 (require-package 'fill-column-indicator)
