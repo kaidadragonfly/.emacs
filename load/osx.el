@@ -2,9 +2,13 @@
 (require 'mwheel)
 
 (if (equal (getenv "TERM_PROGRAM") "iTerm.app")
-    (require 'mouse) ;; needed for iterm2 compatibility
-  
     (progn
+      (require 'mouse) ;; needed for iterm2 compatibility
+      (message
+       "********************************************************************************")
+      (message "HERE")
+      (message
+       "********************************************************************************")
       (xterm-mouse-mode)
       (defvar mouse-wheel-progressive-speed)
       (setq mouse-wheel-progressive-speed nil)
@@ -12,7 +16,7 @@
       (setq mouse-wheel-scroll-amount '(1))
 
       (mouse-wheel-mode 1)
-      
+
       (declare-function cua-copy-region (arg) "cua-base.el")
       (defun smart-copy-region ()
         (interactive)
