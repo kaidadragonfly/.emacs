@@ -131,6 +131,13 @@ Kills the old scratch buffer.  "
  '(company-dabbrev-ignore-case nil)
  '(confirm-kill-emacs nil)
  '(css-indent-offset 2)
+  '(lsp-auto-execute-action nil)
+ '(lsp-file-watch-threshold 5000)
+ '(lsp-modeline-code-actions-segments '(count))
+ '(lsp-semantic-tokens-enable t)
+ '(lsp-ui-doc-alignment 'window)
+ '(lsp-ui-doc-enable nil)
+ '(lsp-ui-sideline-enable nil)
  '(flycheck-checkers
    '(ada-gnat asciidoc c/c++-clang c/c++-gcc c/c++-cppcheck cfengine chef-foodcritic coffee coffee-coffeelint coq css-csslint d-dmd elixir emacs-lisp emacs-lisp-checkdoc erlang eruby-erubis fortran-gfortran go-gofmt go-golint go-vet go-build go-test go-errcheck haml handlebars haskell-ghc haskell-hlint html-tidy javascript-jshint javascript-eslint javascript-gjslint json-jsonlint less lua make perl perl-perlcritic php php-phpmd php-phpcs puppet-parser puppet-lint python-flake8 python-pylint racket rpm-rpmlint rst rst-sphinx ruby-rubocop ruby-rubylint ruby ruby-jruby rust-cargo sass scala scala-scalastyle scss sh-bash sh-posix-dash sh-posix-bash sh-zsh sh-shellcheck slim tex-chktex tex-lacheck texinfo typescript-tslint verilog-verilator xml-xmlstarlet xml-xmllint yaml-jsyaml yaml-ruby))
  '(flycheck-disabled-checkers '(emacs-lisp-checkdoc))
@@ -153,7 +160,7 @@ Kills the old scratch buffer.  "
  '(mode-line-format
    '("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position "  " mode-line-modes mode-line-misc-info mode-line-end-spaces))
  '(package-selected-packages
-   '(typescript-mode yaml-mode toml-mode sql-indent scss-mode sbt-mode s rust-mode markdown-mode json-mode js2-mode iedit haskell-mode flycheck-rust fill-column-indicator feature-mode etags-select elixir-mode dockerfile-mode company apples-mode))
+   '(toml-mode sql-indent scss-mode sbt-mode json-mode iedit haskell-mode flycheck-rust fill-column-indicator feature-mode etags-select dockerfile-mode apples-mode))
  '(paren-face-modes
    '(lisp-mode emacs-lisp-mode lisp-interaction-mode ielm-mode scheme-mode inferior-scheme-mode clojure-mode cider-repl-mode nrepl-mode arc-mode inferior-arc-mode elixir-mode ruby-mode))
  '(ruby-deep-indent-paren nil)

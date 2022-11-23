@@ -16,3 +16,5 @@ secrets.el
 semanticdb
 tramp
 transient
+.cache
+.lsp-session-v1
