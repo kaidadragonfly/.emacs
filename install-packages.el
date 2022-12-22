@@ -27,6 +27,7 @@
 (require-package 'js2-mode)
 (require-package 'json-mode)
 (require-package 'lsp-mode)
+(require-package 'lsp-treemacs)
 (require-package 'lsp-ui)
 (require-package 'markdown-mode)
 (require-package 'nginx-mode)

@@ -312,3 +312,6 @@
 ;; Setup LSP
 (require 'lsp)
 (require 'lsp-ui)
+(setq lsp-ui-doc-enable t)
+(setq lsp-headerline-breadcrumb-enable nil)
+(setq lsp-eldoc-enable-hover nil)
