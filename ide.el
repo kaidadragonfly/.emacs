@@ -313,5 +313,8 @@
 (require 'lsp)
 (require 'lsp-ui)
 (setq lsp-ui-doc-enable t)
+(setq lsp-enable-snippet nil)
 (setq lsp-headerline-breadcrumb-enable nil)
 (setq lsp-eldoc-enable-hover nil)
+(defvar treemacs-no-load-time-warnings t)
+(global-set-key (kbd "<f1>") 'lsp-describe-thing-at-point)
