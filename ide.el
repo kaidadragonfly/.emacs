@@ -7,9 +7,9 @@
 ;; Handle git commits nicely.
 (autoload 'git-commit-mode "git-commit" nil t)
 (add-to-list 'auto-mode-alist
-  (cons
-   "/\\(\\(\\(COMMIT\\|NOTES\\|PULLREQ\\|TAG\\)_EDIT\\|MERGE_\\|\\)MSG\\|\\(BRANCH\\|EDIT\\)_DESCRIPTION\\)\\'"
-   'git-commit-mode))
+             (cons
+              "/\\(\\(\\(COMMIT\\|NOTES\\|PULLREQ\\|TAG\\)_EDIT\\|MERGE_\\|\\)MSG\\|\\(BRANCH\\|EDIT\\)_DESCRIPTION\\)\\'"
+              'git-commit-mode))
 
 ;; Handle .gitignore nicely.
 (add-to-list 'auto-mode-alist
@@ -308,3 +308,13 @@
 (diminish 'projectile-mode)
 
 (setq save-silently t)
+
+;; Setup LSP
+(require 'lsp)
+(require 'lsp-ui)
+(setq lsp-ui-doc-enable t)
+(setq lsp-enable-snippet nil)
+(setq lsp-headerline-breadcrumb-enable nil)
+(setq lsp-eldoc-enable-hover nil)
+(defvar treemacs-no-load-time-warnings t)
+(global-set-key (kbd "<f1>") 'lsp-describe-thing-at-point)
