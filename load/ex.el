@@ -8,9 +8,9 @@
      (let ((inhibit-message t))
        (elixir-format)))
    ;; Format on save.
-   ;; (add-hook 'before-save-hook 'elixir-format-quietly nil t)
+   (add-hook 'before-save-hook 'elixir-format-quietly nil t)
    ;; Instead of indenting region format file.
-   ;; (define-key elixir-mode-map (kbd "C-M-\\") 'elixir-format)
+   (define-key elixir-mode-map (kbd "C-M-\\") 'elixir-format)
    ;; Allow movement between subwords.
    (subword-mode 1)
    (require 'diminish)
