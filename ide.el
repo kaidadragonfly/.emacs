@@ -313,6 +313,7 @@
 (require 'lsp)
 (require 'lsp-ui)
 (setq lsp-ui-doc-enable t)
+(setq lsp-ui-doc-show-with-cursor nil)
 (setq lsp-enable-snippet nil)
 (setq lsp-headerline-breadcrumb-enable nil)
 (setq lsp-eldoc-enable-hover nil)
