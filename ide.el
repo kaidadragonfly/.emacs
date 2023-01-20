@@ -153,8 +153,12 @@
     (back-to-indentation)
     (current-column)))
 
-(defvar mark-block-indent 1)
-(setq-local mark-block-indent 1)
+;; From here: https://emacs.stackexchange.com/questions/16792/easiest-way-to-check-if-current-line-is-empty-ignoring-whitespace
+(defun current-line-empty-p ()
+  (string-match-p "\\`\\s-*$" (thing-at-point 'line)))
+
+(defvar mark-block-indent t)
+(setq-local mark-block-indent t)
 (defun mark-block ()
   "Put the point at the beginning of this block, mark at the end.
    The block marked is the one that contains point or follows point"
@@ -165,9 +169,13 @@
       (mark-paragraph)
     (let* ((depth (indentation-column)))
       ;; Find end.
-      (while (= (indentation-column) depth)
+      (while
+          (and
+           (= (indentation-column) depth)
+           (not (current-line-empty-p)))
         (forward-line 1)
         (if mark-block-indent (indent-for-tab-command)))
+      
       (beginning-of-line)
       (set-mark (point))
       (forward-line -1)
