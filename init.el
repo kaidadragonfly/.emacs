@@ -155,6 +155,7 @@ Kills the old scratch buffer.  "
  '(lsp-elixir-dialyzer-enabled nil)
  '(lsp-enable-folding nil)
  '(lsp-file-watch-threshold 5000)
+ '(lsp-lens-enable nil)
  '(lsp-modeline-code-actions-segments '(count))
  '(lsp-semantic-tokens-enable t)
  '(lsp-ui-doc-alignment 'window)

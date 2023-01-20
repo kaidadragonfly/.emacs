@@ -327,3 +327,4 @@
 (setq lsp-eldoc-enable-hover nil)
 (defvar treemacs-no-load-time-warnings t)
 (global-set-key (kbd "<f1>") 'lsp-describe-thing-at-point)
+(diminish 'eldoc-mode)
