@@ -171,6 +171,7 @@ Kills the old scratch buffer.  "
  '(scroll-bar-mode 'right)
  '(sql-indent-offset 2)
  '(tls-checktrust t)
+ '(treemacs-no-delete-other-windows nil)
  '(treemacs-no-png-images t)
  '(vc-follow-symlinks t)
  '(web-mode-code-indent-offset 2)
