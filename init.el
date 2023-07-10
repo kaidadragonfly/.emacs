@@ -1,5 +1,3 @@
-(package-initialize)
-
 (defvar default-gc-threshold)
 (setq default-gc-threshold gc-cons-threshold)
 
@@ -52,7 +50,7 @@
  'auto-revert-handler
  :around (lambda (orig-fun &rest args)
            (let ((auto-revert-verbose (not (minibufferp (window-buffer)))))
-              (apply orig-fun args))))
+             (apply orig-fun args))))
 ;; Save all backup & autosave files in one directory.
 (if (file-directory-p "~/.emacs.d/backups")
     (progn
