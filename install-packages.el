@@ -29,6 +29,7 @@
 (require-package 'lsp-mode)
 (require-package 'lsp-treemacs)
 (require-package 'lsp-ui)
+(require-package 'lua-mode)
 (require-package 'markdown-mode)
 (require-package 'nginx-mode)
 (require-package 'paren-face)
