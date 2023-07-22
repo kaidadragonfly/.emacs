@@ -129,6 +129,9 @@ Kills the old scratch buffer.  "
  '(company-dabbrev-ignore-case nil)
  '(confirm-kill-emacs nil)
  '(css-indent-offset 2)
+ '(custom-enabled-themes '(terminal-colors))
+ '(custom-safe-themes
+   '("44e4c9c9bccfc6f280471d60b1a38ca3f75de94345d10432958d2a15e686f4e8" default))
  '(flycheck-checkers
    '(ada-gnat asciidoc c/c++-clang c/c++-gcc c/c++-cppcheck cfengine chef-foodcritic coffee coffee-coffeelint coq css-csslint d-dmd elixir emacs-lisp emacs-lisp-checkdoc erlang eruby-erubis fortran-gfortran go-gofmt go-golint go-vet go-build go-test go-errcheck haml handlebars haskell-ghc haskell-hlint html-tidy javascript-jshint javascript-eslint javascript-gjslint json-jsonlint less lua make perl perl-perlcritic php php-phpmd php-phpcs puppet-parser puppet-lint python-flake8 python-pylint racket rpm-rpmlint rst rst-sphinx ruby-rubocop ruby-rubylint ruby ruby-jruby rust-cargo sass scala scala-scalastyle scss sh-bash sh-posix-dash sh-posix-bash sh-zsh sh-shellcheck slim tex-chktex tex-lacheck texinfo typescript-tslint verilog-verilator xml-xmlstarlet xml-xmllint yaml-jsyaml yaml-ruby))
  '(flycheck-disabled-checkers '(emacs-lisp-checkdoc))
