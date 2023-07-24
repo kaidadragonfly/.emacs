@@ -197,6 +197,7 @@ Kills the old scratch buffer.  "
  '(elixir-atom-face ((t (:foreground "blue"))))
  '(elixir-attribute-face ((t (:foreground "magenta"))))
  '(flyspell-duplicate ((t nil)))
+ '(flyspell-incorrect ((t (:foreground "brightred" :underline t))))
  '(font-lock-builtin-face ((t (:foreground "brightmagenta"))))
  '(font-lock-comment-face ((t (:foreground "red"))))
  '(font-lock-constant-face ((t (:foreground "brightblue"))))
