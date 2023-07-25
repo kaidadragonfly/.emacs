@@ -1,6 +1,9 @@
-.PHONY: all
+.PHONY: all update
 
-all: load.elc init.elc ide.elc
+all: load.elc init.elc ide.elc update
+
+update: install-packages.elc
+	emacs --batch --script update-packages.el
 
 load.el: install-packages.elc $(wildcard load/*.el)
 	cat load/*.el > load.el
