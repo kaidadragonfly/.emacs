@@ -5,20 +5,9 @@
 ;; collection.  The default is 800 kilobytes.  Measured in bytes.
 (setq gc-cons-threshold (* 64 1024 1024))
 
-;; Load custom elisp files.
-(add-to-list 'load-path "~/.emacs.d/lib")
-
-;; Byte compile elisp files.
-(setq load-prefer-newer t)
-
-(make-thread
- (lambda ()
-   (let ((inhibit-message t))
-     (byte-recompile-directory (expand-file-name "~/.emacs.d") 0 nil))))
-
 ;; Initialize packages.
-(load "~/.emacs.d/install-packages")
 (load "~/.emacs.d/ide")
+(load "~/.emacs.d/load")
 
 ;; Load secrets.
 (if (file-exists-p "~/.emacs.d/secrets")
@@ -38,6 +27,7 @@
 (show-paren-mode 1)
 ;; Get rid of the initially useful, but ultimately annoying splash screen.
 (setq inhibit-startup-message t)
+(setq inhibit-startup-screen t)
 ;; Give buffers unique names.
 (eval-when-compile (require 'uniquify))
 (setq uniquify-buffer-name-style 'forward)
@@ -74,19 +64,6 @@
 (if (fboundp 'save-place-mode)
     (save-place-mode +1)
   (setq-default save-place t))
-
-;;-----------------------------------------------------------------------------
-;; Workarounds.
-;;-----------------------------------------------------------------------------
-;; Sometimes needed for usage inside of tmux.
-(global-set-key (kbd "<select>") 'move-end-of-line)
-
-;;-----------------------------------------------------------------------------
-;; Load modular settings.
-;;-----------------------------------------------------------------------------
-(load "~/.emacs.d/lib/elisp-load-dir")
-(require 'elisp-load-dir)
-(elisp-load-dir "~/.emacs.d/load")
 
 ;;-----------------------------------------------------------------------------
 ;; Functions.
@@ -175,6 +152,7 @@ Kills the old scratch buffer.  "
  '(treemacs-no-delete-other-windows nil)
  '(treemacs-no-png-images t)
  '(vc-follow-symlinks t)
+ '(warning-suppress-types '((comp) (comp) (comp) (comp)))
  '(web-mode-code-indent-offset 2)
  '(web-mode-enable-control-block-indentation t)
  '(web-mode-markup-indent-offset 2)
@@ -255,18 +233,18 @@ Kills the old scratch buffer.  "
 (global-paren-face-mode 1)
 
 ;; Use a hook so the message doesn't get clobbered by other messages.
-(add-hook 'emacs-startup-hook
-          (lambda ()
-            (message "Emacs ready in %s with %d garbage collections."
-                     (format "%.2f seconds"
-                             (float-time
-                              (time-subtract after-init-time before-init-time)))
-                     gcs-done)))
+(add-hook
+ 'emacs-startup-hook
+ (lambda ()
+   (run-with-timer
+    0.1
+    nil
+    (lambda ()
+      (message "Emacs ready in %s with %d garbage collections."
+               (format "%.2f seconds"
+                       (float-time
+                        (time-subtract after-init-time before-init-time)))
+               gcs-done)))))
 
 ;; Make gc pauses faster by decreasing the threshold.
 (setq gc-cons-threshold default-gc-threshold)
-
-(require 'auto-package-update)
-(setq auto-package-update-prompt-before-update t)
-(setq auto-package-update-interval 21)
-(auto-package-update-maybe)

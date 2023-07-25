@@ -1,3 +1,5 @@
+(package-initialize)
+
 ;; Install various packages.
 (defun require-package (pkg)
   "Guarantee that `pkg` is installed."
@@ -44,3 +46,7 @@
 (require-package 'web-mode)
 (require-package 'yaml-mode)
 ;; (require-package 'alchemist)
+
+(require 'auto-package-update)
+(setq auto-package-update-interval 21)
+(auto-package-update-now)

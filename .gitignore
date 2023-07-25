@@ -18,3 +18,4 @@ tramp
 transient
 .cache
 .lsp-session-v1
+load.el
