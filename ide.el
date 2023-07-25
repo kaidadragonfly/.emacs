@@ -175,7 +175,7 @@
            (not (current-line-empty-p)))
         (forward-line 1)
         (if mark-block-indent (indent-for-tab-command)))
-      
+
       (beginning-of-line)
       (set-mark (point))
       (forward-line -1)
@@ -328,3 +328,20 @@
 (defvar treemacs-no-load-time-warnings t)
 (global-set-key (kbd "<f1>") 'lsp-describe-thing-at-point)
 (diminish 'eldoc-mode)
+
+;; Make M-w copy to system clipboard
+
+(declare-function cua-copy-region (arg) "cua-base.el")
+(defun clipboard-copy-region ()
+  (interactive)
+
+  (cua-copy-region nil)
+  (shell-command-on-region
+   (region-beginning)
+   (region-end)
+   (if (equal (getenv "TERM_PROGRAM") "iTerm.app")
+       "pbcopy"
+     "xsel --clipboard --input"))
+  (deactivate-mark))
+
+(global-set-key (kbd "M-w") 'clipboard-copy-region)

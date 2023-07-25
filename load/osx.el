@@ -1,12 +1,3 @@
-(defun osx-smart-copy-region ()
-  (interactive)
-  (cua-copy-region nil)
-  (shell-command-on-region
-   (region-beginning)
-   (region-end)
-   "pbcopy")
-  (message ""))
-
 ;; mouse integration
 (require 'mwheel)
 
@@ -18,7 +9,4 @@
   (defvar mouse-wheel-scroll-amount)
   (setq mouse-wheel-scroll-amount '(1))
 
-  (mouse-wheel-mode 1)
-
-  (declare-function cua-copy-region (arg) "cua-base.el")
-  (global-set-key (kbd "M-w") 'osx-smart-copy-region))
+  (mouse-wheel-mode 1))
