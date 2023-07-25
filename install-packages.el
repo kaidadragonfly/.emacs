@@ -15,7 +15,6 @@
         ("melpa" . "https://melpa.org/packages/")
         ("gnu" . "http://elpa.gnu.org/packages/")))
 
-(require-package 'apples-mode)
 (require-package 'auto-package-update)
 (require-package 'company)
 (require-package 'diminish)
@@ -46,3 +45,4 @@
 (require-package 'web-mode)
 (require-package 'yaml-mode)
 ;; (require-package 'alchemist)
+;; (require-package 'apples-mode)
