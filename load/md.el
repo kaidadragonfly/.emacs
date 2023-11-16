@@ -27,6 +27,8 @@
    ;; Highlight code blocks
    (defvar markdown-fontify-code-blocks-natively)
    (setq markdown-fontify-code-blocks-natively t)
+   ;; Make backtab cycle through table cells.
+   (local-set-key (kbd "<backtab>") 'markdown-table-backward-cell)
    ;; Make <f5> compile.
    (local-set-key (kbd "<f5>") 'compile)
    (defvar compilation-read-command)
