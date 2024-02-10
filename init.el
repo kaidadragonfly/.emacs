@@ -10,7 +10,7 @@
 (load "~/.emacs.d/load")
 
 ;; Load secrets.
-(if (file-exists-p "~/.emacs.d/secrets")
+(if (file-exists-p "~/.emacs.d/secrets.el")
     (load "~/.emacs.d/secrets"))
 
 ;;----------------------------------------------------------------------------
