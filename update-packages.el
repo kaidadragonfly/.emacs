@@ -1,5 +1,5 @@
 (package-initialize)
 
 (require 'auto-package-update)
-(setq auto-package-update-interval 21)
-(auto-package-update-now)
+(setq auto-package-update-interval 3)
+(auto-package-update-maybe)
