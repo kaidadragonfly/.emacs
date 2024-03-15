@@ -10,6 +10,12 @@
    ;; Use visual-line-mode instead of auto-fill-mode
    (auto-fill-mode 0)
    (visual-line-mode 1)
+   ;; Indent on save.
+   (add-hook 'before-save-hook
+             (lambda ()
+               (whitespace-cleanup)
+               (indent-region (point-min) (point-max) nil))
+             nil t)
    ;; Add "automatic" indentation.
    (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)))
 
