@@ -23,7 +23,6 @@
 (require-package 'fill-column-indicator)
 (require-package 'flycheck)
 (require-package 'flycheck-rust)
-(require-package 'git-commit)
 (require-package 'iedit)
 (require-package 'js2-mode)
 (require-package 'json-mode)
