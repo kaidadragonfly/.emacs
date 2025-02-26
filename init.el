@@ -108,14 +108,30 @@ Kills the old scratch buffer.  "
  '(css-indent-offset 2)
  '(custom-enabled-themes '(terminal-colors))
  '(custom-safe-themes
-   '("44e4c9c9bccfc6f280471d60b1a38ca3f75de94345d10432958d2a15e686f4e8" default))
+   '("44e4c9c9bccfc6f280471d60b1a38ca3f75de94345d10432958d2a15e686f4e8"
+     default))
  '(flycheck-checkers
-   '(ada-gnat asciidoc c/c++-clang c/c++-gcc c/c++-cppcheck cfengine chef-foodcritic coffee coffee-coffeelint coq css-csslint d-dmd elixir emacs-lisp emacs-lisp-checkdoc erlang eruby-erubis fortran-gfortran go-gofmt go-golint go-vet go-build go-test go-errcheck haml handlebars haskell-ghc haskell-hlint html-tidy javascript-jshint javascript-eslint javascript-gjslint json-jsonlint less lua make perl perl-perlcritic php php-phpmd php-phpcs puppet-parser puppet-lint python-flake8 python-pylint racket rpm-rpmlint rst rst-sphinx ruby-rubocop ruby-rubylint ruby ruby-jruby rust-cargo sass scala scala-scalastyle scss sh-bash sh-posix-dash sh-posix-bash sh-zsh sh-shellcheck slim tex-chktex tex-lacheck texinfo typescript-tslint verilog-verilator xml-xmlstarlet xml-xmllint yaml-jsyaml yaml-ruby))
+   '(ada-gnat asciidoc c/c++-clang c/c++-gcc c/c++-cppcheck cfengine
+              chef-foodcritic coffee coffee-coffeelint coq css-csslint
+              d-dmd elixir emacs-lisp emacs-lisp-checkdoc erlang
+              eruby-erubis fortran-gfortran go-gofmt go-golint go-vet
+              go-build go-test go-errcheck haml handlebars haskell-ghc
+              haskell-hlint html-tidy javascript-jshint
+              javascript-eslint javascript-gjslint json-jsonlint less
+              lua make perl perl-perlcritic php php-phpmd php-phpcs
+              puppet-parser puppet-lint python-flake8 python-pylint
+              racket rpm-rpmlint rst rst-sphinx ruby-rubocop
+              ruby-rubylint ruby ruby-jruby rust-cargo sass scala
+              scala-scalastyle scss sh-bash sh-posix-dash
+              sh-posix-bash sh-zsh sh-shellcheck slim tex-chktex
+              tex-lacheck texinfo typescript-tslint verilog-verilator
+              xml-xmlstarlet xml-xmllint yaml-jsyaml yaml-ruby))
  '(flycheck-disabled-checkers '(emacs-lisp-checkdoc))
  '(flycheck-display-errors-delay 0.1)
  '(flycheck-idle-change-delay 1.0)
  '(flycheck-python-pylint-executable nil)
  '(flycheck-shellcheck-excluded-warnings '("1090" "1091" "2001" "2012" "2129"))
+ '(git-commit-summary-max-length 50)
  '(global-flycheck-mode t nil (flycheck))
  '(initial-buffer-choice nil)
  '(ispell-highlight-face 'flyspell-incorrect)
@@ -138,11 +154,20 @@ Kills the old scratch buffer.  "
  '(lsp-semantic-tokens-enable t)
  '(lsp-ui-doc-alignment 'window)
  '(mode-line-format
-   '("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position "  " mode-line-modes mode-line-misc-info mode-line-end-spaces))
+   '("%e" mode-line-front-space mode-line-mule-info mode-line-client
+     mode-line-modified mode-line-remote
+     mode-line-frame-identification mode-line-buffer-identification
+     "   " mode-line-position "  " mode-line-modes mode-line-misc-info
+     mode-line-end-spaces))
  '(package-selected-packages
-   '(toml-mode sql-indent scss-mode sbt-mode json-mode iedit haskell-mode flycheck-rust fill-column-indicator feature-mode etags-select dockerfile-mode apples-mode))
+   '(toml-mode sql-indent scss-mode sbt-mode json-mode iedit haskell-mode
+               flycheck-rust fill-column-indicator feature-mode
+               etags-select dockerfile-mode apples-mode))
  '(paren-face-modes
-   '(lisp-mode emacs-lisp-mode lisp-interaction-mode ielm-mode scheme-mode inferior-scheme-mode clojure-mode cider-repl-mode nrepl-mode arc-mode inferior-arc-mode elixir-mode ruby-mode))
+   '(lisp-mode emacs-lisp-mode lisp-interaction-mode ielm-mode
+               scheme-mode inferior-scheme-mode clojure-mode
+               cider-repl-mode nrepl-mode arc-mode inferior-arc-mode
+               elixir-mode ruby-mode))
  '(ruby-deep-indent-paren nil)
  '(scala-indent:align-parameters t)
  '(scala-indent:default-run-on-strategy 1)
