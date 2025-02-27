@@ -1,9 +1,10 @@
+;;; -*- lexical-binding: t -*-
 (defvar default-gc-threshold)
 (setq default-gc-threshold gc-cons-threshold)
 
 ;; Make startup faster by reducing the frequency of garbage
 ;; collection.  The default is 800 kilobytes.  Measured in bytes.
-(setq gc-cons-threshold (* 64 1024 1024))
+(setq-default gc-cons-threshold (* 64 1024 1024))
 
 ;; Initialize packages.
 (load "~/.emacs.d/ide")
@@ -19,8 +20,7 @@
 ;; Make file completion case insensitive.
 (setq read-file-name-completion-ignore-case t)
 ;; Make line numbers have a space after them.
-(defvar linum-format)
-(setq linum-format "%3d ")
+(setq-default linum-format "%3d ")
 ;; Disable `electric-indent-mode`
 (electric-indent-mode 0)
 ;; Highlight parenthesis.
@@ -35,12 +35,13 @@
 (when (and (fboundp 'window-system) (not (window-system))) (menu-bar-mode 0))
 ;; Reload changed files automatically.
 (global-auto-revert-mode)
-;; Don't show messages when using minibuffer: https://emacs.stackexchange.com/questions/46690/prevent-showing-buffer-reversion-message-while-working-in-the-minibuffer
+;; Don't show messages when using minibuffer:
+;; https://emacs.stackexchange.com/questions/46690/prevent-showing-buffer-reversion-message-while-working-in-the-minibuffer
 (advice-add
  'auto-revert-handler
  :around (lambda (orig-fun &rest args)
-           (let ((auto-revert-verbose (not (minibufferp (window-buffer)))))
-             (apply orig-fun args))))
+           (setq-default auto-revert-verbose (not (minibufferp (window-buffer))))
+           (apply orig-fun args)))
 ;; Save all backup & autosave files in one directory.
 (if (file-directory-p "~/.emacs.d/backups")
     (progn
@@ -55,8 +56,7 @@
 ;; Set compilation window height.
 (setq compilation-window-height 0)      ; Hide the window.
 ;; Silence flyspell welcome message.
-(defvar flyspell-issue-welcome-flag)
-(setq flyspell-issue-welcome-flag nil)
+(setq-default flyspell-issue-welcome-flag nil)
 ;; Follow version control links.
 (setq vc-follow-symlinks t)
 ;; Save file location between runs.
@@ -245,13 +245,11 @@ Kills the old scratch buffer.  "
           (lambda () (delete-other-windows)) t)
 
 ;; Make spelling handle camel-case
-(defvar ispell-program-name)
-(defvar ispell-extra-args)
-(setq ispell-program-name "aspell")
+(setq-default ispell-program-name "aspell")
 ;; -C makes aspell accept run-together words
 ;; --run-together-limit is maximum number of words that can be
 ;; strung together.
-(setq ispell-extra-args '("-C" "--sug-mode=ultra" "--run-together-limit=5"))
+(setq-default ispell-extra-args '("-C" "--sug-mode=ultra" "--run-together-limit=5"))
 ;; Disable eldoc (it interferes with flycheck).
 (global-eldoc-mode 0)
 ;; Load paren-face-mode.
