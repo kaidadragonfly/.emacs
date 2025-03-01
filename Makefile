@@ -6,7 +6,8 @@ update: install-packages.elc
 	emacs --batch --script update-packages.el
 
 load.el: install-packages.elc $(wildcard load/*.el)
-	cat load/*.el > load.el
+	echo ";;; -*- lexical-binding: t -*-" > load.el
+	cat load/*.el >> load.el
 
 install-packages.elc: install-packages.el
 	emacs --batch --script install-packages.el

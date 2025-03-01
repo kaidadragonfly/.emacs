@@ -33,6 +33,7 @@
 ;; Bind to M-"
 (global-set-key (kbd "M-\"") 'iedit-global)
 
-;; Make C-g disable iedit-mode.
-(defadvice keyboard-quit (before keyboard-quit-iedit activate)
+(defun keyboard-quit-iedit ()
+  "Make C-g disable iedit-mode."
   (iedit-done))
+(advice-add 'keyboard-quit :before #'keyboard-quit-iedit)
