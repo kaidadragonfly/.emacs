@@ -1,9 +1,12 @@
+;;; -*- lexical-binding: t -*-
+
 ;; Features to make emacs more competitive with IDEs.
 (require 'dabbrev)
 (require 'diminish)
 
-;; Sometimes the VC system doesn't fully load and errors without this function.
-(defun vc-git-root (arg))
+;; Sometimes the VC system doesn't fully load and errors without this
+;; function.
+(autoload 'vc-git-root "vc-git")
 ;; Handle git commits nicely.
 (autoload 'git-commit-mode "git-commit" nil t)
 (add-to-list 'auto-mode-alist
@@ -130,7 +133,7 @@
 (global-set-key (kbd "C-i") 'smart-tab)
 ;; Function to enable autosave.
 ;; From: http://emacswiki.org/emacs/AutoSave
-(defun save-buffer-if-visiting-file (&optional args)
+(defun save-buffer-if-visiting-file (&optional _args)
   "Save the current buffer only if it is visiting a file."
   (interactive)
   (if (and (buffer-file-name) (buffer-modified-p))
@@ -220,23 +223,6 @@
 
 (global-set-key (kbd "C-x s") 'save-all-files)
 
-;; Setup tags.
-(let ((tags-file  (concat (proj-root) "/.tags")))
-  (if (file-exists-p tags-file)
-      (setq tags-file-name tags-file)))
-
-(require 'etags)
-(setq tags-revert-without-query 1)
-
-(defun rebuild-tags ()
-  (start-process "rebuild-tags" nil "rebuild-tags"))
-
-(defun end-of-line-p ()
-  (let ((p (point)))
-    (save-excursion
-      (end-of-visible-line)
-      (= p (point)))))
-
 ;; From here: https://www.emacswiki.org/emacs/ModeCompile
 ;; Helper for compilation. Close the compilation window if
 ;; there was no error at all.
@@ -284,18 +270,12 @@
 ;; Fancy compilation behavior:
 (require 'compile)
 
-(defadvice compile-goto-error
-    (after goto-error-single-window () activate)
+(defun goto-error-single-window ()
   (delete-other-windows))
+(advice-add 'compile-goto-error :after #'goto-error-single-window)
 
 (require 'misc)
 (global-set-key (kbd "M-Z") 'zap-up-to-char)
-
-;; Exit without asking us about processes.
-(defadvice save-buffers-kill-emacs
-    (before save-buffers-kill-emacs-kill-procs () activate)
-  (dolist (proc (process-list))
-    (set-process-query-on-exit-flag proc nil)))
 
 (global-company-mode)
 (diminish 'company-mode)

@@ -17,6 +17,7 @@
 
 (require-package 'auto-package-update)
 (require-package 'company)
+(require-package 'counsel-etags)
 (require-package 'diminish)
 (require-package 'elixir-mode)
 (require-package 'feature-mode)
